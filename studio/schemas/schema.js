@@ -9,6 +9,7 @@ import blockContent from './blockContent'
 import blockImage from './blockImage'
 import slug from './slug'
 // import page from './page'
+import sectionLink from './sectionLink'
 // import sideMenu from './sideMenu'
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -24,6 +25,7 @@ export default createSchema({
     blockImage,
     slug,
     // page,
+    sectionLink,
     // sideMenu,
     /* Your types here! */
   ]),

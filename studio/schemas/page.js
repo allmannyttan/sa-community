@@ -13,7 +13,7 @@ export default {
       name: 'modules',
       title: 'Module Content',
       type: 'array',
-      of: [{ type: 'sideMenu' }, { type: 'image' }],
+      of: [{ type: 'image', title: 'Hero Image', name: 'heroImage' }],
     },
   ],
   preview: {
