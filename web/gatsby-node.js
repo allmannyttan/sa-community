@@ -30,7 +30,7 @@ async function createBlogPostPages(graphql, actions) {
     createPage({
       path,
       component: require.resolve('./src/templates/project.js'),
-      context: { slug: slug.current },
+      context: { id },
     })
   })
 }
