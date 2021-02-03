@@ -28,7 +28,9 @@
     "react-dom": "^17.0",
     "react-icons": "^4.1.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@sanity/cli": "^2.0.5"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:momentiris/ingridblix.git"
