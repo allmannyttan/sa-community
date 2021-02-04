@@ -11,6 +11,7 @@ export const query = graphql`
         current
       }
       title
+      tableOfContents
       _type
       _rawRichText(resolveReferences: { maxDepth: 10 })
     }

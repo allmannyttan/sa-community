@@ -1,4 +1,4 @@
-async function createBlogPostPages(graphql, actions) {
+async function createPages(graphql, actions) {
   const { createPage } = actions
   const result = await graphql(`
     {
@@ -26,7 +26,7 @@ async function createBlogPostPages(graphql, actions) {
     const { id, slug = {} } = edge.node
 
     const path = `/projekt/${slug.current}/`
-    console.log(id)
+
     createPage({
       path,
       component: require.resolve('./src/templates/project.js'),
@@ -36,5 +36,5 @@ async function createBlogPostPages(graphql, actions) {
 }
 
 exports.createPages = async ({ graphql, actions }) => {
-  await createBlogPostPages(graphql, actions)
+  await createPages(graphql, actions)
 }
