@@ -1,10 +1,10 @@
 import S from '@sanity/desk-tool/structure-builder'
 import { MdSettings, MdFolderOpen, MdFace } from 'react-icons/md'
-
+import { RiPagesLine } from 'react-icons/ri'
 import IframePreview from './IframePreview'
 
 // Web preview configuration
-const remoteURL = '<#<deployments.web.url>#>'
+const remoteURL = 'https://sadev-test-web.vercel.app/'
 const localURL = 'http://localhost:8000'
 const previewURL =
   window.location.hostname === 'localhost' ? localURL : remoteURL
@@ -17,7 +17,7 @@ export const getDefaultDocumentNode = (props) => {
    * you can set up that logic in here too.
    * https://www.sanity.io/docs/structure-builder-reference#getdefaultdocumentnode-97e44ce262c9
    */
-  const previewSchemaTypes = ['project']
+  const previewSchemaTypes = ['project', 'home']
   const { schemaType } = props
   if (previewSchemaTypes.includes(schemaType)) {
     return S.document().views([
@@ -42,7 +42,7 @@ export const getDefaultDocumentNode = (props) => {
 
 export default () =>
   S.list()
-    .title('Content')
+    .title('Innehåll')
     .items([
       S.listItem()
         .title('Settings')
@@ -60,21 +60,36 @@ export default () =>
         .title('Projekt')
         .icon(MdFolderOpen)
         .schemaType('project')
-        .child(S.documentTypeList('project').title('Project')),
+        .child(S.documentTypeList('project').title('Projekt')),
 
       S.divider(),
       S.listItem()
-        .title('Hem')
-        .icon(MdFace)
+        .title('Sidor')
+        .icon(MdFolderOpen)
         .child(
-          S.editor()
-            .id('homePage')
-            .schemaType('homePage')
-            .documentId('homePage')
-            .title('Hem')
+          S.list()
+            .title('Sidor')
+            .items([
+              S.listItem()
+                .title('Hem')
+                .icon(RiPagesLine)
+                .child(
+                  S.editor()
+                    .id('homePage')
+                    .schemaType('homePage')
+                    .documentId('homePage')
+                    .title('Hem')
+                ),
+            ])
+          // S.editor()
+          //   .id('homePage')
+          //   .schemaType('homePage')
+          //   .documentId('homePage')
+          //   .title('Hem')
         ),
+
       // `S.documentTypeListItems()` returns an array of all the document types
-      // defined in schema.js. We filter out those that we have
+      // defined in schema.j  s. We filter out those that we have
       // defined the structure above.
       ...S.documentTypeListItems().filter(
         (listItem) =>

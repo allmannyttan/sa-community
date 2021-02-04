@@ -9,6 +9,14 @@ import styles from './IframePreview.module.css'
  * https://www.sanity.io/blog/evolve-authoring-experiences-with-views-and-split-panes
  */
 
+const parseContentTypeName = (name) => {
+  switch (name) {
+    case 'project':
+      return 'projekt'
+    default:
+      return name
+  }
+}
 const assemblePostUrl = ({ displayed, options }) => {
   const { slug = { current: '' }, _type } = displayed
   const { previewURL } = options
@@ -17,12 +25,13 @@ const assemblePostUrl = ({ displayed, options }) => {
     console.warn('Missing previewURL', { previewURL })
     return ''
   }
-  const path = _type === 'post' ? '' : `${_type}/${slug.current}/`
+
+  const path =
+    _type === 'post' ? '' : `${parseContentTypeName(_type)}/${slug.current}/`
   return `${previewURL}/${path}`
 }
 
 const IframePreview = (props) => {
-  console.log('OK')
   const { options } = props
   const { displayed } = props.document
 

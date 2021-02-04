@@ -22,4 +22,22 @@ export default {
       of: [{ type: 'focusArea' }],
     },
   ],
+  preview: {
+    select: {
+      title: 'title',
+      slug: 'slug',
+      media: 'blockImage',
+      name: 'name',
+    },
+    prepare({ title = 'No name', slug = {}, media, name = 'project' }) {
+      const path = `/${name}/${slug.current}`
+
+      return {
+        path,
+        title,
+        media,
+        subtitle: path,
+      }
+    },
+  },
 }
