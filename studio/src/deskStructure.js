@@ -54,6 +54,16 @@ export default () =>
             .documentId('siteSettings')
             .title('Settings')
         ),
+      S.listItem()
+        .title('About')
+        .icon(MdSettings)
+        .child(
+          S.editor()
+            .id('aboutUs')
+            .schemaType('aboutUs')
+            .documentId('aboutUs')
+            .title('About')
+        ),
       S.divider(),
       S.listItem()
         .title('Projects')
