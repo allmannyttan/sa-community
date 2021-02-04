@@ -17,7 +17,7 @@ export const getDefaultDocumentNode = (props) => {
    * you can set up that logic in here too.
    * https://www.sanity.io/docs/structure-builder-reference#getdefaultdocumentnode-97e44ce262c9
    */
-  const previewSchemaTypes = ['project', 'homePage']
+  const previewSchemaTypes = ['project', 'homePage', 'aboutUs']
   const { schemaType } = props
 
   if (previewSchemaTypes.includes(schemaType)) {
@@ -55,16 +55,16 @@ export default () =>
             .documentId('siteSettings')
             .title('Inställningar')
         ),
-      S.listItem()
-        .title('About')
-        .icon(MdInfo)
-        .child(
-          S.editor()
-            .id('aboutUs')
-            .schemaType('aboutUs')
-            .documentId('aboutUs')
-            .title('About')
-        ),
+      // S.listItem()
+      //   .title('About')
+      //   .icon(MdInfo)
+      //   .child(
+      //     S.editor()
+      //       .id('aboutUs')
+      //       .schemaType('aboutUs')
+      //       .documentId('aboutUs')
+      //       .title('About')
+      //   ),
       S.divider(),
 
       S.listItem()
@@ -76,8 +76,11 @@ export default () =>
       S.listItem()
         .title('Sidor')
         .icon(MdFolderOpen)
-        .schemaType('homePage')
-        .child(S.documentList().title('Sidor').filter('_type in ["homePage"]')),
+        .child(
+          S.documentList()
+            .title('Sidor')
+            .filter('_type in ["homePage", "aboutUs"]')
+        ),
 
       S.divider(),
       // S.listItem()
