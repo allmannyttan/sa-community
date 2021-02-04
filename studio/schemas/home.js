@@ -22,4 +22,19 @@ export default {
       of: [{ type: 'focusArea' }],
     },
   ],
+  preview: {
+    select: {
+      title: 'title',
+      name: 'name',
+    },
+    prepare({ title = 'Hem', name = 'hem' }) {
+      const path = `/`
+      return {
+        path,
+        name,
+        title,
+        subtitle: path,
+      }
+    },
+  },
 }
