@@ -1,5 +1,5 @@
 import S from '@sanity/desk-tool/structure-builder'
-import { MdSettings, MdFolderOpen } from 'react-icons/md'
+import { MdSettings, MdFolderOpen, MdFace } from 'react-icons/md'
 
 import IframePreview from './IframePreview'
 
@@ -65,12 +65,24 @@ export default () =>
             .title('About')
         ),
       S.divider(),
+
       S.listItem()
-        .title('Projects')
+        .title('Projekt')
         .icon(MdFolderOpen)
         .schemaType('project')
         .child(S.documentTypeList('project').title('Project')),
 
+      S.divider(),
+      S.listItem()
+        .title('Hem')
+        .icon(MdFace)
+        .child(
+          S.editor()
+            .id('homePage')
+            .schemaType('homePage')
+            .documentId('homePage')
+            .title('Hem')
+        ),
       // `S.documentTypeListItems()` returns an array of all the document types
       // defined in schema.js. We filter out those that we have
       // defined the structure above.
@@ -83,6 +95,9 @@ export default () =>
             'siteSettings',
             'work',
             'project',
+            'homePage',
+            'focusArea',
+            'heroBlock',
           ].includes(listItem.getId())
       ),
     ])
