@@ -17,8 +17,9 @@ export const getDefaultDocumentNode = (props) => {
    * you can set up that logic in here too.
    * https://www.sanity.io/docs/structure-builder-reference#getdefaultdocumentnode-97e44ce262c9
    */
-  const previewSchemaTypes = ['project', 'home']
+  const previewSchemaTypes = ['project', 'homePage']
   const { schemaType } = props
+
   if (previewSchemaTypes.includes(schemaType)) {
     return S.document().views([
       S.view.form(),
@@ -45,14 +46,14 @@ export default () =>
     .title('Innehåll')
     .items([
       S.listItem()
-        .title('Settings')
+        .title('Inställningar')
         .icon(MdSettings)
         .child(
           S.editor()
             .id('siteSettings')
             .schemaType('siteSettings')
             .documentId('siteSettings')
-            .title('Settings')
+            .title('Inställningar')
         ),
       S.divider(),
 
@@ -61,32 +62,33 @@ export default () =>
         .icon(MdFolderOpen)
         .schemaType('project')
         .child(S.documentTypeList('project').title('Projekt')),
-
       S.divider(),
       S.listItem()
         .title('Sidor')
         .icon(MdFolderOpen)
-        .child(
-          S.list()
-            .title('Sidor')
-            .items([
-              S.listItem()
-                .title('Hem')
-                .icon(RiPagesLine)
-                .child(
-                  S.editor()
-                    .id('homePage')
-                    .schemaType('homePage')
-                    .documentId('homePage')
-                    .title('Hem')
-                ),
-            ])
-          // S.editor()
-          //   .id('homePage')
-          //   .schemaType('homePage')
-          //   .documentId('homePage')
-          //   .title('Hem')
-        ),
+        .schemaType('homePage')
+        .child(S.documentList().title('Sidor').filter('_type in ["homePage"]')),
+
+      S.divider(),
+      // S.listItem()
+      //   .title('Sidor')
+      //   .icon(MdFolderOpen)
+      //   .child(
+      //     S.list()
+      //       .title('Sidor')
+      //       .items([
+      //         S.listItem()
+      //           .title('Hem')
+      //           .icon(RiPagesLine)
+      //           .child(
+      //             S.editor()
+      //               .id('homePage')
+      //               .schemaType('homePage')
+      //               .documentId('homePage')
+      //               .title('Hem')
+      //           ),
+      //       ])
+      //   ),
 
       // `S.documentTypeListItems()` returns an array of all the document types
       // defined in schema.j  s. We filter out those that we have

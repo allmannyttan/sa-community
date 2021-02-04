@@ -1,24 +1,24 @@
 export default {
   name: 'siteSettings',
   type: 'document',
-  title: 'Site Settings',
+  title: 'Inställningar',
   fields: [
     {
       name: 'title',
       type: 'string',
-      title: 'Title',
+      title: 'Namn på sidan',
     },
     {
       name: 'description',
       type: 'text',
-      title: 'Description',
-      description: 'Describe your site for search engines and social media.',
+      title: 'Beskrivning',
+      description: 'Beskriv sidan för sökmotorer och sociala medier.',
     },
     {
       name: 'keywords',
       type: 'array',
       title: 'Keywords',
-      description: 'Add keywords that describes your site.',
+      description: 'Lägg till keywords som du vill associera med denna sida.',
       of: [{ type: 'string' }],
       options: {
         layout: 'tags',

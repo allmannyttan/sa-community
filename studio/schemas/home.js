@@ -25,17 +25,14 @@ export default {
   preview: {
     select: {
       title: 'title',
-      slug: 'slug',
-      media: 'blockImage',
       name: 'name',
     },
-    prepare({ title = 'No name', slug = {}, media, name = 'project' }) {
-      const path = `/${name}/${slug.current}`
-
+    prepare({ title = 'Hem', name = 'hem' }) {
+      const path = `/`
       return {
         path,
+        name,
         title,
-        media,
         subtitle: path,
       }
     },

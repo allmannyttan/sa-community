@@ -23,7 +23,6 @@ const Component = (props) => {
     data: { sanityProject: data },
   } = props
 
-  console.log(data)
   return (
     <Layout>
       <div>

@@ -13,6 +13,8 @@ const parseContentTypeName = (name) => {
   switch (name) {
     case 'project':
       return 'projekt'
+    case 'homePage':
+      return ''
     default:
       return name
   }
@@ -27,7 +29,7 @@ const assemblePostUrl = ({ displayed, options }) => {
   }
 
   const path =
-    _type === 'post' ? '' : `${parseContentTypeName(_type)}/${slug.current}/`
+    _type === 'post' ? '' : `${parseContentTypeName(_type)}/${slug.current}`
   return `${previewURL}/${path}`
 }
 
