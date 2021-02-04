@@ -25,7 +25,7 @@ const query = graphql`
 
 const Component = () => {
   const data = useStaticQuery(query).sanityHomePage
-  console.log(data)
+  // console.log(data)
   return (
     <Layout>
       <div>

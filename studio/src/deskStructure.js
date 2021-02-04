@@ -1,5 +1,5 @@
 import S from '@sanity/desk-tool/structure-builder'
-import { MdSettings, MdFolderOpen, MdFace } from 'react-icons/md'
+import { MdSettings, MdFolderOpen, MdFace, MdInfo } from 'react-icons/md'
 
 import IframePreview from './IframePreview'
 
@@ -56,7 +56,7 @@ export default () =>
         ),
       S.listItem()
         .title('About')
-        .icon(MdSettings)
+        .icon(MdInfo)
         .child(
           S.editor()
             .id('aboutUs')
@@ -98,6 +98,7 @@ export default () =>
             'homePage',
             'focusArea',
             'heroBlock',
+            'aboutUs',
           ].includes(listItem.getId())
       ),
     ])

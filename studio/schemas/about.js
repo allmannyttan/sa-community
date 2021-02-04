@@ -1,7 +1,8 @@
+import { BsCardImage } from 'react-icons/bs'
 export default {
   name: 'aboutUs',
   type: 'document',
-  title: 'About',
+  title: 'Om oss',
   fields: [
     {
       name: 'title',
@@ -9,20 +10,10 @@ export default {
       title: 'Title',
     },
     {
-      name: 'description',
-      type: 'text',
-      title: 'Description',
-      description: 'Describe your site for search engines and social media.',
-    },
-    {
-      name: 'keywords',
+      title: 'Rich text',
       type: 'array',
-      title: 'Keywords',
-      description: 'Add keywords that describes your site.',
-      of: [{ type: 'string' }],
-      options: {
-        layout: 'tags',
-      },
+      name: 'richText',
+      of: [{ type: 'block' }, { type: 'blockImage', icon: BsCardImage }],
     },
   ],
 }
