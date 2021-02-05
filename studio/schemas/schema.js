@@ -7,6 +7,8 @@ import project from './project'
 import siteSettings from './siteSettings'
 import blockContent from './blockContent'
 import blockImage from './blockImage'
+import sectionLink from './sectionLink'
+import about from './about'
 import slug from './slug'
 import home from './home'
 import heroImage from './heroImage'
@@ -24,6 +26,8 @@ export default createSchema({
     blockContent,
     blockImage,
     slug,
+    about,
+    sectionLink,
     home,
     heroImage,
     focusArea,

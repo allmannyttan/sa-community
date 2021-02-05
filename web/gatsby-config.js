@@ -28,6 +28,6 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-optional-chaining`,
-    `gatsby-plugin-nullish-coalescing-operator`,
+    // `gatsby-plugin-nullish-coalescing-operator`,
   ],
 }

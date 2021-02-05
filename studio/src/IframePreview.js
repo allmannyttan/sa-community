@@ -15,6 +15,8 @@ const parseContentTypeName = (name) => {
       return 'projekt'
     case 'homePage':
       return ''
+    case 'aboutUs':
+      return 'om-oss'
     default:
       return name
   }

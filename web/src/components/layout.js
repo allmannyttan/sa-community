@@ -13,6 +13,9 @@ const Header = ({ siteTitle = '' }) => {
           <li>
             <Link to="/projekt">Projekt</Link>
           </li>
+          <li>
+            <Link to="/om-oss">Om oss</Link>
+          </li>
         </ul>
       </nav>
     </header>
