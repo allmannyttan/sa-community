@@ -77,10 +77,21 @@ export default () =>
         ),
       S.divider(),
       S.listItem()
+        .title('Redaktörer')
+        .icon(MdFolderOpen)
+        .schemaType('editor')
+        .child(S.documentTypeList('editor').title('Redaktörer')),
+      S.listItem()
         .title('Projekt')
         .icon(MdFolderOpen)
         .schemaType('project')
         .child(S.documentTypeList('project').title('Projekt')),
+      S.divider(),
+      S.listItem()
+        .title('Nyheter')
+        .icon(MdFolderOpen)
+        .schemaType('newsPost')
+        .child(S.documentTypeList('newsPost').title('Nyheter')),
       S.divider(),
       S.listItem()
         .title('Sidor')
@@ -110,6 +121,8 @@ export default () =>
             'focusArea',
             'heroBlock',
             'aboutUsPage',
+            'newsPost',
+            'editor',
           ].includes(listItem.getId())
       ),
     ])

@@ -13,6 +13,8 @@ import home from './home'
 import about from './aboutUs'
 import heroImage from './heroImage'
 import focusArea from './focusArea'
+import news from './news'
+import editor from './editor'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -31,6 +33,8 @@ export default createSchema({
     heroImage,
     focusArea,
     about,
+    news,
+    editor,
     /* Your types here! */
   ]),
 })
