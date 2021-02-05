@@ -15,6 +15,19 @@ async function createPages(graphql, actions) {
           }
         }
       }
+      allSanityApi {
+        edges {
+          node {
+            id
+            slug {
+              current
+            }
+            title
+            _type
+            _rawRichText(resolveReferences: { maxDepth: 10 })
+          }
+        }
+      }
     }
   `)
 
@@ -30,6 +43,20 @@ async function createPages(graphql, actions) {
     createPage({
       path,
       component: require.resolve('./src/templates/project.js'),
+      context: { id },
+    })
+  })
+
+  const api = (result.data.allSanityApi || {}).edges || []
+
+  api.forEach((edge) => {
+    const { id, slug = {} } = edge.node
+
+    const path = `/api/${slug.current}/`
+
+    createPage({
+      path,
+      component: require.resolve('./src/templates/api.js'),
       context: { id },
     })
   })

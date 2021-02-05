@@ -16,6 +16,9 @@ const Header = ({ siteTitle = '' }) => {
           <li>
             <Link to="/om-oss">Om oss</Link>
           </li>
+          <li>
+            <Link to="/api">API:er</Link>
+          </li>
         </ul>
       </nav>
     </header>

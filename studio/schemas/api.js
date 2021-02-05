@@ -3,7 +3,7 @@ import { BsCardImage } from 'react-icons'
 export default {
   name: 'api',
   type: 'document',
-  title: 'API',
+  title: 'API:er',
   fields: [
     {
       name: 'title',
@@ -16,6 +16,13 @@ export default {
       type: 'array',
       name: 'richText',
       of: [{ type: 'block' }, { type: 'blockImage', icon: BsCardImage }],
+    },
+    {
+      title: 'Table of contents',
+      type: 'boolean',
+      name: 'tableOfContents',
+      description:
+        'If "On", the page will have a sidebar with a table of contents section that the user can click and get redirected to a certain section on the page. This is done automatically by generating links from all of the headings in the article.',
     },
   ],
   orderings: [
@@ -37,8 +44,8 @@ export default {
       media: 'blockImage',
       name: 'name',
     },
-    prepare({ title = 'No name', slug = {}, media, name = 'project' }) {
-      const path = `/${name}/${slug.current}`
+    prepare({ title = 'No name', slug = {}, media }) {
+      const path = `/api/${slug.current}`
 
       return {
         path,
