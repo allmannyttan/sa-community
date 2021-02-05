@@ -1,6 +1,7 @@
 import S from '@sanity/desk-tool/structure-builder'
-import { MdSettings, MdFolderOpen, MdFace } from 'react-icons/md'
+import { MdSettings, MdFolderOpen } from 'react-icons/md'
 import { RiPagesLine } from 'react-icons/ri'
+
 import IframePreview from './IframePreview'
 
 // Web preview configuration
@@ -17,7 +18,7 @@ export const getDefaultDocumentNode = (props) => {
    * you can set up that logic in here too.
    * https://www.sanity.io/docs/structure-builder-reference#getdefaultdocumentnode-97e44ce262c9
    */
-  const previewSchemaTypes = ['project', 'homePage', 'aboutUs']
+  const previewSchemaTypes = ['project']
   const { schemaType } = props
 
   if (previewSchemaTypes.includes(schemaType)) {
@@ -31,6 +32,25 @@ export const getDefaultDocumentNode = (props) => {
   }
   return S.document().views([S.view.form()])
 }
+
+const getSingletonPageStructure = (title, type) =>
+  S.listItem()
+    .title(title)
+    .icon(RiPagesLine)
+    .child(
+      S.editor()
+        .id(type)
+        .schemaType(type)
+        .documentId(type)
+        .title(title)
+        .views([
+          S.view.form(),
+          S.view
+            .component(IframePreview)
+            .title('Web preview')
+            .options({ previewURL }),
+        ])
+    )
 
 /**
  * This defines how documents are grouped and listed out in the Studio.
@@ -55,18 +75,7 @@ export default () =>
             .documentId('siteSettings')
             .title('Inställningar')
         ),
-      // S.listItem()
-      //   .title('About')
-      //   .icon(MdInfo)
-      //   .child(
-      //     S.editor()
-      //       .id('aboutUs')
-      //       .schemaType('aboutUs')
-      //       .documentId('aboutUs')
-      //       .title('About')
-      //   ),
       S.divider(),
-
       S.listItem()
         .title('Projekt')
         .icon(MdFolderOpen)
@@ -77,31 +86,13 @@ export default () =>
         .title('Sidor')
         .icon(MdFolderOpen)
         .child(
-          S.documentList()
+          S.list()
             .title('Sidor')
-            .filter('_type in ["homePage", "aboutUs"]')
+            .items([
+              getSingletonPageStructure('Hem', 'homePage'),
+              getSingletonPageStructure('Om oss', 'aboutUsPage'),
+            ])
         ),
-
-      S.divider(),
-      // S.listItem()
-      //   .title('Sidor')
-      //   .icon(MdFolderOpen)
-      //   .child(
-      //     S.list()
-      //       .title('Sidor')
-      //       .items([
-      //         S.listItem()
-      //           .title('Hem')
-      //           .icon(RiPagesLine)
-      //           .child(
-      //             S.editor()
-      //               .id('homePage')
-      //               .schemaType('homePage')
-      //               .documentId('homePage')
-      //               .title('Hem')
-      //           ),
-      //       ])
-      //   ),
 
       // `S.documentTypeListItems()` returns an array of all the document types
       // defined in schema.j  s. We filter out those that we have
@@ -118,7 +109,7 @@ export default () =>
             'homePage',
             'focusArea',
             'heroBlock',
-            'aboutUs',
+            'aboutUsPage',
           ].includes(listItem.getId())
       ),
     ])

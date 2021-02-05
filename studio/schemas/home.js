@@ -2,7 +2,7 @@ export default {
   name: 'homePage',
   type: 'document',
   title: 'Hem',
-  __experimental_actions: ['update', 'publish'],
+  __experimental_actions: ['update', 'publish', 'create'],
   fields: [
     {
       type: 'heroImage',

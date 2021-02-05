@@ -8,9 +8,9 @@ import siteSettings from './siteSettings'
 import blockContent from './blockContent'
 import blockImage from './blockImage'
 import sectionLink from './sectionLink'
-import about from './about'
 import slug from './slug'
 import home from './home'
+import about from './aboutUs'
 import heroImage from './heroImage'
 import focusArea from './focusArea'
 
@@ -26,12 +26,11 @@ export default createSchema({
     blockContent,
     blockImage,
     slug,
-    about,
     sectionLink,
     home,
     heroImage,
     focusArea,
-
+    about,
     /* Your types here! */
   ]),
 })

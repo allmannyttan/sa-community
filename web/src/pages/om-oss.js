@@ -1,11 +1,11 @@
 import * as React from 'react'
-import { graphql, useStaticQuery, Link } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import Layout from '../components/layout'
 import BlockContent from '../components/blockContent'
 
 const query = graphql`
   query aboutUs {
-    sanityAboutUs {
+    sanityAboutUsPage {
       title
       _rawRichText
     }
@@ -13,7 +13,8 @@ const query = graphql`
 `
 
 const Component = () => {
-  const data = useStaticQuery(query).sanityAboutUs
+  const data = useStaticQuery(query).sanityAboutUsPage
+  if (!data) return <h1>Data saknas...</h1>
 
   return (
     <Layout>

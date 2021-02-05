@@ -1,7 +1,5 @@
 /* eslint-disable react/no-multi-comp, react/no-did-mount-set-state */
 import React from 'react'
-
-import { format } from 'date-fns'
 import styles from './IframePreview.module.css'
 
 /**
@@ -15,7 +13,7 @@ const parseContentTypeName = (name) => {
       return 'projekt'
     case 'homePage':
       return ''
-    case 'aboutUs':
+    case 'aboutUsPage':
       return 'om-oss'
     default:
       return name

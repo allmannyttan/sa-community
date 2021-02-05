@@ -1,8 +1,9 @@
 import { BsCardImage } from 'react-icons/bs'
 export default {
-  name: 'aboutUs',
+  name: 'aboutUsPage',
   type: 'document',
   title: 'Om oss',
+  __experimental_actions: ['update', 'publish', 'create', 'delete'],
   fields: [
     {
       name: 'title',
