@@ -18,7 +18,7 @@ const Component = () => {
   return (
     <Layout>
       <>
-        <h2 className="text-xl text-center">{data.title}</h2>
+        <h2 className="text-xl text-center my-8">{data.title}</h2>
         <BlockContent blocks={data._rawRichText} />
       </>
     </Layout>

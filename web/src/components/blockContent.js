@@ -45,7 +45,11 @@ const serializers = {
 }
 
 const BlockContent = ({ blocks }) => (
-  <BaseBlockContent blocks={blocks} serializers={serializers} />
+  <BaseBlockContent
+    className="px-8"
+    blocks={blocks}
+    serializers={serializers}
+  />
 )
 
 export default BlockContent
