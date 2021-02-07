@@ -10,12 +10,7 @@ export default {
       type: 'string',
       title: 'Title',
     },
-    {
-      title: 'Rich text',
-      type: 'array',
-      name: 'richText',
-      of: [{ type: 'block' }, { type: 'blockImage', icon: BsCardImage }],
-    },
+    { type: 'bodyPortableText', name: 'Body' },
   ],
   preview: {
     select: {

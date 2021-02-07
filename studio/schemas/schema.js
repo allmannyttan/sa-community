@@ -5,8 +5,7 @@ import createSchema from 'part:@sanity/base/schema-creator'
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 import project from './project'
 import siteSettings from './siteSettings'
-import blockContent from './blockContent'
-import blockImage from './blockImage'
+import bodyImage from './bodyImage'
 import sectionLink from './sectionLink'
 import slug from './slug'
 import home from './home'
@@ -15,6 +14,8 @@ import heroImage from './heroImage'
 import focusArea from './focusArea'
 import newsPost from './newsPost'
 import editor from './editor'
+import youtube from './youtube'
+import bodyPortableText from './bodyPortableText'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -25,8 +26,8 @@ export default createSchema({
   types: schemaTypes.concat([
     project,
     siteSettings,
-    blockContent,
-    blockImage,
+    bodyPortableText,
+    bodyImage,
     slug,
     sectionLink,
     home,
@@ -35,6 +36,6 @@ export default createSchema({
     about,
     newsPost,
     editor,
-    /* Your types here! */
+    youtube,
   ]),
 })

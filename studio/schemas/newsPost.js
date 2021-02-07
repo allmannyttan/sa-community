@@ -11,12 +11,7 @@ export default {
       title: 'Title',
     },
     { type: 'defaultSlug', name: 'slug' },
-    {
-      title: 'Rich text',
-      type: 'array',
-      name: 'richText',
-      of: [{ type: 'block' }, { type: 'blockImage', icon: BsCardImage }],
-    },
+    { type: 'bodyPortableText', name: 'Body' },
     {
       name: 'author',
       type: 'reference',
@@ -40,7 +35,7 @@ export default {
     select: {
       title: 'title',
       slug: 'slug',
-      media: 'blockImage',
+      media: 'bodyImage',
       name: 'name',
     },
     prepare({ title = 'No name', slug = {}, media, name = 'nyheter' }) {

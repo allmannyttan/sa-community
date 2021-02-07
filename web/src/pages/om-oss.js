@@ -7,7 +7,7 @@ const query = graphql`
   query aboutUs {
     sanityAboutUsPage {
       title
-      _rawRichText
+      _rawBody
     }
   }
 `
@@ -20,7 +20,7 @@ const Component = () => {
     <Layout>
       <>
         <h2 className="text-xl text-center my-8">{data.title}</h2>
-        <BlockContent blocks={data._rawRichText} />
+        <BlockContent blocks={data._rawBody} />
       </>
     </Layout>
   )

@@ -1,5 +1,7 @@
-import BaseBlockContent from '@sanity/block-content-to-react'
 import React from 'react'
+import BaseBlockContent from '@sanity/block-content-to-react'
+import getYouTubeId from 'get-youtube-id'
+import YouTube from 'react-youtube'
 // import InlineIcon from './inline-icon'
 
 const serializers = {
@@ -20,9 +22,14 @@ const serializers = {
           return <p></p>
       }
     },
-    blockImage(props) {
+    bodyImage(props) {
       console.log('tis is image: ', props)
       return <img src={props.node.asset.url} alt={props.node.alt}></img>
+    },
+    youtube: ({ node }) => {
+      const { url } = node
+      const id = getYouTubeId(url)
+      return <YouTube videoId={id} />
     },
   },
   marks: {

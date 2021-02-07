@@ -11,7 +11,7 @@ async function createPages(graphql, actions) {
             }
             title
             _type
-            _rawRichText(resolveReferences: { maxDepth: 10 })
+            _rawBody(resolveReferences: { maxDepth: 10 })
           }
         }
       }

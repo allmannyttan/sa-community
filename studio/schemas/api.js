@@ -15,7 +15,7 @@ export default {
       title: 'Rich text',
       type: 'array',
       name: 'richText',
-      of: [{ type: 'block' }, { type: 'blockImage', icon: BsCardImage }],
+      of: [{ type: 'block' }, { type: 'bodyImage', icon: BsCardImage }],
     },
   ],
   orderings: [
@@ -34,7 +34,7 @@ export default {
     select: {
       title: 'title',
       slug: 'slug',
-      media: 'blockImage',
+      media: 'bodyImage',
       name: 'name',
     },
     prepare({ title = 'No name', slug = {}, media, name = 'project' }) {
