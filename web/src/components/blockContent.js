@@ -1,7 +1,7 @@
 import React from 'react'
 import BaseBlockContent from '@sanity/block-content-to-react'
 import getYouTubeId from 'get-youtube-id'
-import SyntaxHighlighter from './syntaxHighlighter'
+import SyntaxHighlighter from './syntaxHighlight'
 import YouTube from 'react-youtube'
 
 const serializers = {
