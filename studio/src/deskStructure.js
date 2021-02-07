@@ -1,7 +1,7 @@
 import S from '@sanity/desk-tool/structure-builder'
 import { MdSettings, MdFolderOpen } from 'react-icons/md'
 import { RiPagesLine } from 'react-icons/ri'
-import { FaUserAstronaut } from 'react-icons/fa'
+import { FaUserAstronaut, FaRegEye } from 'react-icons/fa'
 
 import IframePreview from './IframePreview'
 
@@ -97,7 +97,7 @@ export default () =>
       S.divider(),
       S.listItem()
         .title('Sidor')
-        .icon(MdFolderOpen)
+        .icon(FaRegEye)
         .child(
           S.list()
             .title('Sidor')
