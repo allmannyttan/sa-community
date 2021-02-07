@@ -23,7 +23,7 @@ const Component = (props) => {
   const {
     data: { sanityNewsPost: data },
   } = props
-  console.log(data)
+
   return (
     <Layout>
       <div>
