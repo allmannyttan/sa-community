@@ -11,6 +11,8 @@ const parseContentTypeName = (name) => {
   switch (name) {
     case 'project':
       return 'projekt'
+    case 'newsPost':
+      return 'nyheter'
     case 'homePage':
       return ''
     case 'aboutUsPage':

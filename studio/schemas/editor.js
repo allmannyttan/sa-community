@@ -4,7 +4,7 @@ export default {
   title: 'Redaktörer',
   fields: [
     {
-      name: 'title',
+      name: 'name',
       type: 'string',
       title: 'Namn',
     },

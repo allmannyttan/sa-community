@@ -19,19 +19,9 @@ export default {
     },
     {
       name: 'author',
+      type: 'reference',
       title: 'Redaktör',
-      type: 'array',
-      of: [
-        {
-          name: 'reference',
-          type: 'reference',
-          title: 'Redaktör',
-          to: [
-            { type: 'editor' },
-            // other types you may want to link to
-          ],
-        },
-      ],
+      to: [{ type: 'editor' }],
     },
   ],
   orderings: [

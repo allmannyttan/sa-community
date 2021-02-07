@@ -1,6 +1,7 @@
 import S from '@sanity/desk-tool/structure-builder'
 import { MdSettings, MdFolderOpen } from 'react-icons/md'
 import { RiPagesLine } from 'react-icons/ri'
+import { FaUserAstronaut } from 'react-icons/fa'
 
 import IframePreview from './IframePreview'
 
@@ -18,7 +19,7 @@ export const getDefaultDocumentNode = (props) => {
    * you can set up that logic in here too.
    * https://www.sanity.io/docs/structure-builder-reference#getdefaultdocumentnode-97e44ce262c9
    */
-  const previewSchemaTypes = ['project']
+  const previewSchemaTypes = ['project', 'newsPost']
   const { schemaType } = props
 
   if (previewSchemaTypes.includes(schemaType)) {
@@ -78,9 +79,10 @@ export default () =>
       S.divider(),
       S.listItem()
         .title('Redaktörer')
-        .icon(MdFolderOpen)
+        .icon(FaUserAstronaut)
         .schemaType('editor')
         .child(S.documentTypeList('editor').title('Redaktörer')),
+      S.divider(),
       S.listItem()
         .title('Projekt')
         .icon(MdFolderOpen)

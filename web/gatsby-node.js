@@ -2,7 +2,7 @@ async function createPages(graphql, actions) {
   const { createPage } = actions
   const result = await graphql(`
     {
-      allSanityProject {
+      projects: allSanityProject {
         edges {
           node {
             id
@@ -15,14 +15,25 @@ async function createPages(graphql, actions) {
           }
         }
       }
+      newsPosts: allSanityNewsPost {
+        edges {
+          node {
+            id
+            slug {
+              current
+            }
+          }
+        }
+      }
     }
   `)
 
   if (result.errors) throw result.errors
 
-  const postEdges = (result.data.allSanityProject || {}).edges || []
+  const projectEdges = (result.data.projects || {}).edges || []
+  const newsPostEdges = (result.data.newsPosts || {}).edges || []
 
-  postEdges.forEach((edge) => {
+  projectEdges.forEach((edge) => {
     const { id, slug = {} } = edge.node
 
     const path = `/projekt/${slug.current}/`
@@ -30,6 +41,18 @@ async function createPages(graphql, actions) {
     createPage({
       path,
       component: require.resolve('./src/templates/project.js'),
+      context: { id },
+    })
+  })
+
+  newsPostEdges.forEach((edge) => {
+    const { id, slug = {} } = edge.node
+
+    const path = `/nyheter/${slug.current}/`
+
+    createPage({
+      path,
+      component: require.resolve('./src/templates/newsPost.js'),
       context: { id },
     })
   })
