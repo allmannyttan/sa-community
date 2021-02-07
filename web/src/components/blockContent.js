@@ -2,36 +2,39 @@ import React from 'react'
 import BaseBlockContent from '@sanity/block-content-to-react'
 import getYouTubeId from 'get-youtube-id'
 import YouTube from 'react-youtube'
-// import InlineIcon from './inline-icon'
+import SyntaxHighlighter from './SyntaxHighlighter'
 
 const serializers = {
   types: {
-    block(props) {
-      switch (props.node.style) {
+    block: ({ node, children }) => {
+      switch (node.style) {
         case 'h1':
-          return <h1 className="text-4xl font-bold my-2">{props.children}</h1>
+          return <h1 className="text-4xl font-bold my-2">{children}</h1>
         case 'h2':
-          return <h2 className="text-2xl font-bold my-2">{props.children}</h2>
+          return <h2 className="text-2xl font-bold my-2">{children}</h2>
         case 'normal':
-          return <p>{props.children}</p>
+          return <p>{children}</p>
 
         // ...
 
         default:
-          console.log('this is not handled: ', props)
+          console.log('this is not handled: ', node)
           return <p></p>
       }
     },
-    bodyImage(props) {
-      console.log('tis is image: ', props)
-      return <img src={props.node.asset.url} alt={props.node.alt}></img>
+    bodyImage: ({ node }) => {
+      return <img src={node.asset.url} alt={node.alt}></img>
     },
     youtube: ({ node }) => {
       const { url } = node
       const id = getYouTubeId(url)
       return <YouTube videoId={id} />
     },
+    code: ({ node }) => (
+      <SyntaxHighlighter code={node.code} language={node.language} />
+    ),
   },
+
   marks: {
     inlineicon(props) {
       // switch (props.mark._type) {

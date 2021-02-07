@@ -1,6 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import Header from './header'
+import Header from './Header'
 import '../base.css'
 
 const Layout = ({ children }) => {
@@ -13,7 +13,6 @@ const Layout = ({ children }) => {
       }
     }
   `)
-
   return (
     <div className="">
       <Header siteTitle={data.site.siteMetadata.title} />

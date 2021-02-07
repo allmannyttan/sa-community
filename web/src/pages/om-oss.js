@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import Layout from '../components/layout'
-import BlockContent from '../components/blockContent'
+import Layout from '../components/Layout'
+import BlockContent from '../components/BlockContent'
 
 const query = graphql`
   query aboutUs {

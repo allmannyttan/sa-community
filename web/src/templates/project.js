@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import BlockContent from '../components/blockContent'
-import Layout from '../components/layout'
+import BlockContent from '../components/BlockContent'
+import Layout from '../components/Layout'
 
 export const query = graphql`
   query projectTemplateQuery($id: String!) {

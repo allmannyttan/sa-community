@@ -10,5 +10,8 @@ export default {
       type: 'youtube',
     },
     { type: 'bodyImage' },
+    {
+      type: 'code',
+    },
   ],
 }
