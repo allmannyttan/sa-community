@@ -1,8 +1,8 @@
 import React from 'react'
 import BaseBlockContent from '@sanity/block-content-to-react'
 import getYouTubeId from 'get-youtube-id'
-import YouTube from 'react-youtube'
 import SyntaxHighlighter from './syntaxHighlighter'
+import YouTube from 'react-youtube'
 
 const serializers = {
   types: {
