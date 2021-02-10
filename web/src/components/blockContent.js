@@ -5,7 +5,7 @@ import SyntaxHighlighter from './syntaxHighlight'
 import YouTube from 'react-youtube'
 import { Link } from 'gatsby'
 
-import * as Typography from './typography'
+import * as Serializers from './serializers'
 
 const getRouteNameFromContentType = (contentType) => {
   switch (contentType) {
@@ -41,15 +41,15 @@ const serializers = (withAnchor) => ({
       switch (node.style) {
         case 'h1':
           return (
-            <Typography.H1 withAnchor={withAnchor}>{children}</Typography.H1>
+            <Serializers.H1 withAnchor={withAnchor}>{children}</Serializers.H1>
           )
         case 'h2':
           return (
-            <Typography.H2 withAnchor={withAnchor}>{children}</Typography.H2>
+            <Serializers.H2 withAnchor={withAnchor}>{children}</Serializers.H2>
           )
         case 'h3':
           return (
-            <Typography.H3 withAnchor={withAnchor}>{children}</Typography.H3>
+            <Serializers.H3 withAnchor={withAnchor}>{children}</Serializers.H3>
           )
         case 'normal':
           return <p>{children}</p>
