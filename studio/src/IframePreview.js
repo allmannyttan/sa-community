@@ -15,8 +15,12 @@ const parseContentTypeName = (name) => {
       return 'nyheter'
     case 'homePage':
       return ''
+    case 'api':
+      return 'api'
     case 'aboutUsPage':
       return 'om-oss'
+    case 'communicationPage':
+      return 'kommunikation'
     default:
       return name
   }

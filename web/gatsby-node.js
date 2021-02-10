@@ -25,6 +25,16 @@ async function createPages(graphql, actions) {
           }
         }
       }
+      allSanityApi {
+        edges {
+          node {
+            id
+            slug {
+              current
+            }
+          }
+        }
+      }
     }
   `)
 
@@ -32,6 +42,7 @@ async function createPages(graphql, actions) {
 
   const projectEdges = (result.data.projects || {}).edges || []
   const newsPostEdges = (result.data.newsPosts || {}).edges || []
+  const apiEdges = (result.data.allSanityApi || {}).edges || []
 
   projectEdges.forEach((edge) => {
     const { id, slug = {} } = edge.node
@@ -41,6 +52,18 @@ async function createPages(graphql, actions) {
     createPage({
       path,
       component: require.resolve('./src/templates/project.js'),
+      context: { id },
+    })
+  })
+
+  apiEdges.forEach((edge) => {
+    const { id, slug = {} } = edge.node
+
+    const path = `/api/${slug.current}/`
+
+    createPage({
+      path,
+      component: require.resolve('./src/templates/api.js'),
       context: { id },
     })
   })

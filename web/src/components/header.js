@@ -22,6 +22,9 @@ const Component = ({ siteTitle = '' }) => {
             <Link to="/nyheter">Nyheter</Link>
           </li>
           <li>
+            <Link to="/api">API:er</Link>
+          </li>
+          <li>
             <Link to="/kommunikation">Kommunikation</Link>
           </li>
           <li>
