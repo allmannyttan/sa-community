@@ -1,5 +1,3 @@
-import { BsCardImage } from 'react-icons'
-
 export default {
   name: 'newsPost',
   type: 'document',
