@@ -2,7 +2,6 @@ export default {
   name: 'newsPage',
   type: 'document',
   title: 'Nyheter',
-  __experimental_actions: ['update', 'publish', 'create', 'delete'],
   fields: [
     {
       name: 'title',

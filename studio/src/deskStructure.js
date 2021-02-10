@@ -24,7 +24,7 @@ export const getDefaultDocumentNode = (props) => {
     'newsPost',
     'api',
     'communicationPage',
-    'news',
+    'newsPage',
   ]
   const { schemaType } = props
 
