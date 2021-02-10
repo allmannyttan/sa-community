@@ -1,8 +1,7 @@
-import { BsCardImage } from 'react-icons/bs'
 export default {
-  name: 'aboutUsPage',
+  name: 'communicationPage',
   type: 'document',
-  title: 'Om oss',
+  title: 'Kommunikation',
   __experimental_actions: ['update', 'publish', 'create', 'delete'],
   fields: [
     {
@@ -14,11 +13,11 @@ export default {
   ],
   preview: {
     select: {
-      title: 'Om oss',
+      title: 'Kommunikation',
       name: 'name',
     },
-    prepare({ title = 'Om oss', name = 'om oss' }) {
-      const path = `/om-oss`
+    prepare({ title = 'Kommunikation', name = 'kommunikation' }) {
+      const path = `/kommunikation`
       return {
         path,
         name,

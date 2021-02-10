@@ -4,8 +4,8 @@ import Layout from '../components/layout'
 import BlockContent from '../components/blockContent'
 
 const query = graphql`
-  query aboutUs {
-    sanityAboutUsPage {
+  query communication {
+    sanityCommunicationPage {
       title
       _rawBody
     }
@@ -13,7 +13,7 @@ const query = graphql`
 `
 
 const Component = () => {
-  const data = useStaticQuery(query).sanityAboutUsPage
+  const data = useStaticQuery(query).sanityCommunicationPage
   if (!data) return <h1>Data saknas...</h1>
 
   return (

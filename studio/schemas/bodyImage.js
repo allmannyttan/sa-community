@@ -1,7 +1,10 @@
 export default {
   type: 'image',
   title: 'Image',
-  name: 'blockImage',
+  name: 'bodyImage',
+  options: {
+    hotspot: true,
+  },
   fields: [
     {
       type: 'text',

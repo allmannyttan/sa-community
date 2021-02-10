@@ -4,15 +4,16 @@ import BlockContent from '../components/blockContent'
 import Layout from '../components/layout'
 
 export const query = graphql`
-  query projectTemplateQuery($id: String!) {
-    sanityProject(id: { eq: $id }) {
+  query newsPostTemplateQuery($id: String!) {
+    sanityNewsPost(id: { eq: $id }) {
       id
       slug {
         current
       }
       title
-      tableOfContents
-      _type
+      author {
+        name
+      }
       _rawBody(resolveReferences: { maxDepth: 10 })
     }
   }
@@ -20,7 +21,7 @@ export const query = graphql`
 
 const Component = (props) => {
   const {
-    data: { sanityProject: data },
+    data: { sanityNewsPost: data },
   } = props
 
   return (

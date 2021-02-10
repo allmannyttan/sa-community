@@ -2,7 +2,7 @@ async function createPages(graphql, actions) {
   const { createPage } = actions
   const result = await graphql(`
     {
-      allSanityProject {
+      projects: allSanityProject {
         edges {
           node {
             id
@@ -11,7 +11,17 @@ async function createPages(graphql, actions) {
             }
             title
             _type
-            _rawRichText(resolveReferences: { maxDepth: 10 })
+            _rawBody(resolveReferences: { maxDepth: 10 })
+          }
+        }
+      }
+      newsPosts: allSanityNewsPost {
+        edges {
+          node {
+            id
+            slug {
+              current
+            }
           }
         }
       }
@@ -24,7 +34,7 @@ async function createPages(graphql, actions) {
             }
             title
             _type
-            _rawRichText(resolveReferences: { maxDepth: 10 })
+            _rawBody(resolveReferences: { maxDepth: 10 })
           }
         }
       }
@@ -33,9 +43,11 @@ async function createPages(graphql, actions) {
 
   if (result.errors) throw result.errors
 
-  const postEdges = (result.data.allSanityProject || {}).edges || []
+  const projectEdges = (result.data.projects || {}).edges || []
+  const newsPostEdges = (result.data.newsPosts || {}).edges || []
+  const apiEdges = (result.data.allSanityApi || {}).edges || []
 
-  postEdges.forEach((edge) => {
+  projectEdges.forEach((edge) => {
     const { id, slug = {} } = edge.node
 
     const path = `/projekt/${slug.current}/`
@@ -47,9 +59,7 @@ async function createPages(graphql, actions) {
     })
   })
 
-  const api = (result.data.allSanityApi || {}).edges || []
-
-  api.forEach((edge) => {
+  apiEdges.forEach((edge) => {
     const { id, slug = {} } = edge.node
 
     const path = `/api/${slug.current}/`
@@ -57,6 +67,18 @@ async function createPages(graphql, actions) {
     createPage({
       path,
       component: require.resolve('./src/templates/api.js'),
+      context: { id },
+    })
+  })
+
+  newsPostEdges.forEach((edge) => {
+    const { id, slug = {} } = edge.node
+
+    const path = `/nyheter/${slug.current}/`
+
+    createPage({
+      path,
+      component: require.resolve('./src/templates/newsPost.js'),
       context: { id },
     })
   })

@@ -1,9 +1,9 @@
 import { BsCardImage } from 'react-icons'
 
 export default {
-  name: 'api',
+  name: 'newsPost',
   type: 'document',
-  title: 'API:er',
+  title: 'Nyheter',
   fields: [
     {
       name: 'title',
@@ -11,18 +11,12 @@ export default {
       title: 'Title',
     },
     { type: 'defaultSlug', name: 'slug' },
+    { type: 'bodyPortableText', name: 'Body' },
     {
-      title: 'Rich text',
-      type: 'array',
-      name: 'richText',
-      of: [{ type: 'block' }, { type: 'bodyImage', icon: BsCardImage }],
-    },
-    {
-      title: 'Table of contents',
-      type: 'boolean',
-      name: 'tableOfContents',
-      description:
-        'If "On", the page will have a sidebar with a table of contents section that the user can click and get redirected to a certain section on the page. This is done automatically by generating links from all of the headings in the article.',
+      name: 'author',
+      type: 'reference',
+      title: 'Redaktör',
+      to: [{ type: 'editor' }],
     },
   ],
   orderings: [
@@ -44,8 +38,8 @@ export default {
       media: 'bodyImage',
       name: 'name',
     },
-    prepare({ title = 'No name', slug = {}, media }) {
-      const path = `/api/${slug.current}`
+    prepare({ title = 'No name', slug = {}, media, name = 'nyheter' }) {
+      const path = `/nyheter/${slug.current}`
 
       return {
         path,
