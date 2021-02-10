@@ -5,6 +5,8 @@ import SyntaxHighlighter from './syntaxHighlight'
 import YouTube from 'react-youtube'
 import { Link } from 'gatsby'
 
+import * as Typography from './typography'
+
 const getRouteNameFromContentType = (contentType) => {
   switch (contentType) {
     case 'newsPost':
@@ -33,14 +35,22 @@ const getRouteNameFromPageType = (contentType) => {
   }
 }
 
-const serializers = {
+const serializers = (withAnchor) => ({
   types: {
     block: ({ node, children }) => {
       switch (node.style) {
         case 'h1':
-          return <h1 className="text-4xl font-bold my-2">{children}</h1>
+          return (
+            <Typography.H1 withAnchor={withAnchor}>{children}</Typography.H1>
+          )
         case 'h2':
-          return <h2 className="text-2xl font-bold my-2">{children}</h2>
+          return (
+            <Typography.H2 withAnchor={withAnchor}>{children}</Typography.H2>
+          )
+        case 'h3':
+          return (
+            <Typography.H3 withAnchor={withAnchor}>{children}</Typography.H3>
+          )
         case 'normal':
           return <p>{children}</p>
         default:
@@ -103,13 +113,13 @@ const serializers = {
       )
     },
   },
-}
+})
 
-const BlockContent = ({ blocks }) => (
+const BlockContent = ({ blocks, withAnchor = false }) => (
   <BaseBlockContent
     className="px-8"
     blocks={blocks}
-    serializers={serializers}
+    serializers={serializers(withAnchor)}
   />
 )
 
