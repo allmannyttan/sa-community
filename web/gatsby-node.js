@@ -32,9 +32,6 @@ async function createPages(graphql, actions) {
             slug {
               current
             }
-            title
-            _type
-            _rawBody(resolveReferences: { maxDepth: 10 })
           }
         }
       }
