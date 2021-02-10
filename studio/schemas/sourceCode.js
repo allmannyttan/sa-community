@@ -1,7 +1,7 @@
 export default {
-  name: 'aboutUsPage',
+  name: 'sourceCodePage',
   type: 'document',
-  title: 'Om oss',
+  title: 'Källkod',
   __experimental_actions: ['update', 'publish', 'create', 'delete'],
   fields: [
     {
@@ -13,11 +13,11 @@ export default {
   ],
   preview: {
     select: {
-      title: 'Om oss',
+      title: 'Källkod',
       name: 'name',
     },
-    prepare({ title = 'Om oss', name = 'om oss' }) {
-      const path = `/om-oss`
+    prepare({ title = 'Källkod', name = 'källkod' }) {
+      const path = `/kallkod`
       return {
         path,
         name,

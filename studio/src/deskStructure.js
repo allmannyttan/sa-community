@@ -105,6 +105,7 @@ export default () =>
               getSingletonPageStructure('Hem', 'homePage'),
               getSingletonPageStructure('Om oss', 'aboutUsPage'),
               getSingletonPageStructure('Kommunikation', 'communicationPage'),
+              getSingletonPageStructure('Källkod', 'sourceCodePage'),
             ])
         ),
 
@@ -127,6 +128,7 @@ export default () =>
             'newsPost',
             'editor',
             'communicationPage',
+            'sourceCodePage',
           ].includes(listItem.getId())
       ),
     ])
