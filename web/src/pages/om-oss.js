@@ -7,7 +7,7 @@ const query = graphql`
   query aboutUs {
     sanityAboutUsPage {
       title
-      _rawBody
+      _rawBody(resolveReferences: { maxDepth: 10 })
     }
   }
 `
