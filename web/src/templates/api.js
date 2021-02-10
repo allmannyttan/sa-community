@@ -27,7 +27,7 @@ const Component = (props) => {
     <Layout>
       <div>
         <h1>{data.title}</h1>
-        <BlockContent blocks={data._rawBody}></BlockContent>
+        <BlockContent blocks={data._rawBody} withAnchor={true}></BlockContent>
       </div>
     </Layout>
   )
