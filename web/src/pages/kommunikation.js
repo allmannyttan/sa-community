@@ -7,7 +7,7 @@ const query = graphql`
   query communication {
     sanityCommunicationPage {
       title
-      _rawBody
+      _rawBody(resolveReferences: { maxDepth: 10 })
     }
   }
 `
