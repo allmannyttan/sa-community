@@ -11,6 +11,8 @@ const getRouteNameFromContentType = (contentType) => {
       return 'nyheter'
     case 'project':
       return 'projekt'
+    case 'api':
+      return 'api'
     default:
       return '404'
   }
@@ -24,6 +26,8 @@ const getRouteNameFromPageType = (contentType) => {
       return 'om-oss'
     case 'communicationPage':
       return 'kommunikation'
+    case 'apiPage':
+      return 'api'
     default:
       return '404'
   }
@@ -74,6 +78,10 @@ const serializers = {
         </a>
       ),
     internalLink: ({ mark, children }) => {
+      if (!mark.reference) {
+        return null
+      }
+
       if (mark.reference._type.includes('Page')) {
         const url = `/${getRouteNameFromPageType(mark.reference._type)}`
 
