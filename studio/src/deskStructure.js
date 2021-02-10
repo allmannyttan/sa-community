@@ -19,7 +19,7 @@ export const getDefaultDocumentNode = (props) => {
    * you can set up that logic in here too.
    * https://www.sanity.io/docs/structure-builder-reference#getdefaultdocumentnode-97e44ce262c9
    */
-  const previewSchemaTypes = ['project', 'newsPost']
+  const previewSchemaTypes = ['project', 'newsPost', 'api']
   const { schemaType } = props
 
   if (previewSchemaTypes.includes(schemaType)) {
@@ -90,6 +90,12 @@ export default () =>
         .child(S.documentTypeList('project').title('Projekt')),
       S.divider(),
       S.listItem()
+        .title('API')
+        .icon(MdFolderOpen)
+        .schemaType('api')
+        .child(S.documentTypeList('api').title('api')),
+      S.divider(),
+      S.listItem()
         .title('Nyheter')
         .icon(MdFolderOpen)
         .schemaType('newsPost')
@@ -120,6 +126,7 @@ export default () =>
             'siteSettings',
             'work',
             'project',
+            'api',
             'homePage',
             'focusArea',
             'heroBlock',

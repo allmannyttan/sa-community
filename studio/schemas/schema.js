@@ -12,6 +12,7 @@ import home from './home'
 import about from './aboutUs'
 import heroImage from './heroImage'
 import focusArea from './focusArea'
+import api from './api'
 import newsPost from './newsPost'
 import editor from './editor'
 import youtube from './youtube'
@@ -35,6 +36,8 @@ export default createSchema({
     heroImage,
     focusArea,
     about,
+    api,
+    /* Your types here! */
     newsPost,
     editor,
     youtube,
