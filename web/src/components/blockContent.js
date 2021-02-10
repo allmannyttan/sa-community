@@ -26,6 +26,8 @@ const getRouteNameFromPageType = (contentType) => {
       return 'om-oss'
     case 'communicationPage':
       return 'kommunikation'
+    case 'apiPage':
+      return 'api'
     default:
       return '404'
   }
