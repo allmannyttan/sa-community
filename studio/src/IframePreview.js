@@ -19,6 +19,8 @@ const parseContentTypeName = (name) => {
       return 'api'
     case 'aboutUsPage':
       return 'om-oss'
+    case 'communicationPage':
+      return 'kommunikation'
     default:
       return name
   }

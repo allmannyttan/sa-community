@@ -19,7 +19,7 @@ export const getDefaultDocumentNode = (props) => {
    * you can set up that logic in here too.
    * https://www.sanity.io/docs/structure-builder-reference#getdefaultdocumentnode-97e44ce262c9
    */
-  const previewSchemaTypes = ['project', 'newsPost', 'api']
+  const previewSchemaTypes = ['project', 'newsPost', 'api', 'communicationPage']
   const { schemaType } = props
 
   if (previewSchemaTypes.includes(schemaType)) {
