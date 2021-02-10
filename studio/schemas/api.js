@@ -38,7 +38,7 @@ export default {
       name: 'name',
     },
     prepare({ title = 'No name', slug = {}, media, name = 'api' }) {
-      const path = `/api/${slug.current}`
+      const path = `/${name}/${slug.current}`
 
       return {
         path,
