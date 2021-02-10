@@ -104,6 +104,7 @@ export default () =>
             .items([
               getSingletonPageStructure('Hem', 'homePage'),
               getSingletonPageStructure('Om oss', 'aboutUsPage'),
+              getSingletonPageStructure('Kommunikation', 'communicationPage'),
             ])
         ),
 
@@ -125,6 +126,7 @@ export default () =>
             'aboutUsPage',
             'newsPost',
             'editor',
+            'communicationPage',
           ].includes(listItem.getId())
       ),
     ])

@@ -16,6 +16,7 @@ import newsPost from './newsPost'
 import editor from './editor'
 import youtube from './youtube'
 import bodyPortableText from './bodyPortableText'
+import communication from './communication'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -37,5 +38,6 @@ export default createSchema({
     newsPost,
     editor,
     youtube,
+    communication,
   ]),
 })
