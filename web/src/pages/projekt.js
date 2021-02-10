@@ -4,6 +4,10 @@ import Layout from '../components/layout'
 
 const query = graphql`
   query projects {
+    sanityProjectPage {
+      _rawBody
+      title
+    }
     allSanityProject {
       edges {
         node {
