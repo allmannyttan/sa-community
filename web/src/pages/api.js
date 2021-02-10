@@ -13,6 +13,7 @@ const query = graphql`
             current
           }
           title
+          descriptionText
           _type
         }
       }
@@ -35,7 +36,7 @@ const query = graphql`
 const Component = () => {
   const data = useStaticQuery(query).allSanityApi.edges.map(({ node }) => node)
   const apiPage = useStaticQuery(query).sanityApiPage
-  console.log(apiPage)
+
   return (
     <Layout>
       <div
@@ -55,7 +56,10 @@ const Component = () => {
 
       {data.map((project) => (
         <Link key={project.title} to={`${project.slug.current}`}>
-          <p>{project.title}</p>
+          <div className="m-4 p-2 border-b-2">
+            <h3 className="text-xl underline">{project.title}</h3>
+            <p className="text-gray-700">{project.descriptionText}</p>
+          </div>
         </Link>
       ))}
     </Layout>
