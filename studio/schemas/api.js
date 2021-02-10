@@ -37,7 +37,7 @@ export default {
       media: 'bodyImage',
       name: 'name',
     },
-    prepare({ title = 'No name', slug = {}, media, name = 'api' }) {
+    prepare({ title = 'Api', slug = {}, media, name = 'api' }) {
       const path = `/${name}/${slug.current}`
 
       return {
