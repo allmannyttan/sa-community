@@ -1,4 +1,3 @@
-import { BsCardImage } from 'react-icons/bs'
 export default {
   name: 'aboutUsPage',
   type: 'document',

@@ -1,5 +1,3 @@
-import { BsCardImage } from 'react-icons'
-
 export default {
   name: 'api',
   type: 'document',
@@ -11,12 +9,7 @@ export default {
       title: 'Title',
     },
     { type: 'defaultSlug', name: 'slug' },
-    {
-      title: 'Rich text',
-      type: 'array',
-      name: 'richText',
-      of: [{ type: 'block' }, { type: 'bodyImage', icon: BsCardImage }],
-    },
+    { type: 'bodyPortableText', name: 'Body' },
     {
       title: 'Table of contents',
       type: 'boolean',
@@ -44,7 +37,7 @@ export default {
       media: 'bodyImage',
       name: 'name',
     },
-    prepare({ title = 'No name', slug = {}, media }) {
+    prepare({ title = 'No name', slug = {}, media, name = 'api' }) {
       const path = `/api/${slug.current}`
 
       return {
