@@ -27,6 +27,9 @@ const Component = ({ siteTitle = '' }) => {
           <li>
             <Link to="/kommunikation">Kommunikation</Link>
           </li>
+          <li>
+            <Link to="/kallkod">Källkod</Link>
+          </li>
         </ul>
       </nav>
     </header>

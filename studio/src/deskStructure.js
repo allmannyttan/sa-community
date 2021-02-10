@@ -19,7 +19,13 @@ export const getDefaultDocumentNode = (props) => {
    * you can set up that logic in here too.
    * https://www.sanity.io/docs/structure-builder-reference#getdefaultdocumentnode-97e44ce262c9
    */
-  const previewSchemaTypes = ['project', 'newsPost', 'api', 'communicationPage']
+  const previewSchemaTypes = [
+    'project',
+    'newsPost',
+    'api',
+    'communicationPage',
+    'newsPage',
+  ]
   const { schemaType } = props
 
   if (previewSchemaTypes.includes(schemaType)) {
@@ -112,6 +118,8 @@ export default () =>
               getSingletonPageStructure('Om oss', 'aboutUsPage'),
               getSingletonPageStructure('Kommunikation', 'communicationPage'),
               getSingletonPageStructure('API', 'apiPage'),
+              getSingletonPageStructure('Källkod', 'sourceCodePage'),
+              getSingletonPageStructure('Nyheter', 'newsPage'),
             ])
         ),
 
@@ -136,6 +144,8 @@ export default () =>
             'editor',
             'communicationPage',
             'apiPage',
+            'sourceCodePage',
+            'newsPage',
           ].includes(listItem.getId())
       ),
     ])
