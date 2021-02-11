@@ -34,27 +34,27 @@ const query = graphql`
 `
 
 const Component = () => {
-  const data = useStaticQuery(query).allSanityApi.edges.map(({ node }) => node)
-  const apiPage = useStaticQuery(query).sanityApiPage
+  const { sanityApiPage: data, allSanityApi } = useStaticQuery(query)
+  const apis = allSanityApi.edges.map(({ node }) => node) || []
 
   return (
     <Layout>
       <div
         className="text-white flex justify-center content-center"
         style={{
-          backgroundImage: `url(${apiPage.heroImage.asset.url})`,
+          backgroundImage: `url(${data.heroImage.asset.url})`,
           backgroundPosition: 'center',
         }}
       >
         <div className="max-w-3xl">
           <h2 className="py-40 text-current text-4xl leading-tight tracking-wide">
-            {apiPage.heroText}
+            {data.heroText}
           </h2>
         </div>
       </div>
-      <BlockContent blocks={apiPage._rawBody} />
+      <BlockContent blocks={data._rawBody} />
 
-      {data.map((project) => (
+      {apis.map((project) => (
         <Link key={project.title} to={`${project.slug.current}`}>
           <div className="m-4 p-2 border-b-2">
             <h3 className="text-xl underline">{project.title}</h3>
