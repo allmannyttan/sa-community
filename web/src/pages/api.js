@@ -62,7 +62,10 @@ const Component = () => {
           </h2>
         </div>
       </div>
-      <BlockContent blocks={data._rawBody} />
+      <div className="flex justify-center">
+        <BlockContent blocks={data._rawBody} />
+      </div>
+
       {apis.map((project) => (
         <Link key={project.title} to={`${project.slug.current}`}>
           <div className="m-4 p-2 border-b-2">

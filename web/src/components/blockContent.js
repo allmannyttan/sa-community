@@ -1,7 +1,5 @@
 import React from 'react'
 import BaseBlockContent from '@sanity/block-content-to-react'
-import { Link } from 'gatsby'
-
 import * as Serializers from './serializers'
 
 const serializers = (withAnchor) => ({
@@ -50,7 +48,7 @@ const serializers = (withAnchor) => ({
 
 const BlockContent = ({ blocks, withAnchor = false }) => (
   <BaseBlockContent
-    className="px-8"
+    className="w-3/5"
     blocks={blocks}
     serializers={serializers(withAnchor)}
   />
