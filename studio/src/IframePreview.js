@@ -23,6 +23,8 @@ const parseContentTypeName = (name) => {
       return 'kommunikation'
     case 'newsPage':
       return 'nyheter'
+    case 'projectPage':
+      return 'projekt'
     default:
       return name
   }
