@@ -7,10 +7,12 @@ const WithAnchor = ({ children, slug }) => (
 )
 
 const TableOfContents = ({ blocks }) => {
-  const menuItems = blocks.filter(
-    (block) =>
-      (block.style === 'h1') | (block.style === 'h2') | (block.style === 'h3')
-  )
+  const targetItems = ['h1', 'h2', 'h3', 'h4']
+  const menuItems = blocks.filter((block) => targetItems.includes(block.style))
+
+  if (!menuItems.lenght) {
+    return null
+  }
   return (
     <nav className="fixed w-full  flex justify-end px-8">
       <ol>
@@ -31,6 +33,11 @@ const TableOfContents = ({ blocks }) => {
               {item.style === 'h3' && (
                 <WithAnchor slug={slug}>
                   <li className="text-base pl-4">{item.children[0].text}</li>
+                </WithAnchor>
+              )}
+              {item.style === 'h4' && (
+                <WithAnchor slug={slug}>
+                  <li className="text-sm pl-6">{item.children[0].text}</li>
                 </WithAnchor>
               )}
             </div>
