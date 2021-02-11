@@ -120,6 +120,7 @@ export default () =>
               getSingletonPageStructure('API', 'apiPage'),
               getSingletonPageStructure('Källkod', 'sourceCodePage'),
               getSingletonPageStructure('Nyheter', 'newsPage'),
+              getSingletonPageStructure('Projekt', 'projectPage'),
             ])
         ),
 
@@ -146,6 +147,7 @@ export default () =>
             'apiPage',
             'sourceCodePage',
             'newsPage',
+            'projectPage',
           ].includes(listItem.getId())
       ),
     ])

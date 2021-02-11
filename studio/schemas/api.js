@@ -2,6 +2,9 @@ export default {
   name: 'api',
   type: 'document',
   title: 'API:er',
+  initialValue: () => ({
+    tableOfContents: true,
+  }),
   fields: [
     {
       name: 'title',
@@ -17,13 +20,7 @@ export default {
       description: 'Denna text kommer att visas där alla API:er visas.',
     },
     { type: 'bodyPortableText', name: 'Body' },
-    {
-      title: 'Table of contents',
-      type: 'boolean',
-      name: 'tableOfContents',
-      description:
-        'If "On", the page will have a sidebar with a table of contents section that the user can click and get redirected to a certain section on the page. This is done automatically by generating links from all of the headings in the article.',
-    },
+    { type: 'tableOfContents', name: 'tableOfContents' },
   ],
   orderings: [
     {

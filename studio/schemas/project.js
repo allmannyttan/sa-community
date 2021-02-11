@@ -2,6 +2,9 @@ export default {
   name: 'project',
   type: 'document',
   title: 'Projekt',
+  initialValue: () => ({
+    tableOfContents: true,
+  }),
   fields: [
     {
       name: 'title',
@@ -10,13 +13,7 @@ export default {
     },
     { type: 'defaultSlug', name: 'slug' },
     { type: 'bodyPortableText', name: 'Body' },
-    {
-      title: 'Table of contents',
-      type: 'boolean',
-      name: 'tableOfContents',
-      description:
-        'If "On", the page will have a sidebar with a table of contents section that the user can click and get redirected to a certain section on the page. This is done automatically by generating links from all of the headings in the article.',
-    },
+    { type: 'tableOfContents', name: 'tableOfContents' },
   ],
   orderings: [
     {

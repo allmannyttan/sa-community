@@ -27,7 +27,7 @@ const Component = (props) => {
     <Layout>
       <div>
         <h2 className="text-center text-2xl mt-12">{data.title}</h2>
-        <BlockContent blocks={data._rawBody}></BlockContent>
+        <BlockContent blocks={data._rawBody} withAnchor={true}></BlockContent>
       </div>
     </Layout>
   )

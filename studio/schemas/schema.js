@@ -19,8 +19,10 @@ import youtube from './youtube'
 import bodyPortableText from './bodyPortableText'
 import communication from './communication'
 import apiPage from './apiPage'
+import tableOfContents from './tableOfContents'
 import sourceCode from './sourceCode'
 import newsPage from './news'
+import projectPage from './projectPage'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -46,6 +48,8 @@ export default createSchema({
     youtube,
     communication,
     apiPage,
+    tableOfContents,
     sourceCode,
+    projectPage,
   ]),
 })
