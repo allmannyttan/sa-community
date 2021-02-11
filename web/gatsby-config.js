@@ -7,8 +7,7 @@ module.exports = {
     title: 'SA DEV',
     titleTemplate: 'Digitaliseringsinitiativet',
     description: 'Allmännyttans digitaliseringsinitiativet',
-    url: 'https://www.sverigesallmannytta.se/digitaliseringsinitiativet/',
-    image: '/',
+    url: 'https://www.digitaliseringsinitiativet.se',
   },
   plugins: [
     {
