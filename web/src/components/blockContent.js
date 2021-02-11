@@ -1,8 +1,5 @@
 import React from 'react'
 import BaseBlockContent from '@sanity/block-content-to-react'
-import getYouTubeId from 'get-youtube-id'
-import SyntaxHighlighter from './syntaxHighlight'
-import YouTube from 'react-youtube'
 import { Link } from 'gatsby'
 
 import * as Serializers from './serializers'
@@ -59,16 +56,11 @@ const serializers = (withAnchor) => ({
       }
     },
     bodyImage: ({ node }) => {
-      return <img src={node.asset.url} alt={node.alt}></img>
+      return <Serializers.Image node={node} />
     },
-    youtube: ({ node }) => {
-      const { url } = node
-      const id = getYouTubeId(url)
-      return <YouTube videoId={id} />
-    },
-    code: ({ node }) => (
-      <SyntaxHighlighter code={node.code} language={node.language} />
-    ),
+
+    youtube: ({ node }) => <Serializers.YouTube node={node} />,
+    code: ({ node }) => <Serializers.Code node={node} />,
   },
 
   marks: {
