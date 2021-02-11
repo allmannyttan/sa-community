@@ -13,7 +13,7 @@ module.exports = {
         projectId: 'qo99b1oh',
         dataset: 'development',
         token: process.env.SANITY_TOKEN,
-        watchMode: true,
+        watchMode: process.env.NODE_ENV === 'development',
       },
     },
     {
