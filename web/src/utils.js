@@ -16,3 +16,31 @@ export const slugify = (str) => {
     .replace(/^-+/, '') // Trim - from start of text
     .replace(/-+$/, '') // Trim - from end of text
 }
+
+export const getRouteNameFromContentType = (contentType) => {
+  switch (contentType) {
+    case 'newsPost':
+      return 'nyheter'
+    case 'project':
+      return 'projekt'
+    case 'api':
+      return 'api'
+    default:
+      return '404'
+  }
+}
+
+export const getRouteNameFromPageType = (contentType) => {
+  switch (contentType) {
+    case 'homePage':
+      return ''
+    case 'aboutUsPage':
+      return 'om-oss'
+    case 'communicationPage':
+      return 'kommunikation'
+    case 'apiPage':
+      return 'api'
+    default:
+      return '404'
+  }
+}
