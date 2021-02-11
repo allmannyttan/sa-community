@@ -7,14 +7,14 @@ const WithAnchor = ({ children, slug }) => (
 )
 
 const TableOfContents = ({ blocks }) => {
-  const MenuItems = blocks.filter(
+  const menuItems = blocks.filter(
     (block) =>
       (block.style === 'h1') | (block.style === 'h2') | (block.style === 'h3')
   )
   return (
     <nav className="fixed w-full  flex justify-end px-8">
       <ol>
-        {MenuItems.map((item, i) => {
+        {menuItems.map((item, i) => {
           const slug = utils.slugify(item.children[0].text)
           return (
             <div key={i}>
