@@ -10,7 +10,7 @@ const TableOfContents = ({ blocks }) => {
   const targetItems = ['h1', 'h2', 'h3', 'h4']
   const menuItems = blocks.filter((block) => targetItems.includes(block.style))
 
-  if (!menuItems.lenght) {
+  if (menuItems.lenght === 0) {
     return null
   }
   return (
