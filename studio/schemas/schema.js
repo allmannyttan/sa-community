@@ -23,6 +23,7 @@ import tableOfContents from './tableOfContents'
 import sourceCode from './sourceCode'
 import newsPage from './news'
 import projectPage from './projectPage'
+import titleString from './titleString'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -51,5 +52,6 @@ export default createSchema({
     tableOfContents,
     sourceCode,
     projectPage,
+    titleString,
   ]),
 })
