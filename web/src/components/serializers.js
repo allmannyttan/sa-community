@@ -72,3 +72,45 @@ export const YouTube = ({ node }) => {
 export const Code = ({ node }) => (
   <SyntaxHighlighter code={node.code} language={node.language} />
 )
+
+export const ExternalLink = ({ mark, children }) =>
+  mark.blank ? (
+    <a
+      className="text-red-800"
+      href={mark.href}
+      target="_blank"
+      rel="noreferrer"
+    >
+      {children}
+    </a>
+  ) : (
+    <a className="text-red-800" href={mark.href}>
+      {children}
+    </a>
+  )
+
+export const InternalLink = ({ mark, children }) => {
+  if (!mark.reference) {
+    return null
+  }
+
+  if (mark.reference._type.includes('Page')) {
+    const url = `/${utils.getRouteNameFromPageType(mark.reference._type)}`
+
+    return (
+      <Link className="text-red-800" to={url}>
+        {children}
+      </Link>
+    )
+  }
+
+  const url = `/${utils.getRouteNameFromContentType(mark.reference._type)}/${
+    mark.reference.slug.current
+  }`
+
+  return (
+    <Link className="text-red-800" to={url}>
+      {children}
+    </Link>
+  )
+}
