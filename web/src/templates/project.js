@@ -26,7 +26,7 @@ const Component = (props) => {
 
   return (
     <Layout>
-      <div>
+      <div className="flex justify-center">
         <h1>{data.title}</h1>
         {data.tableOfContents && <TableOfContents blocks={data._rawBody} />}
         <BlockContent blocks={data._rawBody} withAnchor></BlockContent>

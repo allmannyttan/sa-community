@@ -117,7 +117,7 @@ const serializers = (withAnchor) => ({
 
 const BlockContent = ({ blocks, withAnchor = false }) => (
   <BaseBlockContent
-    className="px-8"
+    className="w-3/5"
     blocks={blocks}
     serializers={serializers(withAnchor)}
   />
