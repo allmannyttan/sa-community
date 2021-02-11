@@ -18,6 +18,7 @@ import editor from './editor'
 import youtube from './youtube'
 import bodyPortableText from './bodyPortableText'
 import communication from './communication'
+import tableOfContents from './tableOfContents'
 import sourceCode from './sourceCode'
 import newsPage from './news'
 import projectPage from './projectPage'
@@ -45,6 +46,7 @@ export default createSchema({
     editor,
     youtube,
     communication,
+    tableOfContents,
     sourceCode,
     projectPage,
   ]),
