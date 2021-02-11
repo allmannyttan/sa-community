@@ -25,6 +25,7 @@ const Component = (props) => {
 
   return (
     <Layout>
+      <SEO title={data.title} article={true} />
       <div>
         <h1>{data.title}</h1>
         <BlockContent blocks={data._rawBody} withAnchor></BlockContent>

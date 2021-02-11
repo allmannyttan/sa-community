@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-
+import SEO from '../components/seo'
 import Layout from '../components/layout'
 
 const query = graphql`
@@ -29,6 +29,7 @@ const Component = () => {
 
   return (
     <Layout>
+      <SEO />
       <div>
         <div
           className="text-white flex justify-center content-center"
