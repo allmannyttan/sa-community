@@ -1,17 +1,18 @@
 import * as React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-
 import Layout from '../components/layout'
+import HeroImage from '../components/heroImage'
+import * as Typography from '../components/typography'
 
 const query = graphql`
   query homePageQuery {
     sanityHomePage {
       heroImage {
-        _key
-        _type
         alt
         asset {
-          url
+          fluid(maxWidth: 1800, maxHeight: 500) {
+            ...GatsbySanityImageFluid
+          }
         }
       }
       heroText
@@ -22,7 +23,6 @@ const query = graphql`
     }
   }
 `
-
 const Component = () => {
   const data = useStaticQuery(query).sanityHomePage
   if (!data) return <h1>Data saknas...</h1>
@@ -30,6 +30,12 @@ const Component = () => {
   return (
     <Layout>
       <div>
+        {data.heroImage && <HeroImage data={data.heroImage} />}
+        {!data.heroImage && (
+          <div className="bg-gray-100 w-full h-48">
+            <Typography.H1>{data.heroText}</Typography.H1>
+          </div>
+        )}
         <div
           className="text-white flex justify-center content-center"
           style={{
@@ -43,7 +49,6 @@ const Component = () => {
             </h2>
           </div>
         </div>
-
         <div className="max-w-screen-lg mx-auto">
           <div className="mt-16 grid grid-flow-col py-8 gap-12">
             {data.focusAreas.map((focusArea) => (

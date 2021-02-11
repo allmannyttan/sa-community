@@ -2,6 +2,8 @@ import * as React from 'react'
 import { graphql, useStaticQuery, Link } from 'gatsby'
 import Layout from '../components/layout'
 import BlockContent from '../components/blockContent'
+import HeroImage from '../components/heroImage'
+import * as Typography from '../components/typography'
 
 const query = graphql`
   query api {
@@ -20,11 +22,11 @@ const query = graphql`
     }
     sanityApiPage {
       heroImage {
-        _key
-        _type
         alt
         asset {
-          url
+          fluid(maxWidth: 1800, maxHeight: 500) {
+            ...GatsbySanityImageFluid
+          }
         }
       }
       heroText
@@ -39,6 +41,14 @@ const Component = () => {
 
   return (
     <Layout>
+      <div>
+        {data.heroImage && <HeroImage data={data.heroImage} />}
+        {!data.heroImage && (
+          <div className="bg-gray-100 w-full h-48">
+            <Typography.H1>{data.heroText}</Typography.H1>
+          </div>
+        )}
+      </div>
       <div
         className="text-white flex justify-center content-center"
         style={{
