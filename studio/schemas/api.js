@@ -12,6 +12,13 @@ export default {
       title: 'Title',
     },
     { type: 'defaultSlug', name: 'slug' },
+    {
+      type: 'text',
+      title:
+        'Denna text är en förhandsvisning, skriv en kortare beskrivning om API:et.',
+      name: 'descriptionText',
+      description: 'Denna text kommer att visas där alla API:er visas.',
+    },
     { type: 'bodyPortableText', name: 'Body' },
     { type: 'tableOfContents', name: 'tableOfContents' },
   ],
