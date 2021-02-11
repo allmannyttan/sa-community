@@ -12,6 +12,7 @@ export const query = graphql`
         current
       }
       title
+      SEOText
       tableOfContents
       _type
       _rawBody(resolveReferences: { maxDepth: 10 })
@@ -26,7 +27,7 @@ const Component = (props) => {
 
   return (
     <Layout>
-      <SEO title={data.title} article={true} />
+      <SEO title={data.title} article={true} description={data.SEOText} />
       <div>
         <h2 className="text-center text-2xl mt-12">{data.title}</h2>
         <BlockContent blocks={data._rawBody} withAnchor={true}></BlockContent>

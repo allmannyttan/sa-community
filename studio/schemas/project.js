@@ -11,6 +11,12 @@ export default {
       type: 'string',
       title: 'Title',
     },
+    {
+      type: 'text',
+      title: 'En kortare beskrivning av vad artikeln handlar om.',
+      name: 'SEOText',
+      description: 'Denna text används för SEO.',
+    },
     { type: 'defaultSlug', name: 'slug' },
     { type: 'bodyPortableText', name: 'Body' },
     { type: 'tableOfContents', name: 'tableOfContents' },
