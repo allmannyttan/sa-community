@@ -1,7 +1,5 @@
 import React from 'react'
 import BaseBlockContent from '@sanity/block-content-to-react'
-import { Link } from 'gatsby'
-
 import * as Serializers from './serializers'
 
 const serializers = (withAnchor) => ({
