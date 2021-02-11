@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { graphql, useStaticQuery, Link } from 'gatsby'
-import Layout from '../components/layout'
 import BlockContent from '../components/blockContent'
 
 const query = graphql`
@@ -29,7 +28,7 @@ const Component = () => {
   const posts = allSanityNewsPost.edges.map(({ node }) => node)
 
   return (
-    <Layout>
+    <>
       <div className="text-center my-8">
         <h2 className="text-xl">{data.title}</h2>
         <BlockContent className="text-center" blocks={data._rawBody} />
@@ -39,7 +38,7 @@ const Component = () => {
           <p>{newsPost.title}</p>
         </Link>
       ))}
-    </Layout>
+    </>
   )
 }
 

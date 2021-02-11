@@ -9,6 +9,10 @@ module.exports = {
       colors: {
         saOrange: '#de7c00',
         saGreen: '#04a388',
+        saPurple: '#50058B',
+      },
+      height: {
+        700: '700px',
       },
     },
   },

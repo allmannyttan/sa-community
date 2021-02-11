@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import BlockContent from '../components/blockContent'
-import Layout from '../components/layout'
 
 export const query = graphql`
   query newsPostTemplateQuery($id: String!) {
@@ -25,12 +24,10 @@ const Component = (props) => {
   } = props
 
   return (
-    <Layout>
-      <div>
-        <h1>{data.title}</h1>
-        <BlockContent blocks={data._rawBody}></BlockContent>
-      </div>
-    </Layout>
+    <>
+      <h1>{data.title}</h1>
+      <BlockContent blocks={data._rawBody}></BlockContent>
+    </>
   )
 }
 
