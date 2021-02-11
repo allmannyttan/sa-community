@@ -4,9 +4,8 @@ export default {
   title: 'Nyheter',
   fields: [
     {
+      type: 'titleString',
       name: 'title',
-      type: 'string',
-      title: 'Title',
     },
     { type: 'defaultSlug', name: 'slug' },
     { type: 'bodyPortableText', name: 'Body' },
