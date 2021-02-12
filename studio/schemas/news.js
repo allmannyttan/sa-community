@@ -5,9 +5,8 @@ export default {
   __experimental_actions: ['update', 'publish', 'create'],
   fields: [
     {
+      type: 'titleString',
       name: 'title',
-      type: 'string',
-      title: 'Title',
     },
     { type: 'bodyPortableText', name: 'Body' },
   ],

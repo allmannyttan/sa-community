@@ -1,39 +1,6 @@
 import React from 'react'
 import BaseBlockContent from '@sanity/block-content-to-react'
-import getYouTubeId from 'get-youtube-id'
-import SyntaxHighlighter from './syntaxHighlight'
-import YouTube from 'react-youtube'
-import { Link } from 'gatsby'
-
 import * as Serializers from './serializers'
-
-const getRouteNameFromContentType = (contentType) => {
-  switch (contentType) {
-    case 'newsPost':
-      return 'nyheter'
-    case 'project':
-      return 'projekt'
-    case 'api':
-      return 'api'
-    default:
-      return '404'
-  }
-}
-
-const getRouteNameFromPageType = (contentType) => {
-  switch (contentType) {
-    case 'homePage':
-      return ''
-    case 'aboutUsPage':
-      return 'om-oss'
-    case 'communicationPage':
-      return 'kommunikation'
-    case 'apiPage':
-      return 'api'
-    default:
-      return '404'
-  }
-}
 
 const serializers = (withAnchor) => ({
   types: {
@@ -59,65 +26,29 @@ const serializers = (withAnchor) => ({
       }
     },
     bodyImage: ({ node }) => {
-      return <img src={node.asset.url} alt={node.alt}></img>
+      return <Serializers.Image node={node} />
     },
-    youtube: ({ node }) => {
-      const { url } = node
-      const id = getYouTubeId(url)
-      return <YouTube videoId={id} />
-    },
-    code: ({ node }) => (
-      <SyntaxHighlighter code={node.code} language={node.language} />
-    ),
+
+    youtube: ({ node }) => <Serializers.YouTube node={node} />,
+    code: ({ node }) => <Serializers.Code node={node} />,
   },
-
   marks: {
-    link: ({ mark, children }) =>
-      mark.blank ? (
-        <a
-          className="text-red-800"
-          href={mark.href}
-          target="_blank"
-          rel="noreferrer"
-        >
-          {children}
-        </a>
-      ) : (
-        <a className="text-red-800" href={mark.href}>
-          {children}
-        </a>
-      ),
-    internalLink: ({ mark, children }) => {
-      if (!mark.reference) {
-        return null
-      }
-
-      if (mark.reference._type.includes('Page')) {
-        const url = `/${getRouteNameFromPageType(mark.reference._type)}`
-
-        return (
-          <Link className="text-red-800" to={url}>
-            {children}
-          </Link>
-        )
-      }
-
-      const url = `/${getRouteNameFromContentType(mark.reference._type)}/${
-        mark.reference.slug.current
-      }`
-
-      return (
-        <Link className="text-red-800" to={url}>
-          {children}
-        </Link>
-      )
-    },
+    link: ({ mark, children }) => (
+      <Serializers.ExternalLink mark={mark}>
+        {children}
+      </Serializers.ExternalLink>
+    ),
+    internalLink: ({ mark, children }) => (
+      <Serializers.InternalLink mark={mark}>
+        {children}
+      </Serializers.InternalLink>
+    ),
   },
 })
 
 const BlockContent = ({ blocks, withAnchor = false }) => (
   <BaseBlockContent
-    className="px-8"
+    className="w-3/5"
     blocks={blocks}
     serializers={serializers(withAnchor)}
   />

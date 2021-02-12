@@ -7,9 +7,8 @@ export default {
   }),
   fields: [
     {
+      type: 'titleString',
       name: 'title',
-      type: 'string',
-      title: 'Title',
     },
     {
       type: 'text',

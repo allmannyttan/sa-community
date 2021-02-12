@@ -7,23 +7,15 @@ export default {
   }),
   fields: [
     {
+      type: 'titleString',
       name: 'title',
-      type: 'string',
-      title: 'Title',
     },
     { type: 'defaultSlug', name: 'slug' },
     {
       type: 'text',
-      title: 'En kortare beskrivning av vad artikeln handlar om.',
-      name: 'SEOText',
-      description: 'Denna text används för SEO.',
-    },
-    {
-      type: 'text',
-      title:
-        'Denna text är en förhandsvisning, skriv en kortare beskrivning om API:et.',
+      title: 'Kortare beskrivning',
       name: 'descriptionText',
-      description: 'Denna text kommer att visas där alla API:er visas.',
+      description: 'Används för förhandsvisning och för SEO.',
     },
     { type: 'bodyPortableText', name: 'Body' },
     { type: 'tableOfContents', name: 'tableOfContents' },
