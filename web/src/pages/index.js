@@ -29,9 +29,7 @@ const Component = () => {
 
   return (
     <div>
-      <div>
-        <HeroBlock heroImage={data.heroImage} heroText={data.heroText} />
-      </div>
+      <HeroBlock heroImage={data.heroImage} heroText={data.heroText} />
 
       <div className="max-w-screen-lg mx-auto">
         <div className="mt-16 grid grid-flow-col py-8 gap-12">

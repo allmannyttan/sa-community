@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { AiOutlineLink } from 'react-icons/ai'
 import getYouTubeId from 'get-youtube-id'
 import SyntaxHighlighter from './syntaxHighlight'
 import * as utils from '../utils'
@@ -46,6 +45,10 @@ export const H3 = ({ children, withAnchor = false }) => {
     <Typography.H3>{children}</Typography.H3>
   )
 }
+
+export const Paragraph = ({ children }) => (
+  <Typography.BodyParagraph>{children}</Typography.BodyParagraph>
+)
 
 export const Image = ({ node }) => {
   const fluidProps = getFluidGatsbyImage(

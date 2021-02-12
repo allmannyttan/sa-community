@@ -19,7 +19,7 @@ const serializers = (withAnchor) => ({
             <Serializers.H3 withAnchor={withAnchor}>{children}</Serializers.H3>
           )
         case 'normal':
-          return <p>{children}</p>
+          return <Serializers.Paragraph>{children}</Serializers.Paragraph>
         default:
           console.warn('Unhandled in portable text serializer: ', node)
           return <p></p>
@@ -48,7 +48,7 @@ const serializers = (withAnchor) => ({
 
 const BlockContent = ({ blocks, withAnchor = false }) => (
   <BaseBlockContent
-    className="w-3/5"
+    className="max-w-screen-lg"
     blocks={blocks}
     serializers={serializers(withAnchor)}
   />

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { graphql, useStaticQuery, Link } from 'gatsby'
-import BlockContent from '../components/blockContent'
+import BlockContent from '../../components/blockContent'
 
 const query = graphql`
   query projectsPage {

@@ -6,7 +6,7 @@ const Component = ({ heroImage, heroText }) => {
   if (!heroImage && !heroText) return null
   if (!heroImage && heroText)
     return (
-      <div className="bg-gray-100 w-full h-48">
+      <div className="flex items-center justify-center bg-gray-100 w-full h-48">
         <Typography.H1>{heroText}</Typography.H1>
       </div>
     )
@@ -20,10 +20,7 @@ const Component = ({ heroImage, heroText }) => {
           <HeroImage data={heroImage} />
         </div>
 
-        <div
-          className="absolute w-full inset-0 flex items-center justify-center"
-          style={{ height: 500 }}
-        >
+        <div className="absolute w-full inset-0 flex items-center justify-center">
           <Typography.H1>{heroText}</Typography.H1>
         </div>
       </div>

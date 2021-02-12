@@ -47,7 +47,7 @@ async function createPages(graphql, actions) {
   projectEdges.forEach((edge) => {
     const { id, slug = {} } = edge.node
 
-    const path = `/projekt/${slug.current}/`
+    const path = `/docs/projekt/${slug.current}/`
 
     createPage({
       path,
@@ -59,7 +59,7 @@ async function createPages(graphql, actions) {
   apiEdges.forEach((edge) => {
     const { id, slug = {} } = edge.node
 
-    const path = `/api/${slug.current}/`
+    const path = `/docs/api/${slug.current}/`
 
     createPage({
       path,
