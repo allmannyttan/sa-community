@@ -17,6 +17,7 @@ const query = graphql`
             current
           }
           title
+          descriptionText
           _type
         }
       }
@@ -27,7 +28,6 @@ const query = graphql`
 const Component = () => {
   const { sanityNewsPage: data, allSanityNewsPost } = useStaticQuery(query)
   const posts = allSanityNewsPost.edges.map(({ node }) => node)
-
   return (
     <Layout>
       <div className="text-center my-8">
@@ -37,6 +37,7 @@ const Component = () => {
       {posts.map((newsPost) => (
         <Link key={newsPost.title} to={`${newsPost.slug.current}`}>
           <p>{newsPost.title}</p>
+          <p className="text-gray-700">{newsPost.descriptionText}</p>
         </Link>
       ))}
     </Layout>

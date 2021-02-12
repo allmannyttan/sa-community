@@ -9,9 +9,9 @@ export default {
     },
     {
       type: 'text',
-      title: 'En kortare beskrivning av vad artikeln handlar om.',
-      name: 'SEOText',
-      description: 'Denna text används för SEO.',
+      title: 'Kortare beskrivning',
+      name: 'descriptionText',
+      description: 'Används för förhandsvisning och för SEO.',
     },
     { type: 'defaultSlug', name: 'slug' },
     { type: 'bodyPortableText', name: 'Body' },

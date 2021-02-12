@@ -12,7 +12,7 @@ export const query = graphql`
         current
       }
       title
-      SEOText
+      descriptionText
       author {
         name
       }
@@ -28,7 +28,11 @@ const Component = (props) => {
 
   return (
     <Layout>
-      <SEO title={data.title} article={true} description={data.SEOText} />
+      <SEO
+        title={data.title}
+        article={true}
+        description={data.descriptionText}
+      />
       <div>
         <h1>{data.title}</h1>
         <BlockContent blocks={data._rawBody}></BlockContent>
