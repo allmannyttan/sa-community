@@ -32,7 +32,7 @@ const Component = () => {
       <HeroBlock heroImage={data.heroImage} heroText={data.heroText} />
 
       <div className="max-w-screen-lg mx-auto">
-        <div className="mt-16 grid grid-flow-col py-8 gap-12">
+        <div className="mt-16 grid grid-flow-col py-8">
           {data.focusAreas.map((focusArea) => (
             <div key={focusArea.heading} className="max-w-xs">
               <h3 className="text-lg font-bold">{focusArea.heading}</h3>
