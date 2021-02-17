@@ -3,13 +3,11 @@ import { Link } from 'gatsby'
 import { AiOutlineLink } from 'react-icons/ai'
 
 export const News = ({ children, slug }) => {
-  const sharedStyle = `font-normal text-base`
+  const sharedStyle = `font-normal text-base `
   const isActive = ({ location }) => {
     const isCurrent = location.pathname.includes(`/news/${slug}`)
 
-    return isCurrent
-      ? { className: `underline text-saGreen ${sharedStyle}` }
-      : {}
+    return isCurrent ? { className: `text-saGreen ${sharedStyle}` } : {}
   }
 
   return (
