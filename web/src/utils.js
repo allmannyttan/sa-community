@@ -20,9 +20,9 @@ export const slugify = (str) => {
 export const getRouteNameFromContentType = (contentType) => {
   switch (contentType) {
     case 'newsPost':
-      return 'nyheter'
+      return 'news'
     case 'project':
-      return 'docs/projekt'
+      return 'docs/project'
     case 'api':
       return 'docs/api'
     default:
@@ -35,9 +35,9 @@ export const getRouteNameFromPageType = (contentType) => {
     case 'homePage':
       return ''
     case 'aboutUsPage':
-      return 'om-oss'
+      return 'about'
     case 'communicationPage':
-      return 'kommunikation'
+      return 'communication'
     case 'apiPage':
       return 'api'
     default:

@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import BlockContent from '../components/blockContent'
+import ArticlePage from '../components/layout/articlePage'
 import SEO from '../components/seo'
 
 export const query = graphql`
@@ -32,8 +32,11 @@ const Component = (props) => {
         article={true}
         description={data.descriptionText}
       />
-      <h1>{data.title}</h1>
-      <BlockContent blocks={data._rawBody}></BlockContent>
+      <ArticlePage
+        tableOfContents={data.tableOfContents}
+        rawBody={data._rawBody}
+        title={data.title}
+      />
     </>
   )
 }

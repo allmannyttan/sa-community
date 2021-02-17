@@ -28,7 +28,7 @@ export default {
       title: 'title',
       name: 'name',
     },
-    prepare({ title = 'Hem', name = 'hem' }) {
+    prepare({ title = 'Hem', name = 'home' }) {
       const path = `/`
       return {
         path,
