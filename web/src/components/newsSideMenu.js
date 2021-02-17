@@ -16,7 +16,7 @@ const NewsSideMenu = ({ posts }) => {
           {posts.map((post, i) => {
             return (
               <div key={i}>
-                <li className="my-4 w-full ">
+                <li className="my-4 w-full">
                   <Links.News slug={post.slug.current}>{post.title}</Links.News>
                 </li>
               </div>
