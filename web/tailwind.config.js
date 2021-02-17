@@ -12,6 +12,7 @@ module.exports = {
         saPurple: '#50058B',
         saGreyBlue: '#295A66',
         saGreyBlueDark: '#112332',
+        lightGrey: '#f0f0f2',
       },
       height: {
         700: '700px',
