@@ -66,22 +66,22 @@ const Component = () => {
           <div className="hidden md:block">
             <ul className="flex justify-end gap-1 ">
               <li>
-                <NavLink to="/docs/projekt">Projekt</NavLink>
+                <NavLink to="/docs/project">Projekt</NavLink>
               </li>
               <li>
                 <NavLink to="/docs/api">API:er</NavLink>
               </li>
               <li>
-                <NavLink to="/nyheter">Nyheter</NavLink>
+                <NavLink to="/news">Nyheter</NavLink>
               </li>
               <li>
-                <NavLink to="/kallkod">Källkod</NavLink>
+                <NavLink to="/source-code">Källkod</NavLink>
               </li>
               <li>
-                <NavLink to="/om-oss">Om oss</NavLink>
+                <NavLink to="/about">Om oss</NavLink>
               </li>
               <li>
-                <NavLink to="/kommunikation">Kommunikation</NavLink>
+                <NavLink to="/communication">Kommunikation</NavLink>
               </li>
             </ul>
           </div>
