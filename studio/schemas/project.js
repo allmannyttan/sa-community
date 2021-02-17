@@ -39,8 +39,8 @@ export default {
       media: 'bodyImage',
       name: 'name',
     },
-    prepare({ title = 'No name', slug = {}, media, name = 'projekt' }) {
-      const path = `/projekt/${slug.current}`
+    prepare({ title = 'No name', slug = {}, media, name = 'project' }) {
+      const path = `/${name}/${slug.current}`
 
       return {
         path,

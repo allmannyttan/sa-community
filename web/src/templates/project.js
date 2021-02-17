@@ -1,8 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import BlockContent from '../components/blockContent'
+import ArticlePage from '../components/layout/articlePage'
 import SEO from '../components/seo'
-import TableOfContents from '../components/tableOfContents'
 
 export const query = graphql`
   query projectTemplateQuery($id: String!) {
@@ -26,16 +25,18 @@ const Component = (props) => {
   } = props
 
   return (
-    <div className="flex justify-center">
+    <>
       <SEO
         title={data.title}
         article={true}
         description={data.descriptionText}
       />
-      <h1>{data.title}</h1>
-      {data.tableOfContents && <TableOfContents blocks={data._rawBody} />}
-      <BlockContent blocks={data._rawBody} withAnchor></BlockContent>
-    </div>
+      <ArticlePage
+        tableOfContents={data.tableOfContents}
+        rawBody={data._rawBody}
+        title={data.title}
+      />
+    </>
   )
 }
 
