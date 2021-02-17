@@ -36,7 +36,7 @@ const query = graphql`
 const Component = () => {
   const { sanityApiPage: data, allSanityApi } = useStaticQuery(query)
   const apis = allSanityApi.edges.map(({ node }) => node) || []
-
+  if (!data) return <h2 className="text-xl">Data saknas....</h2>
   return (
     <div>
       {/* <HeroBlock heroImage={data.heroImage} heroText={data.heroText} /> */}

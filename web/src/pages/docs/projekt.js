@@ -26,7 +26,7 @@ const query = graphql`
 const Component = () => {
   const { sanityProjectPage: data, allSanityProject } = useStaticQuery(query)
   const projects = allSanityProject.edges.map(({ node }) => node) || []
-
+  if (!data) return <h2 className="text-xl">Data saknas....</h2>
   return (
     <>
       <div className="text-center my-8">
