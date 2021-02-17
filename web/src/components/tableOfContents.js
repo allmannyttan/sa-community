@@ -1,6 +1,7 @@
 import React from 'react'
 import * as utils from '../utils'
 import * as Links from './links'
+import * as Typography from './typography'
 
 const TableOfContents = ({ blocks }) => {
   const targetItems = ['h1', 'h2', 'h3', 'h4']
@@ -10,32 +11,38 @@ const TableOfContents = ({ blocks }) => {
     return null
   }
 
+  const getTitleStyle = (style) => {
+    switch (style) {
+      case 'h3':
+        return 'pl-2'
+      case 'h4':
+        return 'pl-3'
+      default:
+        return
+    }
+  }
+
   return (
-    <nav className="fixed w-full flex justify-end px-8">
-      <ol>
-        {menuItems.map((item, i) => {
-          const slug = utils.slugify(item.children[0].text)
-          return (
-            <div key={i}>
-              <Links.Anchor slug={slug}>
-                {item.style === 'h1' && (
-                  <li className="text-2xl pl-1">{item.children[0].text}</li>
-                )}
-                {item.style === 'h2' && (
-                  <li className="text-xl pl-2">{item.children[0].text}</li>
-                )}
-                {item.style === 'h3' && (
-                  <li className="text-base pl-4">{item.children[0].text}</li>
-                )}
-                {item.style === 'h4' && (
-                  <li className="text-sm pl-6">{item.children[0].text}</li>
-                )}
-              </Links.Anchor>
-            </div>
-          )
-        })}
-      </ol>
-    </nav>
+    <>
+      <Typography.H4>INNEHÅLL</Typography.H4>
+      <nav className="py-4">
+        <ol>
+          {menuItems.map((item, i) => {
+            const slug = utils.slugify(item.children[0].text)
+            const style = getTitleStyle(item.style)
+            return (
+              <div key={i}>
+                <li className="my-4 w-full">
+                  <Links.Anchor slug={slug} style={style}>
+                    {item.children[0].text}
+                  </Links.Anchor>
+                </li>
+              </div>
+            )
+          })}
+        </ol>
+      </nav>
+    </>
   )
 }
 
