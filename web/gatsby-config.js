@@ -4,7 +4,10 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: 'SA Dev',
+    title: 'Allmännyttans digitaliseringsinitiativ',
+    description: 'Allmännyttans digitaliseringsinitiativet',
+    url: 'https://www.digitaliseringsinitiativet.se',
+    keywords: ['Sveriges Allmännytta', 'SADev', 'SA', 'SA-DEV'],
   },
   plugins: [
     {
@@ -12,7 +15,7 @@ module.exports = {
       options: {
         projectId: 'qo99b1oh',
         dataset: 'development',
-        token: process.env.SANITY_TOKEN,
+        token: process.env.SANITY_READ_DATA_TOKEN,
         watchMode: process.env.NODE_ENV === 'development',
       },
     },

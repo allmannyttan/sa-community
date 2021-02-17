@@ -37,11 +37,18 @@ const Component = () => {
   const { sanityApiPage: data, allSanityApi } = useStaticQuery(query)
   const apis = allSanityApi.edges.map(({ node }) => node) || []
 
+  if (!data && !Boolean(apis.length))
+    return <h2 className="text-xl">Data saknas....</h2>
+  console.log(data)
   return (
-    <div>
-      {/* <HeroBlock heroImage={data.heroImage} heroText={data.heroText} /> */}
-
+    <>
       <div className="px-4 pt-12 grid grid-cols-8">
+        {data && (
+          <>
+            <h2 className="text-xl">{data.title}</h2>
+            <BlockContent className="text-center" blocks={data._rawBody} />
+          </>
+        )}
         <div className="col-span-2 max-w-xs">
           {apis.map((project) => (
             <Link key={project.title} to={`${project.slug.current}`}>
@@ -52,11 +59,8 @@ const Component = () => {
             </Link>
           ))}
         </div>
-        <div className="col-span-6">
-          <BlockContent blocks={data._rawBody} />
-        </div>
       </div>
-    </div>
+    </>
   )
 }
 

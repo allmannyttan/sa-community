@@ -7,11 +7,18 @@ export default {
       type: 'titleString',
       name: 'title',
     },
+    {
+      type: 'text',
+      title: 'Kortare beskrivning',
+      name: 'descriptionText',
+      description: 'Används för förhandsvisning och för SEO.',
+    },
     { type: 'defaultSlug', name: 'slug' },
     { type: 'bodyPortableText', name: 'Body' },
     {
       name: 'author',
       type: 'reference',
+      weak: true,
       title: 'Redaktör',
       to: [{ type: 'editor' }],
     },

@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import ArticlePage from '../components/layout/articlePage'
+import SEO from '../components/seo'
 
 export const query = graphql`
   query sanityApi($id: String!) {
@@ -10,6 +11,7 @@ export const query = graphql`
         current
       }
       title
+      descriptionText
       tableOfContents
       _type
       _rawBody(resolveReferences: { maxDepth: 10 })
@@ -23,11 +25,18 @@ const Component = (props) => {
   } = props
 
   return (
-    <ArticlePage
-      tableOfContents={data.tableOfContents}
-      rawBody={data._rawBody}
-      title={data.title}
-    />
+    <>
+      <SEO
+        title={data.title}
+        article={true}
+        description={data.descriptionText}
+      />
+      <ArticlePage
+        tableOfContents={data.tableOfContents}
+        rawBody={data._rawBody}
+        title={data.title}
+      />
+    </>
   )
 }
 
