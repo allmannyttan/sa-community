@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { graphql, useStaticQuery, Link } from 'gatsby'
 import BlockContent from '../../components/blockContent'
+import * as hooks from '../../hooks'
 
 const query = graphql`
   query projectsPage {
@@ -24,7 +25,8 @@ const query = graphql`
   }
 `
 
-const Component = () => {
+const Component = ({ location }) => {
+  const breadCrumbs = hooks.useBreadCrumbs(location.pathname)
   const { sanityProjectPage: data, allSanityProject } = useStaticQuery(query)
   const projects = allSanityProject.edges.map(({ node }) => node) || []
 
