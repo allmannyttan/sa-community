@@ -39,6 +39,7 @@ export default {
               {
                 name: 'reference',
                 type: 'reference',
+                weak: true,
                 title: 'Referens',
                 description:
                   'Länk till någon av de andra posterna på sidan, t.ex ett projekt eller en nyhet.',
