@@ -12,18 +12,35 @@ const query = graphql`
       URL
       keywords
     }
+    site {
+      siteMetadata {
+        defaultTitle: title
+        defaultDescription: description
+        siteUrl: url
+        defaultKeywords: keywords
+      }
+    }
   }
 `
 
 const SEO = ({ title, description, article }) => {
-  const data = useStaticQuery(query).sanitySiteSettings
+  const { sanitySiteSettings, site } = useStaticQuery(query)
   const { pathname } = useLocation()
 
   const seo = {
-    title: title || data.title,
-    description: description || data.description,
-    url: `${data.url}${pathname}`,
-    keywords: data.keywords.join(', '),
+    title: title || sanitySiteSettings.title || site.siteMetadata.defaultTitle,
+    description:
+      description ||
+      sanitySiteSettings.description ||
+      site.siteMetadata.defaultDescription,
+    url: `${
+      sanitySiteSettings.url
+        ? sanitySiteSettings.url
+        : site.siteMetadata.siteUrl
+    }${pathname}`,
+    keywords:
+      sanitySiteSettings.keywords.join(',') ||
+      site.siteMetadata.defaultKeywords.join(','),
   }
   return (
     <Helmet title={seo.title}>

@@ -4,10 +4,10 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: 'SA DEV',
-    titleTemplate: 'Digitaliseringsinitiativet',
+    title: 'Allmännyttans digitaliseringsinitiativ',
     description: 'Allmännyttans digitaliseringsinitiativet',
     url: 'https://www.digitaliseringsinitiativet.se',
+    keywords: ['Sveriges Allmännytta', 'SADev', 'SA', 'SA-DEV'],
   },
   plugins: [
     {
