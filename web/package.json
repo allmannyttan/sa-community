@@ -43,6 +43,7 @@
   },
   "devDependencies": {
     "@sanity/cli": "^2.2.6",
+    "@sanity/core": "^2.3.3",
     "eslint-config-react-app": "^6.0.0"
   }
 }
