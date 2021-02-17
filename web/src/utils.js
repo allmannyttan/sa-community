@@ -22,9 +22,9 @@ export const getRouteNameFromContentType = (contentType) => {
     case 'newsPost':
       return 'nyheter'
     case 'project':
-      return 'projekt'
+      return 'docs/projekt'
     case 'api':
-      return 'api'
+      return 'docs/api'
     default:
       return '404'
   }

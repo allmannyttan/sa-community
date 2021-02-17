@@ -45,9 +45,11 @@ export default {
                   'Länk till någon av de andra posterna på sidan, t.ex ett projekt eller en nyhet.',
                 to: [
                   { type: 'newsPost' },
+                  { type: 'api' },
                   { type: 'project' },
                   { type: 'homePage' },
                   { type: 'aboutUsPage' },
+                  { type: 'apiPage' },
                 ],
               },
             ],
