@@ -1,5 +1,4 @@
 import React from 'react'
-import * as utils from '../utils'
 import * as Links from './links'
 import * as Typography from './typography'
 
