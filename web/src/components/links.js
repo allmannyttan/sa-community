@@ -42,8 +42,10 @@ export const Anchor = ({ children, slug, style }) => {
 }
 
 export const AnchorWithIcon = ({ children, slug }) => (
-  <Link id={slug} className="anchor flex items-center gap-2" to={`#${slug}`}>
+  <Link id={slug} className="anchor inline-flex items-center" to={`#${slug}`}>
     {children}
-    <AiOutlineLink />
+    <div className="ml-2">
+      <AiOutlineLink />
+    </div>
   </Link>
 )
