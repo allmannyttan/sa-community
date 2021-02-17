@@ -12,6 +12,10 @@ export const H3 = ({ children }) => {
   return <h3 className="text-xl font-bold my-2">{children}</h3>
 }
 
+export const H4 = ({ children }) => (
+  <h4 className="text-sm font-normal tracking-wider">{children}</h4>
+)
+
 export const BodyParagraph = ({ children }) => (
-  <p className="max-w-2xl text-lg tracking-wide">{children}</p>
+  <p className="max-w-2xl text-base md:text-lg tracking-wide">{children}</p>
 )
