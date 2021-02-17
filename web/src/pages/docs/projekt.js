@@ -1,6 +1,8 @@
 import * as React from 'react'
 import { graphql, useStaticQuery, Link } from 'gatsby'
 import BlockContent from '../../components/blockContent'
+import * as Typography from '../../components/typography'
+import * as Layout from '../../components/layout/'
 
 const query = graphql`
   query projectsPage {
@@ -32,22 +34,20 @@ const Component = () => {
     return <h2 className="text-xl">Data saknas....</h2>
 
   return (
-    <>
-      <div className="text-center my-8">
-        {data && (
-          <>
-            <h2 className="text-xl">{data.title}</h2>
-            <BlockContent className="text-center" blocks={data._rawBody} />
-          </>
-        )}
-      </div>
-      {projects.map((project) => (
-        <Link key={project.title} to={`${project.slug.current}`}>
-          <p>{project.title}</p>
-          <p className="text-gray-700">{project.descriptionText}</p>
-        </Link>
-      ))}
-    </>
+    <div className="flex">
+      <Layout.Aside>
+        {projects &&
+          projects.map((item) => (
+            <Link key={item.title} to={`${item.slug.current}`}>
+              <p>{item.title}</p>
+            </Link>
+          ))}
+      </Layout.Aside>
+      <Layout.Article>
+        <Typography.H1>{data.title}</Typography.H1>
+        <BlockContent blocks={data._rawBody} withAnchor={true} />
+      </Layout.Article>
+    </div>
   )
 }
 
