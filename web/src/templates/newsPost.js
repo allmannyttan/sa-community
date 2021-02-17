@@ -17,13 +17,27 @@ export const query = graphql`
       }
       _rawBody(resolveReferences: { maxDepth: 10 })
     }
+    allSanityNewsPost {
+      edges {
+        node {
+          id
+          slug {
+            current
+          }
+          title
+          _type
+        }
+      }
+    }
   }
 `
 
 const Component = (props) => {
   const {
-    data: { sanityNewsPost: data },
+    data: { sanityNewsPost: data, allSanityNewsPost },
   } = props
+
+  const newsPosts = allSanityNewsPost.edges.map(({ node }) => node)
 
   return (
     <>
@@ -33,9 +47,9 @@ const Component = (props) => {
         description={data.descriptionText}
       />
       <ArticlePage
-        tableOfContents={data.tableOfContents}
         rawBody={data._rawBody}
         title={data.title}
+        newsSideMenu={newsPosts}
       />
     </>
   )
