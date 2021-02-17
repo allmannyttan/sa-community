@@ -47,6 +47,7 @@ const Component = (props) => {
         description={data.descriptionText}
       />
       <ArticlePage
+        tableOfContents={false}
         rawBody={data._rawBody}
         title={data.title}
         newsSideMenu={newsPosts}

@@ -35,6 +35,7 @@ const Component = (props) => {
         tableOfContents={data.tableOfContents}
         rawBody={data._rawBody}
         title={data.title}
+        newsSideMenu={false}
       />
     </>
   )
