@@ -10,13 +10,13 @@ import styles from './IframePreview.module.css'
 const parseContentTypeName = (name) => {
   switch (name) {
     case 'project':
-      return 'projekt'
+      return 'docs/projekt'
     case 'newsPost':
       return 'nyheter'
     case 'homePage':
       return ''
     case 'api':
-      return 'api'
+      return 'docs/api'
     case 'aboutUsPage':
       return 'om-oss'
     case 'communicationPage':
@@ -24,7 +24,11 @@ const parseContentTypeName = (name) => {
     case 'newsPage':
       return 'nyheter'
     case 'projectPage':
-      return 'projekt'
+      return 'docs/projekt'
+    case 'sourceCodePage':
+      return 'kallkod'
+    case 'apiPage':
+      return 'docs/api'
     default:
       return name
   }
