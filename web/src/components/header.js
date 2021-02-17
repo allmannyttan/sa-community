@@ -26,16 +26,16 @@ const NavLink = ({ to, cb, children }) => {
   )
 }
 
-const Component = () => {
+const Header = () => {
   const routes = Object.entries({
-    '/docs/projekt': 'Projekt',
+    '/docs/project': 'Projekt',
     '/docs/api': 'API:er',
-    '/nyheter': 'Nyheter',
-    '/kallkod': 'Källkod',
-    '/om-oss': 'Om oss',
-    '/kommunikation': 'Kommunikation',
+    '/news': 'Nyheter',
+    '/source-code': 'Källkod',
+    '/about': 'Om oss',
+    '/communication': 'Kommunikation',
   }).map(([route, name]) => (
-    <li className="mb-6">
+    <li className="mb-6" key={route}>
       <NavLink cb={() => setOpen(false)} to={route}>
         {name}
       </NavLink>
@@ -83,4 +83,4 @@ const Component = () => {
   )
 }
 
-export default Component
+export default Header
