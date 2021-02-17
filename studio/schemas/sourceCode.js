@@ -15,8 +15,8 @@ export default {
       title: 'Källkod',
       name: 'name',
     },
-    prepare({ title = 'Källkod', name = 'källkod' }) {
-      const path = `/kallkod`
+    prepare({ title = 'Källkod', name = 'source-code' }) {
+      const path = `/${name}`
       return {
         path,
         name,
