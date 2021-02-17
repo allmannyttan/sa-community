@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import BlockContent from '../components/blockContent'
-import TableOfContents from '../components/tableOfContents'
+import ArticlePage from '../components/layout/articlePage'
 
 export const query = graphql`
   query sanityApi($id: String!) {
@@ -24,11 +23,11 @@ const Component = (props) => {
   } = props
 
   return (
-    <div className="flex justify-center">
-      <h1>{data.title}</h1>
-      {data.tableOfContents && <TableOfContents blocks={data._rawBody} />}
-      <BlockContent blocks={data._rawBody} withAnchor={true} />
-    </div>
+    <ArticlePage
+      tableOfContents={data.tableOfContents}
+      rawBody={data._rawBody}
+      title={data.title}
+    />
   )
 }
 
