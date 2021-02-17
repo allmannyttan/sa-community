@@ -16,6 +16,7 @@ const query = graphql`
             current
           }
           title
+          descriptionText
           _type
         }
       }
@@ -43,6 +44,7 @@ const Component = () => {
       {projects.map((project) => (
         <Link key={project.title} to={`${project.slug.current}`}>
           <p>{project.title}</p>
+          <p className="text-gray-700">{project.descriptionText}</p>
         </Link>
       ))}
     </>

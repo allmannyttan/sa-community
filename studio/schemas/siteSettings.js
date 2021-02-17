@@ -9,6 +9,11 @@ export default {
       title: 'Namn på sidan',
     },
     {
+      name: 'URL',
+      type: 'string',
+      title: 'Länk till sidan',
+    },
+    {
       name: 'description',
       type: 'text',
       title: 'Beskrivning',

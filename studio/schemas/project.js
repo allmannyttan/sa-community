@@ -10,6 +10,12 @@ export default {
       type: 'titleString',
       name: 'title',
     },
+    {
+      type: 'text',
+      title: 'Kortare beskrivning',
+      name: 'descriptionText',
+      description: 'Används för förhandsvisning och för SEO.',
+    },
     { type: 'defaultSlug', name: 'slug' },
     { type: 'bodyPortableText', name: 'Body' },
     { type: 'tableOfContents', name: 'tableOfContents' },
