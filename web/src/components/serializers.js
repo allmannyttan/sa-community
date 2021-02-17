@@ -67,7 +67,9 @@ export const YouTube = ({ node }) => {
 }
 
 export const Code = ({ node }) => (
-  <SyntaxHighlighter code={node.code} language={node.language} />
+  <div className="my-8">
+    <SyntaxHighlighter code={node.code} language={node.language} />
+  </div>
 )
 
 export const ExternalLink = ({ mark, children }) =>
@@ -95,7 +97,7 @@ export const InternalLink = ({ mark, children }) => {
     const url = `/${utils.getRouteNameFromPageType(mark.reference._type)}`
 
     return (
-      <Link className="text-red-800" to={url}>
+      <Link className="text-purple-700 hover:text-purple-900" to={url}>
         {children}
       </Link>
     )
@@ -106,7 +108,7 @@ export const InternalLink = ({ mark, children }) => {
   }`
 
   return (
-    <Link className="text-red-800" to={url}>
+    <Link className="text-purple-700 hover:text-purple-900" to={url}>
       {children}
     </Link>
   )
