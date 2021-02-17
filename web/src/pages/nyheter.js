@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { graphql, useStaticQuery, Link } from 'gatsby'
-import Layout from '../components/layout'
 import BlockContent from '../components/blockContent'
 
 const query = graphql`
@@ -28,11 +27,19 @@ const query = graphql`
 const Component = () => {
   const { sanityNewsPage: data, allSanityNewsPost } = useStaticQuery(query)
   const posts = allSanityNewsPost.edges.map(({ node }) => node)
+
+  if (!data && !Boolean(posts.length))
+    return <h2 className="text-xl">Data saknas....</h2>
+
   return (
-    <Layout>
+    <>
       <div className="text-center my-8">
-        <h2 className="text-xl">{data.title}</h2>
-        <BlockContent className="text-center" blocks={data._rawBody} />
+        {data && (
+          <>
+            <h2 className="text-xl">{data.title}</h2>
+            <BlockContent className="text-center" blocks={data._rawBody} />
+          </>
+        )}
       </div>
       {posts.map((newsPost) => (
         <Link key={newsPost.title} to={`${newsPost.slug.current}`}>
@@ -40,7 +47,7 @@ const Component = () => {
           <p className="text-gray-700">{newsPost.descriptionText}</p>
         </Link>
       ))}
-    </Layout>
+    </>
   )
 }
 

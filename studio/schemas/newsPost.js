@@ -18,6 +18,7 @@ export default {
     {
       name: 'author',
       type: 'reference',
+      weak: true,
       title: 'Redaktör',
       to: [{ type: 'editor' }],
     },

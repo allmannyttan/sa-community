@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { graphql, useStaticQuery, Link } from 'gatsby'
-import Layout from '../components/layout'
-import BlockContent from '../components/blockContent'
+import BlockContent from '../../components/blockContent'
 
 const query = graphql`
   query projectsPage {
@@ -29,11 +28,18 @@ const Component = () => {
   const { sanityProjectPage: data, allSanityProject } = useStaticQuery(query)
   const projects = allSanityProject.edges.map(({ node }) => node) || []
 
+  if (!data && !Boolean(projects.length))
+    return <h2 className="text-xl">Data saknas....</h2>
+
   return (
-    <Layout>
+    <>
       <div className="text-center my-8">
-        <h2 className="text-xl">{data.title}</h2>
-        <BlockContent className="text-center" blocks={data._rawBody} />
+        {data && (
+          <>
+            <h2 className="text-xl">{data.title}</h2>
+            <BlockContent className="text-center" blocks={data._rawBody} />
+          </>
+        )}
       </div>
       {projects.map((project) => (
         <Link key={project.title} to={`${project.slug.current}`}>
@@ -41,7 +47,7 @@ const Component = () => {
           <p className="text-gray-700">{project.descriptionText}</p>
         </Link>
       ))}
-    </Layout>
+    </>
   )
 }
 

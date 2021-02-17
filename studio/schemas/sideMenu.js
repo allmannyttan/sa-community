@@ -14,6 +14,7 @@ export default {
           name: 'reference',
           type: 'reference',
           title: 'Reference',
+          weak: true,
           to: [
             { type: 'project' },
             // other types you may want to link to

@@ -27,18 +27,16 @@ const Component = (props) => {
   } = props
 
   return (
-    <Layout>
+    <div className="flex justify-center">
       <SEO
         title={data.title}
         article={true}
         description={data.descriptionText}
       />
-      <div className="flex justify-center">
-        <h1>{data.title}</h1>
-        {data.tableOfContents && <TableOfContents blocks={data._rawBody} />}
-        <BlockContent blocks={data._rawBody} withAnchor></BlockContent>
-      </div>
-    </Layout>
+      <h1>{data.title}</h1>
+      {data.tableOfContents && <TableOfContents blocks={data._rawBody} />}
+      <BlockContent blocks={data._rawBody} withAnchor></BlockContent>
+    </div>
   )
 }
 

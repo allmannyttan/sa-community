@@ -15,7 +15,7 @@ module.exports = {
       options: {
         projectId: 'qo99b1oh',
         dataset: 'development',
-        token: process.env.SANITY_TOKEN,
+        token: process.env.SANITY_READ_DATA_TOKEN,
         watchMode: process.env.NODE_ENV === 'development',
       },
     },

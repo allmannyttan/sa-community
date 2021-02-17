@@ -27,17 +27,15 @@ const Component = (props) => {
   } = props
 
   return (
-    <Layout>
+    <>
       <SEO
         title={data.title}
         article={true}
         description={data.descriptionText}
       />
-      <div>
-        <h1>{data.title}</h1>
-        <BlockContent blocks={data._rawBody}></BlockContent>
-      </div>
-    </Layout>
+      <h1>{data.title}</h1>
+      <BlockContent blocks={data._rawBody}></BlockContent>
+    </>
   )
 }
 
