@@ -19,12 +19,12 @@ jobs:
           registry-url: https://registry.npmjs.org/
 
       - name: Install studio
-        run: cd studio && npm install
+        run: cd studio && npm ci
         env:
           CI: true
 
       - name: Install web
-        run: cd web && npm install
+        run: cd web && npm ci
         env:
           CI: true
 
