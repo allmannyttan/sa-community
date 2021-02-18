@@ -11,12 +11,6 @@ export default {
       description: 'Hero bild som visas stort längst upp på sidan.',
     },
     {
-      type: 'text',
-      title: 'Hero text',
-      name: 'heroText',
-      description: 'Denna text placeras i mitten av hero:n',
-    },
-    {
       type: 'title',
       name: 'title',
     },
