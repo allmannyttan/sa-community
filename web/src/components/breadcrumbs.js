@@ -7,7 +7,7 @@ const BreadCrumbs = () => {
 
   const parts = pathname
     .split('/')
-    .filter((p) => !!p)
+    .filter(Boolean)
     .map((p, i, arr) => ({
       name: p
         .split('-')
