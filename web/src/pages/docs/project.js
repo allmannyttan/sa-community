@@ -2,7 +2,6 @@ import * as React from 'react'
 import { graphql, useStaticQuery, Link } from 'gatsby'
 import BlockContent from '../../components/blockContent'
 import SEO from '../../components/seo'
-import BreadCrumbs from '../../components/breadcrumbs'
 
 const query = graphql`
   query projectsPage {
@@ -32,7 +31,7 @@ const query = graphql`
   }
 `
 
-const Component = ({ location }) => {
+const Component = () => {
   const {
     sanityProjectPage: data,
     allSanityProject,
@@ -45,7 +44,6 @@ const Component = ({ location }) => {
 
   return (
     <>
-      <BreadCrumbs path={location.pathname} />
       <div>
         <SEO
           title={data.title || sanitySiteSettings.title}

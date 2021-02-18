@@ -5,24 +5,20 @@ const BreadCrumbs = ({ path = '' }) => {
   const parts = path
     .split('/')
     .filter((p) => !!p)
-    .map((p) => ({ name: p, route: `/${p}` }))
-    .map(({ name }, i, arr) => ({
-      name:
-        i === arr.length - 1
-          ? name.charAt(0).toUpperCase() + name.slice(1)
-          : name,
-      route: arr
-        .filter((_, i2) => i2 <= i)
-        .map(({ route }) => route)
-        .join(''),
+    .map((p, i, arr) => ({
+      name: p
+        .split('-')
+        .map((n) => n.charAt(0).toUpperCase() + n.slice(1))
+        .join(' '),
+      route: `/${arr.filter((_, i2) => i2 <= i).join('/')}`,
     }))
 
   return (
     <div>
       {parts.map((part, i, arr) => (
-        <span key={part.name} className="text-md tracking-wide">
+        <span key={part.name} className="text-sm tracking-wide text-purple-700">
           <Link to={part.route}>{part.name}</Link>{' '}
-          {i === arr.length - 1 ? '' : '/ '}
+          {i === arr.length - 1 ? '' : '> '}
         </span>
       ))}
     </div>

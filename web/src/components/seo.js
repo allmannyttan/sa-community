@@ -22,7 +22,7 @@ const SEO = ({ title, description, article, keywords }) => {
   const { pathname } = useLocation()
 
   const seo = {
-    title: title || site.siteMetadata.defaultTitle,
+    title: `${site.siteMetadata.defaultTitle} | ${title}`,
     description: description || site.siteMetadata.defaultDescription,
     url: `${site.siteMetadata.siteUrl}${pathname}`,
     keywords: (keywords || site.siteMetadata.defaultKeywords).join(','),
