@@ -18,6 +18,11 @@ jobs:
           node-version: 12.x
           registry-url: https://registry.npmjs.org/
 
+      - name: Install vercel
+        run: npm install
+        env:
+          CI: true
+
       - name: Install studio
         run: cd studio && npm ci
         env:
@@ -35,7 +40,7 @@ jobs:
           SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
 
       - name: Deploy studio
-        run: cd studio && sanity deploy
+        run: cd studio && npm run deploy
         env:
           CI: true
           SANITY_READ_DATA_TOKEN: ${{ secrets.SANITY_READ_DATA_TOKEN }}
