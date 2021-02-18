@@ -36,16 +36,29 @@ const Component = () => {
   return (
     <Layout.FlexWrapper>
       <Layout.Aside>
-        {projects &&
-          projects.map((item) => (
-            <Link key={item.title} to={`${item.slug.current}`}>
-              <p>{item.title}</p>
-            </Link>
-          ))}
+        {projects.map((item) => (
+          <Link key={item.title} to={`${item.slug.current}`}>
+            <p>{item.title}</p>
+          </Link>
+        ))}
       </Layout.Aside>
       <Layout.Article>
         <Typography.H1>{data.title}</Typography.H1>
         <BlockContent blocks={data._rawBody} withAnchor={true} />
+        {projects.map((item) => (
+          <div className="my-3">
+            <Link
+              key={item.title}
+              to={`${item.slug.current}`}
+              className="text-saGreen underline font-normal text-lg"
+            >
+              {item.title}
+            </Link>
+            <Typography.DescriptionParagraph>
+              {item.descriptionText}
+            </Typography.DescriptionParagraph>
+          </div>
+        ))}
       </Layout.Article>
     </Layout.FlexWrapper>
   )

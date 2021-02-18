@@ -44,6 +44,20 @@ const Component = () => {
       <Layout.Article>
         <Typography.H1>{data.title}</Typography.H1>
         <BlockContent blocks={data._rawBody} withAnchor={true} />
+        {apis.map((item) => (
+          <div className="my-3">
+            <Link
+              key={item.title}
+              to={`${item.slug.current}`}
+              className="text-saGreen underline font-normal text-lg"
+            >
+              {item.title}
+            </Link>
+            <Typography.DescriptionParagraph>
+              {item.descriptionText}
+            </Typography.DescriptionParagraph>
+          </div>
+        ))}
       </Layout.Article>
     </Layout.FlexWrapper>
   )
