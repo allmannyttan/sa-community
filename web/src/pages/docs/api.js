@@ -60,7 +60,7 @@ const Component = () => {
         <Typography.H1>{data.title}</Typography.H1>
         <BlockContent blocks={data._rawBody} withAnchor={true} />
         {apis.map((item) => (
-          <div className="my-3">
+          <div className="my-3" key={item.title}>
             <Links.Anchor slug={item.slug.current}>{item.title}</Links.Anchor>
             <Typography.DescriptionParagraph>
               {item.descriptionText}
