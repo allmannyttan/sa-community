@@ -2,13 +2,14 @@ export default {
   name: 'sourceCodePage',
   type: 'document',
   title: 'Källkod',
-  __experimental_actions: ['update', 'publish', 'create', 'delete'],
+  __experimental_actions: ['update', 'publish', 'create'],
   fields: [
     {
       type: 'titleString',
       name: 'title',
     },
     { type: 'bodyPortableText', name: 'Body' },
+    { type: 'tableOfContents', name: 'tableOfContents' },
   ],
   preview: {
     select: {
