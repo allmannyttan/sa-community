@@ -10,8 +10,9 @@ export const query = graphql`
       slug {
         current
       }
+      keywords
       title
-      descriptionText
+      description
       author {
         name
       }
@@ -29,8 +30,9 @@ const Component = (props) => {
     <>
       <SEO
         title={data.title}
+        keywords={data.keywords}
         article={true}
-        description={data.descriptionText}
+        description={data.description}
       />
       <ArticlePage
         tableOfContents={data.tableOfContents}

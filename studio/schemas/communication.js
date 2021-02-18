@@ -5,10 +5,11 @@ export default {
   __experimental_actions: ['update', 'publish', 'create', 'delete'],
   fields: [
     {
-      type: 'titleString',
+      type: 'title',
       name: 'title',
     },
     { type: 'bodyPortableText', name: 'Body' },
+    { type: 'keywords', name: 'keywords' },
   ],
   preview: {
     select: {

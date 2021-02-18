@@ -4,13 +4,13 @@ export default {
   title: 'Nyheter',
   fields: [
     {
-      type: 'titleString',
+      type: 'title',
       name: 'title',
     },
     {
       type: 'text',
       title: 'Kortare beskrivning',
-      name: 'descriptionText',
+      name: 'description',
       description: 'Används för förhandsvisning och för SEO.',
     },
     { type: 'defaultSlug', name: 'slug' },
@@ -22,6 +22,7 @@ export default {
       title: 'Redaktör',
       to: [{ type: 'editor' }],
     },
+    { type: 'keywords', name: 'keywords' },
   ],
   orderings: [
     {

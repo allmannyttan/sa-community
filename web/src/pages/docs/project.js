@@ -2,12 +2,14 @@ import * as React from 'react'
 import { graphql, useStaticQuery, Link } from 'gatsby'
 import BlockContent from '../../components/blockContent'
 import * as hooks from '../../hooks'
+import SEO from '../../components/seo'
 
 const query = graphql`
   query projectsPage {
     sanityProjectPage {
       _rawBody
       title
+      keywords
     }
     allSanityProject {
       edges {
@@ -17,17 +19,26 @@ const query = graphql`
             current
           }
           title
-          descriptionText
+          description
           _type
         }
       }
+    }
+    sanitySiteSettings {
+      keywords
+      title
+      description
     }
   }
 `
 
 const Component = ({ location }) => {
   const breadCrumbs = hooks.useBreadCrumbs(location.pathname)
-  const { sanityProjectPage: data, allSanityProject } = useStaticQuery(query)
+  const {
+    sanityProjectPage: data,
+    allSanityProject,
+    sanitySiteSettings,
+  } = useStaticQuery(query)
   const projects = allSanityProject.edges.map(({ node }) => node) || []
 
   if (!data && !Boolean(projects.length))
@@ -35,6 +46,11 @@ const Component = ({ location }) => {
 
   return (
     <>
+      <SEO
+        title={data.title || sanitySiteSettings.title}
+        description={data.description || sanitySiteSettings.description}
+        keywords={data.keywords || sanitySiteSettings.keywords}
+      />
       <div className="text-center my-8">
         {data && (
           <>
@@ -46,7 +62,7 @@ const Component = ({ location }) => {
       {projects.map((project) => (
         <Link key={project.title} to={`${project.slug.current}`}>
           <p>{project.title}</p>
-          <p className="text-gray-700">{project.descriptionText}</p>
+          <p className="text-gray-700">{project.description}</p>
         </Link>
       ))}
     </>

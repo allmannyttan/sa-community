@@ -22,6 +22,7 @@ export default {
       type: 'array',
       of: [{ type: 'focusArea' }],
     },
+    { type: 'keywords', name: 'keywords' },
   ],
   preview: {
     select: {
