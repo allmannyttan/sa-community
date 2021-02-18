@@ -5,6 +5,7 @@ import ArticleSideMenu from '../../components/articleSideMenu'
 import * as Typography from '../../components/typography'
 import SEO from '../../components/seo'
 import * as Layout from '../../components/layout/'
+import * as Links from '../../components/links'
 
 const query = graphql`
   query api {
@@ -60,13 +61,7 @@ const Component = () => {
         <BlockContent blocks={data._rawBody} withAnchor={true} />
         {apis.map((item) => (
           <div className="my-3">
-            <Link
-              key={item.title}
-              to={`${item.slug.current}`}
-              className="text-saGreen underline font-normal text-lg"
-            >
-              {item.title}
-            </Link>
+            <Links.Anchor slug={item.slug.current}>{item.title}</Links.Anchor>
             <Typography.DescriptionParagraph>
               {item.descriptionText}
             </Typography.DescriptionParagraph>
