@@ -33,9 +33,9 @@ const TableOfContents = ({ blocks = [] }) => {
             return (
               <div key={i}>
                 <li className="my-4 w-full">
-                  <Links.Anchor slug={slug} style={style}>
+                  <Links.TableOfContents slug={slug} style={style}>
                     {item.children[0].text}
-                  </Links.Anchor>
+                  </Links.TableOfContents>
                 </li>
               </div>
             )
