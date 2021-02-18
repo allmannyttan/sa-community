@@ -5,6 +5,12 @@ export default {
   __experimental_actions: ['update', 'publish', 'create', 'delete'],
   fields: [
     {
+      type: 'heroImage',
+      name: 'heroImage',
+      title: 'Hero bild',
+      description: 'Hero bild som visas stort längst upp på sidan.',
+    },
+    {
       type: 'title',
       name: 'title',
     },

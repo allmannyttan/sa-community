@@ -7,6 +7,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        saBlack: '#221223',
         saOrange: '#de7c00',
         saGreen: '#04a388',
         saPurple: '#50058B',
@@ -18,9 +19,9 @@ module.exports = {
         700: '700px',
       },
     },
+    variants: {
+      fontStyle: ['responsive', 'hover', 'active', 'focus'],
+    },
+    plugins: [],
   },
-  variants: {
-    fontStyle: ['responsive', 'hover', 'active', 'focus'],
-  },
-  plugins: [],
 }

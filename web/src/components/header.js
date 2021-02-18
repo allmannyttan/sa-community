@@ -35,7 +35,7 @@ const Header = () => {
     '/about': 'Om oss',
     '/communication': 'Kommunikation',
   }).map(([route, name]) => (
-    <li className="mb-6" key={route}>
+    <li className="mb-6 md:mb-0" key={route}>
       <NavLink cb={() => setOpen(false)} to={route}>
         {name}
       </NavLink>
@@ -63,7 +63,7 @@ const Header = () => {
       <header className="max-w-screen-2xl mx-auto">
         <nav className="w-full h-24 flex justify-between items-center px-12">
           <Link to="/">
-            <img className="w-32" src={logotype} alt="website logotype" />
+            <img className="w-24" src={logotype} alt="website logotype" />
           </Link>
           <button
             onClick={() => setOpen((curr) => !curr)}

@@ -5,6 +5,7 @@ import SEO from '../../components/seo'
 import ArticleSideMenu from '../../components/articleSideMenu'
 import * as Typography from '../../components/typography'
 import * as Layout from '../../components/layout/'
+import * as Links from '../../components/links'
 
 const query = graphql`
   query projectsPage {
@@ -63,12 +64,7 @@ const Component = () => {
         <BlockContent blocks={data._rawBody} withAnchor={true} />
         {projects.map((item) => (
           <div className="my-3" key={item.title}>
-            <Link
-              to={`${item.slug.current}`}
-              className="text-saGreen underline font-normal text-lg"
-            >
-              {item.title}
-            </Link>
+            <Links.Anchor slug={item.slug.current}>{item.title}</Links.Anchor>
             <Typography.DescriptionParagraph>
               {item.descriptionText}
             </Typography.DescriptionParagraph>
