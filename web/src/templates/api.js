@@ -28,7 +28,7 @@ const Component = (props) => {
   } = props
 
   return (
-    <div className="flex">
+    <Layout.FlexWrapper>
       <SEO
         title={data.title}
         article={true}
@@ -41,7 +41,7 @@ const Component = (props) => {
         <Typography.H1>{data.title}</Typography.H1>
         <BlockContent blocks={data._rawBody} withAnchor={true} />
       </Layout.Article>
-    </div>
+    </Layout.FlexWrapper>
   )
 }
 

@@ -34,7 +34,7 @@ const Component = () => {
     return <h2 className="text-xl">Data saknas....</h2>
 
   return (
-    <div className="flex">
+    <Layout.FlexWrapper>
       <Layout.Aside>
         {posts.map((item) => (
           <Link key={item.title} to={`${item.slug.current}`}>
@@ -46,7 +46,7 @@ const Component = () => {
         <Typography.H1>{data.title}</Typography.H1>
         <BlockContent blocks={data._rawBody} withAnchor={true} />
       </Layout.Article>
-    </div>
+    </Layout.FlexWrapper>
   )
 }
 

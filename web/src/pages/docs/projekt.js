@@ -34,7 +34,7 @@ const Component = () => {
     return <h2 className="text-xl">Data saknas....</h2>
 
   return (
-    <div className="flex">
+    <Layout.FlexWrapper>
       <Layout.Aside>
         {projects &&
           projects.map((item) => (
@@ -47,7 +47,7 @@ const Component = () => {
         <Typography.H1>{data.title}</Typography.H1>
         <BlockContent blocks={data._rawBody} withAnchor={true} />
       </Layout.Article>
-    </div>
+    </Layout.FlexWrapper>
   )
 }
 
