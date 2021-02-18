@@ -1,7 +1,10 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import ArticlePage from '../components/layout/articlePage'
 import SEO from '../components/seo'
+import TableOfContents from '../components/tableOfContents'
+import BlockContent from '../components/blockContent'
+import * as Layout from '../components/layout/'
+import * as Typography from '../components/typography'
 
 export const query = graphql`
   query sanityApi($id: String!) {
@@ -25,18 +28,20 @@ const Component = (props) => {
   } = props
 
   return (
-    <>
+    <Layout.FlexWrapper>
       <SEO
         title={data.title}
         article={true}
         description={data.descriptionText}
       />
-      <ArticlePage
-        tableOfContents={data.tableOfContents}
-        rawBody={data._rawBody}
-        title={data.title}
-      />
-    </>
+      <Layout.Aside>
+        <TableOfContents blocks={data._rawBody} />
+      </Layout.Aside>
+      <Layout.Article>
+        <Typography.H1>{data.title}</Typography.H1>
+        <BlockContent blocks={data._rawBody} withAnchor={true} />
+      </Layout.Article>
+    </Layout.FlexWrapper>
   )
 }
 
