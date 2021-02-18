@@ -8,6 +8,12 @@ export default {
       type: 'title',
       name: 'title',
     },
+    {
+      type: 'heroImage',
+      name: 'heroImage',
+      title: 'Hero bild',
+      description: 'Hero bild som visas stort längst upp på sidan.',
+    },
     { type: 'bodyPortableText', name: 'Body' },
     { type: 'keywords', name: 'keywords' },
   ],
