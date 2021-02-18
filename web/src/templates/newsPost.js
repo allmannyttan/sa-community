@@ -20,12 +20,10 @@ export const query = graphql`
     allSanityNewsPost {
       edges {
         node {
-          id
           slug {
             current
           }
           title
-          _type
         }
       }
     }
