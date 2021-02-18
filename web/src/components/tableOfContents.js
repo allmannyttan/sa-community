@@ -3,7 +3,7 @@ import * as utils from '../utils'
 import * as Links from './links'
 import * as Typography from './typography'
 
-const TableOfContents = ({ blocks }) => {
+const TableOfContents = ({ blocks = [] }) => {
   const targetItems = ['h2', 'h3', 'h4']
   const menuItems = blocks.filter((block) => targetItems.includes(block.style))
 

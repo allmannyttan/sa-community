@@ -1,7 +1,10 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import ArticlePage from '../components/layout/articlePage'
 import SEO from '../components/seo'
+import * as Layout from '../components/layout/'
+import * as Typography from '../components/typography'
+import TableOfContents from '../components/tableOfContents'
+import BlockContent from '../components/blockContent'
 
 export const query = graphql`
   query projectTemplateQuery($id: String!) {
@@ -24,20 +27,21 @@ const Component = ({ data }) => {
   const { sanityProject } = data
 
   return (
-    <>
+    <Layout.FlexWrapper>
       <SEO
         title={sanityProject.title}
         keywords={sanityProject.keywords}
         article={true}
         description={sanityProject.description}
       />
-
-      <ArticlePage
-        tableOfContents={sanityProject.tableOfContents}
-        rawBody={sanityProject._rawBody}
-        title={sanityProject.title}
-      />
-    </>
+      <Layout.Aside>
+        <TableOfContents blocks={sanityProject._rawBody} />
+      </Layout.Aside>
+      <Layout.Article>
+        <Typography.H1>{sanityProject.title}</Typography.H1>
+        <BlockContent blocks={sanityProject._rawBody} withAnchor={true} />
+      </Layout.Article>
+    </Layout.FlexWrapper>
   )
 }
 

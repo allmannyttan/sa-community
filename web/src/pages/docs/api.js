@@ -1,8 +1,10 @@
 import * as React from 'react'
 import { graphql, useStaticQuery, Link } from 'gatsby'
 import BlockContent from '../../components/blockContent'
+import ArticleSideMenu from '../../components/articleSideMenu'
 import * as Typography from '../../components/typography'
 import SEO from '../../components/seo'
+import * as Layout from '../../components/layout/'
 
 const query = graphql`
   query api {
@@ -44,32 +46,34 @@ const Component = () => {
     return <h2 className="text-xl">Data saknas....</h2>
 
   return (
-    <>
+    <Layout.FlexWrapper>
       <SEO
         title={data.title || sanitySiteSettings.title}
         description={data.description || sanitySiteSettings.description}
         keywords={data.keywords || sanitySiteSettings.keywords}
       />
-      <div className="px-4 pt-12 grid grid-cols-8">
-        {data && (
-          <>
-            <h2 className="text-xl">{data.title}</h2>
-
-            <BlockContent className="text-center" blocks={data._rawBody} />
-          </>
-        )}
-        <div className="col-span-2 max-w-xs">
-          {apis.map((project) => (
-            <Link key={project.title} to={`${project.slug.current}`}>
-              <div className="m-4 p-2 border-b-2">
-                <Typography.H3>{project.title}</Typography.H3>
-                <p className="text-gray-700">{project.description}</p>
-              </div>
+      <Layout.Aside>
+        <ArticleSideMenu title={'API'} posts={apis} url={'docs/api'} />
+      </Layout.Aside>
+      <Layout.Article>
+        <Typography.H1>{data.title}</Typography.H1>
+        <BlockContent blocks={data._rawBody} withAnchor={true} />
+        {apis.map((item) => (
+          <div className="my-3">
+            <Link
+              key={item.title}
+              to={`${item.slug.current}`}
+              className="text-saGreen underline font-normal text-lg"
+            >
+              {item.title}
             </Link>
-          ))}
-        </div>
-      </div>
-    </>
+            <Typography.DescriptionParagraph>
+              {item.descriptionText}
+            </Typography.DescriptionParagraph>
+          </div>
+        ))}
+      </Layout.Article>
+    </Layout.FlexWrapper>
   )
 }
 

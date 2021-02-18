@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import Header from '../header'
 import '../../base.css'
 
-const Layout = ({ children }) => {
+const Base = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -24,4 +24,4 @@ const Layout = ({ children }) => {
   )
 }
 
-export default Layout
+export default Base

@@ -2,7 +2,7 @@ export default {
   name: 'apiPage',
   type: 'document',
   title: 'API',
-  __experimental_actions: ['update', 'publish', 'create', 'delete'],
+  __experimental_actions: ['update', 'publish', 'create'],
   fields: [
     { type: 'title', name: 'title' },
     { type: 'bodyPortableText', name: 'Body' },
