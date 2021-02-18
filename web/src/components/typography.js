@@ -21,3 +21,9 @@ export const BodyParagraph = ({ children }) => (
     {children}
   </p>
 )
+
+export const DescriptionParagraph = ({ children }) => (
+  <p className="max-w-2xl font-light text-base md:text-lg tracking-wide">
+    {children}
+  </p>
+)
