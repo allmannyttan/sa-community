@@ -23,23 +23,23 @@ export const query = graphql`
   }
 `
 
-const Component = ({ data }) => {
-  const { sanityProject } = data
+const Component = (props) => {
+  const { sanityProject: data } = props.data
 
   return (
     <Layout.FlexWrapper>
       <SEO
-        title={sanityProject.title}
-        keywords={sanityProject.keywords}
+        title={data.title}
+        keywords={data.keywords}
         article={true}
-        description={sanityProject.description}
+        description={data.description}
       />
       <Layout.Aside>
-        <TableOfContents blocks={sanityProject._rawBody} />
+        <TableOfContents blocks={data._rawBody} />
       </Layout.Aside>
       <Layout.Article>
-        <Typography.H1>{sanityProject.title}</Typography.H1>
-        <BlockContent blocks={sanityProject._rawBody} withAnchor={true} />
+        <Typography.H1>{data.title}</Typography.H1>
+        <BlockContent blocks={data._rawBody} withAnchor={true} />
       </Layout.Article>
     </Layout.FlexWrapper>
   )
