@@ -58,9 +58,8 @@ const Component = () => {
         <Typography.H1>{data.title}</Typography.H1>
         <BlockContent blocks={data._rawBody} withAnchor={true} />
         {posts.map((item) => (
-          <div className="my-3">
+          <div className="my-3" key={item.title}>
             <Link
-              key={item.title}
               to={`${item.slug.current}`}
               className="text-saGreen underline font-normal text-lg"
             >
