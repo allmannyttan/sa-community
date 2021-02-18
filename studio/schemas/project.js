@@ -7,18 +7,19 @@ export default {
   }),
   fields: [
     {
-      type: 'titleString',
+      type: 'title',
       name: 'title',
     },
     {
       type: 'text',
       title: 'Kortare beskrivning',
-      name: 'descriptionText',
+      name: 'description',
       description: 'Används för förhandsvisning och för SEO.',
     },
     { type: 'defaultSlug', name: 'slug' },
     { type: 'bodyPortableText', name: 'Body' },
     { type: 'tableOfContents', name: 'tableOfContents' },
+    { type: 'keywords', name: 'keywords' },
   ],
   orderings: [
     {

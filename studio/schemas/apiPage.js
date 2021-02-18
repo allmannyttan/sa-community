@@ -4,11 +4,9 @@ export default {
   title: 'API',
   __experimental_actions: ['update', 'publish', 'create'],
   fields: [
-    {
-      type: 'titleString',
-      name: 'title',
-    },
+    { type: 'title', name: 'title' },
     { type: 'bodyPortableText', name: 'Body' },
+    { type: 'keywords', name: 'keywords' },
   ],
   preview: {
     select: {

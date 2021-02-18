@@ -3,10 +3,16 @@ import { graphql, Link, useStaticQuery } from 'gatsby'
 import * as Layout from '../components/layout/'
 import * as Typography from '../components/typography'
 import BlockContent from '../components/blockContent'
+import SEO from '../components/seo'
 import ArticleSideMenu from '../components/articleSideMenu'
 
 const query = graphql`
   query newsPage {
+    sanitySiteSettings {
+      keywords
+      title
+      description
+    }
     sanityNewsPage {
       _rawBody
       title
@@ -19,7 +25,7 @@ const query = graphql`
             current
           }
           title
-          descriptionText
+          description
           _type
         }
       }
@@ -28,7 +34,11 @@ const query = graphql`
 `
 
 const Component = () => {
-  const { sanityNewsPage: data, allSanityNewsPost } = useStaticQuery(query)
+  const {
+    sanityNewsPage: data,
+    allSanityNewsPost,
+    sanitySiteSettings = {},
+  } = useStaticQuery(query)
   const posts = allSanityNewsPost.edges.map(({ node }) => node)
 
   if (!data && !Boolean(posts.length))
@@ -36,6 +46,11 @@ const Component = () => {
 
   return (
     <Layout.FlexWrapper>
+      <SEO
+        title={data.title || sanitySiteSettings.title}
+        description={sanitySiteSettings.description}
+        keywords={data.keywords || sanitySiteSettings.keywords}
+      />
       <Layout.Aside>
         <ArticleSideMenu title={'NYHETER'} posts={posts} url={'news'} />
       </Layout.Aside>

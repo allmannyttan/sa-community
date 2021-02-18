@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { graphql, useStaticQuery, Link } from 'gatsby'
 import BlockContent from '../../components/blockContent'
+import SEO from '../../components/seo'
 import ArticleSideMenu from '../../components/articleSideMenu'
 import * as Typography from '../../components/typography'
 import * as Layout from '../../components/layout/'
@@ -10,6 +11,7 @@ const query = graphql`
     sanityProjectPage {
       _rawBody
       title
+      keywords
     }
     allSanityProject {
       edges {
@@ -19,23 +21,36 @@ const query = graphql`
             current
           }
           title
-          descriptionText
+          description
           _type
         }
       }
+    }
+    sanitySiteSettings {
+      keywords
+      title
+      description
     }
   }
 `
 
 const Component = () => {
-  const { sanityProjectPage: data, allSanityProject } = useStaticQuery(query)
+  const {
+    sanityProjectPage: data,
+    allSanityProject,
+    sanitySiteSettings,
+  } = useStaticQuery(query)
   const projects = allSanityProject.edges.map(({ node }) => node) || []
 
   if (!data && !Boolean(projects.length))
     return <h2 className="text-xl">Data saknas....</h2>
-
   return (
     <Layout.FlexWrapper>
+      <SEO
+        title={data.title || sanitySiteSettings.title}
+        description={data.description || sanitySiteSettings.description}
+        keywords={data.keywords || sanitySiteSettings.keywords}
+      />
       <Layout.Aside>
         <ArticleSideMenu
           title={'PROJECT'}
