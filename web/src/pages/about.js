@@ -2,6 +2,8 @@ import * as React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import BlockContent from '../components/blockContent'
 import SEO from '../components/seo'
+import HeroBlock from '../components/heroBlock'
+import * as Layout from '../components/layout/'
 
 const query = graphql`
   query aboutUs {
@@ -9,6 +11,14 @@ const query = graphql`
       title
       _rawBody(resolveReferences: { maxDepth: 10 })
       keywords
+      heroImage {
+        alt
+        asset {
+          fluid(maxWidth: 1800, maxHeight: 500) {
+            ...GatsbySanityImageFluid
+          }
+        }
+      }
     }
     sanitySiteSettings {
       keywords
@@ -29,8 +39,12 @@ const Component = () => {
         description={data.description || sanitySiteSettings.description}
         keywords={data.keywords || sanitySiteSettings.keywords}
       />
-      <h2 className="text-xl text-center my-8">{data.title}</h2>
-      <BlockContent blocks={data._rawBody} />
+      <HeroBlock heroImage={data.heroImage} heroText={data.title} />
+      <div className="flex justify-center">
+        <Layout.Article>
+          <BlockContent blocks={data._rawBody} />
+        </Layout.Article>
+      </div>
     </>
   )
 }
