@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { graphql, useStaticQuery, Link } from 'gatsby'
 import BlockContent from '../../components/blockContent'
-import * as hooks from '../../hooks'
 import SEO from '../../components/seo'
+import BreadCrumbs from '../../components/breadcrumbs'
 
 const query = graphql`
   query projectsPage {
@@ -33,7 +33,6 @@ const query = graphql`
 `
 
 const Component = ({ location }) => {
-  const breadCrumbs = hooks.useBreadCrumbs(location.pathname)
   const {
     sanityProjectPage: data,
     allSanityProject,
@@ -46,25 +45,28 @@ const Component = ({ location }) => {
 
   return (
     <>
-      <SEO
-        title={data.title || sanitySiteSettings.title}
-        description={data.description || sanitySiteSettings.description}
-        keywords={data.keywords || sanitySiteSettings.keywords}
-      />
-      <div className="text-center my-8">
-        {data && (
-          <>
-            <h2 className="text-xl">{data.title}</h2>
-            <BlockContent className="text-center" blocks={data._rawBody} />
-          </>
-        )}
+      <BreadCrumbs path={location.pathname} />
+      <div>
+        <SEO
+          title={data.title || sanitySiteSettings.title}
+          description={data.description || sanitySiteSettings.description}
+          keywords={data.keywords || sanitySiteSettings.keywords}
+        />
+        <div className="text-center my-8">
+          {data && (
+            <>
+              <h2 className="text-xl">{data.title}</h2>
+              <BlockContent className="text-center" blocks={data._rawBody} />
+            </>
+          )}
+        </div>
+        {projects.map((project) => (
+          <Link key={project.title} to={`${project.slug.current}`}>
+            <p>{project.title}</p>
+            <p className="text-gray-700">{project.description}</p>
+          </Link>
+        ))}
       </div>
-      {projects.map((project) => (
-        <Link key={project.title} to={`${project.slug.current}`}>
-          <p>{project.title}</p>
-          <p className="text-gray-700">{project.description}</p>
-        </Link>
-      ))}
     </>
   )
 }

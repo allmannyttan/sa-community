@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import ArticlePage from '../components/layout/articlePage'
 import SEO from '../components/seo'
+import BreadCrumbs from '../components/breadcrumbs'
 
 export const query = graphql`
   query projectTemplateQuery($id: String!) {
@@ -20,23 +21,22 @@ export const query = graphql`
   }
 `
 
-const Component = (props) => {
-  const {
-    data: { sanityProject: data },
-  } = props
+const Component = ({ data, location }) => {
+  const { sanityProject } = data
 
   return (
     <>
       <SEO
-        title={data.title}
-        keywords={data.keywords}
+        title={sanityProject.title}
+        keywords={sanityProject.keywords}
         article={true}
-        description={data.description}
+        description={sanityProject.description}
       />
+      <BreadCrumbs path={location.pathname} />
       <ArticlePage
-        tableOfContents={data.tableOfContents}
-        rawBody={data._rawBody}
-        title={data.title}
+        tableOfContents={sanityProject.tableOfContents}
+        rawBody={sanityProject._rawBody}
+        title={sanityProject.title}
       />
     </>
   )
