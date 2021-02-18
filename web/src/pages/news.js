@@ -3,6 +3,7 @@ import { graphql, Link, useStaticQuery } from 'gatsby'
 import * as Layout from '../components/layout/'
 import * as Typography from '../components/typography'
 import BlockContent from '../components/blockContent'
+import ArticleSideMenu from '../components/articleSideMenu'
 
 const query = graphql`
   query newsPage {
@@ -36,11 +37,7 @@ const Component = () => {
   return (
     <Layout.FlexWrapper>
       <Layout.Aside>
-        {posts.map((item) => (
-          <Link key={item.title} to={`${item.slug.current}`}>
-            <p>{item.title}</p>
-          </Link>
-        ))}
+        <ArticleSideMenu title={'NYHETER'} posts={posts} url={'news'} />
       </Layout.Aside>
       <Layout.Article>
         <Typography.H1>{data.title}</Typography.H1>

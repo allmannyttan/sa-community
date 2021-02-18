@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { graphql, useStaticQuery, Link } from 'gatsby'
 import BlockContent from '../../components/blockContent'
+import ArticleSideMenu from '../../components/articleSideMenu'
 import * as Typography from '../../components/typography'
 import * as Layout from '../../components/layout/'
 
@@ -35,11 +36,7 @@ const Component = () => {
   return (
     <Layout.FlexWrapper>
       <Layout.Aside>
-        {apis.map((item) => (
-          <Link key={item.title} to={`${item.slug.current}`}>
-            <p>{item.title}</p>
-          </Link>
-        ))}
+        <ArticleSideMenu title={'API'} posts={apis} url={'docs/api'} />
       </Layout.Aside>
       <Layout.Article>
         <Typography.H1>{data.title}</Typography.H1>

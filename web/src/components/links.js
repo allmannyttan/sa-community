@@ -2,17 +2,17 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { AiOutlineLink } from 'react-icons/ai'
 
-export const News = ({ children, slug }) => {
+export const Article = ({ children, slug }) => {
   const sharedStyle = `font-normal text-base `
   const isActive = ({ location }) => {
-    const isCurrent = location.pathname.includes(`/news/${slug}`)
+    const isCurrent = location.pathname.includes(`/${slug}`)
 
     return isCurrent ? { className: `text-saGreen ${sharedStyle}` } : {}
   }
 
   return (
     <Link
-      to={`/news/${slug}`}
+      to={`/${slug}`}
       className={`text-saGreyBlueDar hover:text-saGreen  ${sharedStyle}`}
       getProps={isActive}
     >
