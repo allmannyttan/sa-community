@@ -1,7 +1,10 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import ArticlePage from '../components/layout/articlePage'
 import SEO from '../components/seo'
+import * as Layout from '../components/layout/'
+import * as Typography from '../components/typography'
+import TableOfContents from '../components/tableOfContents'
+import BlockContent from '../components/blockContent'
 
 export const query = graphql`
   query newsPostTemplateQuery($id: String!) {
@@ -38,19 +41,20 @@ const Component = (props) => {
   const newsPosts = allSanityNewsPost.edges.map(({ node }) => node)
 
   return (
-    <>
+    <Layout.FlexWrapper>
       <SEO
         title={data.title}
         article={true}
         description={data.descriptionText}
       />
-      <ArticlePage
-        tableOfContents={false}
-        rawBody={data._rawBody}
-        title={data.title}
-        newsSideMenu={newsPosts}
-      />
-    </>
+      <Layout.Aside>
+        <TableOfContents blocks={data._rawBody} />
+      </Layout.Aside>
+      <Layout.Article>
+        <Typography.H1>{data.title}</Typography.H1>
+        <BlockContent blocks={data._rawBody} withAnchor={true} />
+      </Layout.Article>
+    </Layout.FlexWrapper>
   )
 }
 

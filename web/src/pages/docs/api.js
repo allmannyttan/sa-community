@@ -2,6 +2,7 @@ import * as React from 'react'
 import { graphql, useStaticQuery, Link } from 'gatsby'
 import BlockContent from '../../components/blockContent'
 import * as Typography from '../../components/typography'
+import * as Layout from '../../components/layout/'
 
 const query = graphql`
   query api {
@@ -19,15 +20,7 @@ const query = graphql`
       }
     }
     sanityApiPage {
-      heroImage {
-        alt
-        asset {
-          fluid(maxWidth: 1800, maxHeight: 500) {
-            ...GatsbySanityImageFluid
-          }
-        }
-      }
-      heroText
+      title
       _rawBody
     }
   }
@@ -39,28 +32,34 @@ const Component = () => {
 
   if (!data && !Boolean(apis.length))
     return <h2 className="text-xl">Data saknas....</h2>
-  console.log(data)
   return (
-    <>
-      <div className="px-4 pt-12 grid grid-cols-8">
-        {data && (
-          <>
-            <h2 className="text-xl">{data.title}</h2>
-            <BlockContent className="text-center" blocks={data._rawBody} />
-          </>
-        )}
-        <div className="col-span-2 max-w-xs">
-          {apis.map((project) => (
-            <Link key={project.title} to={`${project.slug.current}`}>
-              <div className="m-4 p-2 border-b-2">
-                <Typography.H3>{project.title}</Typography.H3>
-                <p className="text-gray-700">{project.descriptionText}</p>
-              </div>
+    <Layout.FlexWrapper>
+      <Layout.Aside>
+        {apis.map((item) => (
+          <Link key={item.title} to={`${item.slug.current}`}>
+            <p>{item.title}</p>
+          </Link>
+        ))}
+      </Layout.Aside>
+      <Layout.Article>
+        <Typography.H1>{data.title}</Typography.H1>
+        <BlockContent blocks={data._rawBody} withAnchor={true} />
+        {apis.map((item) => (
+          <div className="my-3">
+            <Link
+              key={item.title}
+              to={`${item.slug.current}`}
+              className="text-saGreen underline font-normal text-lg"
+            >
+              {item.title}
             </Link>
-          ))}
-        </div>
-      </div>
-    </>
+            <Typography.DescriptionParagraph>
+              {item.descriptionText}
+            </Typography.DescriptionParagraph>
+          </div>
+        ))}
+      </Layout.Article>
+    </Layout.FlexWrapper>
   )
 }
 
