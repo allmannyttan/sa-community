@@ -8,11 +8,12 @@ export default {
   }),
   fields: [
     {
-      type: 'titleString',
+      type: 'title',
       name: 'title',
     },
     { type: 'bodyPortableText', name: 'Body' },
     { type: 'tableOfContents', name: 'tableOfContents' },
+    { type: 'keywords', name: 'keywords' },
   ],
   preview: {
     select: {

@@ -14,7 +14,8 @@ export const query = graphql`
         current
       }
       title
-      descriptionText
+      description
+      keywords
       tableOfContents
       _type
       _rawBody(resolveReferences: { maxDepth: 10 })
@@ -23,16 +24,15 @@ export const query = graphql`
 `
 
 const Component = (props) => {
-  const {
-    data: { sanityProject: data },
-  } = props
+  const { sanityProject: data } = props.data
 
   return (
     <Layout.FlexWrapper>
       <SEO
         title={data.title}
+        keywords={data.keywords}
         article={true}
-        description={data.descriptionText}
+        description={data.description}
       />
       <Layout.Aside>
         <TableOfContents blocks={data._rawBody} />

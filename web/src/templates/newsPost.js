@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import SEO from '../components/seo'
 import * as Layout from '../components/layout/'
 import * as Typography from '../components/typography'
-import TableOfContents from '../components/tableOfContents'
+import ArticleSideMenu from '../components/articleSideMenu'
 import BlockContent from '../components/blockContent'
 
 export const query = graphql`
@@ -13,30 +13,44 @@ export const query = graphql`
       slug {
         current
       }
+      keywords
       title
-      descriptionText
+      description
       author {
         name
       }
       _rawBody(resolveReferences: { maxDepth: 10 })
+    }
+    allSanityNewsPost {
+      edges {
+        node {
+          slug {
+            current
+          }
+          title
+        }
+      }
     }
   }
 `
 
 const Component = (props) => {
   const {
-    data: { sanityNewsPost: data },
+    data: { sanityNewsPost: data, allSanityNewsPost },
   } = props
+
+  const posts = allSanityNewsPost.edges.map(({ node }) => node)
 
   return (
     <Layout.FlexWrapper>
       <SEO
         title={data.title}
+        keywords={data.keywords}
         article={true}
-        description={data.descriptionText}
+        description={data.description}
       />
       <Layout.Aside>
-        <TableOfContents blocks={data._rawBody} />
+        <ArticleSideMenu title={'NYHETER'} posts={posts} url={'news'} />
       </Layout.Aside>
       <Layout.Article>
         <Typography.H1>{data.title}</Typography.H1>

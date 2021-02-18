@@ -9,7 +9,7 @@ import bodyImage from './bodyImage'
 import sectionLink from './sectionLink'
 import slug from './slug'
 import home from './home'
-import about from './aboutUs'
+import about from './aboutUsPage'
 import heroImage from './heroImage'
 import focusArea from './focusArea'
 import api from './api'
@@ -23,7 +23,8 @@ import tableOfContents from './tableOfContents'
 import sourceCode from './sourceCode'
 import newsPage from './news'
 import projectPage from './projectPage'
-import titleString from './titleString'
+import title from './title'
+import keywords from './keywords'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -52,6 +53,7 @@ export default createSchema({
     tableOfContents,
     sourceCode,
     projectPage,
-    titleString,
+    title,
+    keywords,
   ]),
 })
