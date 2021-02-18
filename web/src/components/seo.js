@@ -6,12 +6,6 @@ import { useStaticQuery, graphql } from 'gatsby'
 
 const query = graphql`
   query SEO {
-    sanitySiteSettings {
-      description
-      title
-      URL
-      keywords
-    }
     site {
       siteMetadata {
         defaultTitle: title
@@ -23,25 +17,17 @@ const query = graphql`
   }
 `
 
-const SEO = ({ title, description, article }) => {
-  const { sanitySiteSettings, site } = useStaticQuery(query)
+const SEO = ({ title, description, article, keywords }) => {
+  const { site } = useStaticQuery(query)
   const { pathname } = useLocation()
 
   const seo = {
-    title: title || sanitySiteSettings.title || site.siteMetadata.defaultTitle,
-    description:
-      description ||
-      sanitySiteSettings.description ||
-      site.siteMetadata.defaultDescription,
-    url: `${
-      sanitySiteSettings.url
-        ? sanitySiteSettings.url
-        : site.siteMetadata.siteUrl
-    }${pathname}`,
-    keywords:
-      sanitySiteSettings.keywords.join(',') ||
-      site.siteMetadata.defaultKeywords.join(','),
+    title: `${site.siteMetadata.defaultTitle} | ${title}`,
+    description: description || site.siteMetadata.defaultDescription,
+    url: `${site.siteMetadata.siteUrl}${pathname}`,
+    keywords: (keywords || site.siteMetadata.defaultKeywords).join(','),
   }
+
   return (
     <Helmet title={seo.title}>
       <meta name="description" content={seo.description} />
@@ -63,6 +49,7 @@ SEO.propTypes = {
   description: PropTypes.string,
   article: PropTypes.bool,
 }
+
 SEO.defaultProps = {
   title: null,
   description: null,

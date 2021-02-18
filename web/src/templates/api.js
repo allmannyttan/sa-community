@@ -14,7 +14,8 @@ export const query = graphql`
         current
       }
       title
-      descriptionText
+      description
+      keywords
       tableOfContents
       _type
       _rawBody(resolveReferences: { maxDepth: 10 })
@@ -31,8 +32,9 @@ const Component = (props) => {
     <Layout.FlexWrapper>
       <SEO
         title={data.title}
+        keywords={data.keywords}
         article={true}
-        description={data.descriptionText}
+        description={data.description}
       />
       <Layout.Aside>
         <TableOfContents blocks={data._rawBody} />

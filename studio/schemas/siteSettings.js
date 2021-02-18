@@ -19,15 +19,6 @@ export default {
       title: 'Beskrivning',
       description: 'Beskriv sidan för sökmotorer och sociala medier.',
     },
-    {
-      name: 'keywords',
-      type: 'array',
-      title: 'Keywords',
-      description: 'Lägg till keywords som du vill associera med denna sida.',
-      of: [{ type: 'string' }],
-      options: {
-        layout: 'tags',
-      },
-    },
+    { type: 'keywords', name: 'keywords' },
   ],
 }

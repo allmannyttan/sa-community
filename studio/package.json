@@ -10,6 +10,7 @@
     "start": "sanity start",
     "build": "sanity build public -y",
     "gql": "sanity graphql deploy",
+    "gql:ci": "sanity graphql deploy --dataset development --playground --force",
     "login": "sanity login"
   },
   "keywords": [

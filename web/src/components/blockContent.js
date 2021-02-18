@@ -46,7 +46,7 @@ const serializers = (withAnchor) => ({
   },
 })
 
-const BlockContent = ({ blocks, withAnchor = false }) => (
+const BlockContent = ({ blocks = [], withAnchor = false }) => (
   <BaseBlockContent
     className="max-w-screen-lg"
     blocks={blocks}

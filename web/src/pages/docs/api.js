@@ -3,6 +3,7 @@ import { graphql, useStaticQuery, Link } from 'gatsby'
 import BlockContent from '../../components/blockContent'
 import ArticleSideMenu from '../../components/articleSideMenu'
 import * as Typography from '../../components/typography'
+import SEO from '../../components/seo'
 import * as Layout from '../../components/layout/'
 
 const query = graphql`
@@ -15,7 +16,7 @@ const query = graphql`
             current
           }
           title
-          descriptionText
+          description
           _type
         }
       }
@@ -23,18 +24,34 @@ const query = graphql`
     sanityApiPage {
       title
       _rawBody
+      keywords
+    }
+    sanitySiteSettings {
+      keywords
+      title
+      description
     }
   }
 `
 
 const Component = () => {
-  const { sanityApiPage: data, allSanityApi } = useStaticQuery(query)
+  const {
+    sanityApiPage: data,
+    allSanityApi,
+    sanitySiteSettings = {},
+  } = useStaticQuery(query)
   const apis = allSanityApi.edges.map(({ node }) => node) || []
 
   if (!data && !Boolean(apis.length))
     return <h2 className="text-xl">Data saknas....</h2>
+
   return (
     <Layout.FlexWrapper>
+      <SEO
+        title={data.title || sanitySiteSettings.title}
+        description={data.description || sanitySiteSettings.description}
+        keywords={data.keywords || sanitySiteSettings.keywords}
+      />
       <Layout.Aside>
         <ArticleSideMenu title={'API'} posts={apis} url={'docs/api'} />
       </Layout.Aside>
