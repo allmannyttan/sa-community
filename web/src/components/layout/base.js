@@ -2,6 +2,7 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Header from '../header'
 import '../../base.css'
+import Footer from '../footer'
 
 const Base = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -15,11 +16,12 @@ const Base = ({ children }) => {
   `)
 
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
       <Header siteTitle={data.site.siteMetadata.title} />
-      <div className="pt-24">
-        <main>{children}</main>
-      </div>
+      <div className="pt-24 "></div>
+      <main className="flex-1">{children}</main>
+
+      <Footer />
     </div>
   )
 }
