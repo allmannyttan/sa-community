@@ -1,8 +1,11 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import { useLocation } from '@reach/router'
 
-const BreadCrumbs = ({ path = '' }) => {
-  const parts = path
+const BreadCrumbs = () => {
+  const pathname = useLocation().pathname
+
+  const parts = pathname
     .split('/')
     .filter((p) => !!p)
     .map((p, i, arr) => ({
@@ -18,7 +21,11 @@ const BreadCrumbs = ({ path = '' }) => {
       {parts.map((part, i, arr) => (
         <span key={part.name} className="text-sm tracking-wide text-purple-700">
           <Link to={part.route}>{part.name}</Link>{' '}
-          {i === arr.length - 1 ? '' : '> '}
+          {i === arr.length - 1 ? (
+            ''
+          ) : (
+            <span className=" text-gray-600">{'> '}</span>
+          )}
         </span>
       ))}
     </div>
