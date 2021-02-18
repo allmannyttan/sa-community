@@ -43,7 +43,7 @@ jobs:
         run: cd studio && npm run deploy
         env:
           CI: true
-          SANITY_READ_DATA_TOKEN: ${{ secrets.SANITY_READ_DATA_TOKEN }}
+          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
 
       - name: Build and deploy web
         run: vercel --prod --token $VERCEL_TOKEN_ALT
