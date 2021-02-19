@@ -11,7 +11,7 @@
     "build": "sanity build public -y",
     "gql": "sanity graphql deploy",
     "gql-and-build": "npm run gql:ci && npm run build",
-    "gql:ci": "sanity graphql deploy --dataset development --playground --force",
+    "gql:prod": "sanity graphql deploy --dataset production --playground --force",
     "login": "sanity login",
     "deploy": "sanity deploy"
   },
