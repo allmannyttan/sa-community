@@ -19,7 +19,6 @@ jobs:
           registry-url: https://registry.npmjs.org/
 
       - name: Deploy graphql schema and studio
-        uses: actions/checkout@v2
         env:
           SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
         run: |
