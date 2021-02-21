@@ -50,7 +50,7 @@ const Component = (props) => {
         description={data.description}
       />
       <Layout.Aside>
-        <ArticleSideMenu title={'NYHETER'} posts={posts} url={'news'} />
+        <ArticleSideMenu title={'Nyheter'} posts={posts} url={'news'} />
       </Layout.Aside>
       <Layout.Article>
         <Typography.H1>{data.title}</Typography.H1>

@@ -54,11 +54,12 @@ const Component = () => {
       />
       <Layout.Aside>
         <ArticleSideMenu
-          title={'PROJECT'}
+          title={'Projekt'}
           posts={projects}
           url={'docs/project'}
         />
       </Layout.Aside>
+
       <Layout.Article>
         <Typography.H1>{data.title}</Typography.H1>
         <BlockContent blocks={data._rawBody} withAnchor={true} />

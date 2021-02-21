@@ -15,7 +15,7 @@ const NavLink = ({ to, cb, children }) => {
       onMouseEnter={() => set(true)}
       onMouseLeave={() => set(false)}
       onClick={() => cb && cb()}
-      className={`rounded-md px-4 py-2 transition-color duration-100 ${
+      className={`rounded-md px-4 py-2 transition-color duration-100 mr-2 ${
         active && 'bg-purple-50'
       } text-gray-700 hover:text-black whitespace-nowrap`}
       activeClassName="bg-purple-50"
@@ -54,16 +54,16 @@ const Header = () => {
       }}
     >
       <div
-        className={`flex md:hidden justify-center pl-8 pt-24 fixed top-0 left-0 z-10 w-screen h-screen bg-white ${
+        className={`flex md:hidden justify-center pl-8 pt-20 fixed top-0 left-0 z-10 w-screen h-screen bg-white ${
           !open && 'hidden'
         }`}
       >
         <ul className="text-xl">{routes}</ul>
       </div>
-      <header className="max-w-screen-2xl mx-auto">
-        <nav className="w-full h-24 flex justify-between items-center px-12">
+      <header className="">
+        <nav className="w-full h-20 flex justify-between items-center px-10">
           <Link to="/">
-            <img className="w-24" src={logotype} alt="website logotype" />
+            <img className="w-20" src={logotype} alt="website logotype" />
           </Link>
           <button
             onClick={() => setOpen((curr) => !curr)}
@@ -76,7 +76,7 @@ const Header = () => {
             )}
           </button>
 
-          <ul className=" hidden md:flex justify-end gap-1 ">{routes}</ul>
+          <ul className="hidden md:flex justify-end">{routes}</ul>
         </nav>
       </header>
     </div>

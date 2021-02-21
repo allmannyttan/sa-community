@@ -54,7 +54,7 @@ const Component = () => {
         keywords={data.keywords || sanitySiteSettings.keywords}
       />
       <Layout.Aside>
-        <ArticleSideMenu title={'API'} posts={apis} url={'docs/api'} />
+        <ArticleSideMenu title={'API:er'} posts={apis} url={'docs/api'} />
       </Layout.Aside>
       <Layout.Article>
         <Typography.H1>{data.title}</Typography.H1>

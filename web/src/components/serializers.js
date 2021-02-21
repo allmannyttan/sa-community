@@ -68,7 +68,7 @@ export const Paragraph = ({ children }) => (
 export const Image = ({ node }) => {
   const fluidProps = getFluidGatsbyImage(
     node.asset._id,
-    { maxWidth: 800 },
+    { maxWidth: 1200 },
     sanityClientConfig
   )
 

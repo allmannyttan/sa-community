@@ -18,9 +18,8 @@ const Base = ({ children }) => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header siteTitle={data.site.siteMetadata.title} />
-      <div className="pt-24 "></div>
+      <div className="pt-20"></div>
       <main className="flex-1">{children}</main>
-
       <Footer />
     </div>
   )
