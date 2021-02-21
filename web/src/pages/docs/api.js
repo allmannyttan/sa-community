@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { graphql, useStaticQuery, Link } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import BlockContent from '../../components/blockContent'
 import ArticleSideMenu from '../../components/articleSideMenu'
 import * as Typography from '../../components/typography'

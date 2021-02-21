@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { useLocation } from '@reach/router'
+import { RiArrowDropRightLine } from 'react-icons/ri'
 
 const BreadCrumbs = () => {
   const pathname = useLocation().pathname
@@ -17,18 +18,22 @@ const BreadCrumbs = () => {
     }))
 
   return (
-    <div>
-      {parts.map((part, i, arr) => (
-        <span key={part.name} className="text-sm tracking-wide text-purple-700">
-          <Link to={part.route}>{part.name}</Link>{' '}
-          {i === arr.length - 1 ? (
-            ''
-          ) : (
-            <span className=" text-gray-600">{'> '}</span>
-          )}
+    <nav className="text-gray-500 flex items-center">
+      {parts.map((part) => (
+        <span className="flex items-center" key={part.name}>
+          <Link
+            to={part.route}
+            className="text-sm tracking-wide  hover:text-purple-700 hover:underline"
+          >
+            {part.name}
+          </Link>
+
+          <span role="presentation">
+            <RiArrowDropRightLine className="text-gray-400" size={20} />
+          </span>
         </span>
       ))}
-    </div>
+    </nav>
   )
 }
 
