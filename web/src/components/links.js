@@ -21,21 +21,27 @@ export const Article = ({ children, slug }) => {
   )
 }
 
-export const Anchor = ({ children, slug, style }) => {
+export const TableOfContents = ({ children, slug, style }) => {
   const sharedStyle = `font-normal text-sm ${style}`
   const isActive = ({ location }) => {
     const isCurrent = location.hash.includes(slug)
-    return isCurrent
-      ? { className: `underline text-saGreen ${sharedStyle}` }
-      : {}
+    return isCurrent ? { className: `underline ${sharedStyle}` } : {}
   }
 
   return (
     <Link
       to={`#${slug}`}
-      className={`text-saGreyBlueDar hover:underline hover:text-saGreen ${sharedStyle}`}
+      className={`text-gray-700 hover:text-black ${sharedStyle}`}
       getProps={isActive}
     >
+      {children}
+    </Link>
+  )
+}
+
+export const Anchor = ({ children, slug }) => {
+  return (
+    <Link to={slug} className="text-saGreen underline font-normal text-lg">
       {children}
     </Link>
   )

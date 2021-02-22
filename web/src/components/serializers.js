@@ -9,6 +9,7 @@ import sanityClientConfig from '../sanity-client'
 import { getFluidGatsbyImage } from 'gatsby-source-sanity'
 import BodyImage from './bodyImage'
 import ReactYoutube from 'react-youtube'
+import { BsLink } from 'react-icons/bs'
 
 export const H1 = ({ children, withAnchor = false }) => {
   const slug = utils.slugify(children[0])
@@ -26,9 +27,16 @@ export const H2 = ({ children, withAnchor = false }) => {
   const slug = utils.slugify(children[0])
 
   return withAnchor ? (
-    <Links.AnchorWithIcon slug={slug}>
-      <Typography.H2>{children}</Typography.H2>
-    </Links.AnchorWithIcon>
+    <Typography.H2 additionalClassnames="group flex items-center">
+      {children}
+      <Link
+        id={slug}
+        className="group-hover:opacity-100 opacity-0 anchor inline-flex items-center ml-2 text-purple-700"
+        to={`#${slug}`}
+      >
+        <BsLink size={20} />
+      </Link>
+    </Typography.H2>
   ) : (
     <Typography.H2>{children}</Typography.H2>
   )
@@ -38,11 +46,18 @@ export const H3 = ({ children, withAnchor = false }) => {
   const slug = utils.slugify(children[0])
 
   return withAnchor ? (
-    <Links.AnchorWithIcon slug={slug}>
-      <Typography.H3>{children}</Typography.H3>
-    </Links.AnchorWithIcon>
+    <Typography.H3 additionalClassnames="group flex items-center">
+      {children}
+      <Link
+        id={slug}
+        className="group-hover:opacity-100 opacity-0 anchor inline-flex items-center ml-2 text-purple-700"
+        to={`#${slug}`}
+      >
+        <BsLink size={20} />
+      </Link>
+    </Typography.H3>
   ) : (
-    <Typography.H3>{children}</Typography.H3>
+    <Typography.H2>{children}</Typography.H2>
   )
 }
 
@@ -53,7 +68,7 @@ export const Paragraph = ({ children }) => (
 export const Image = ({ node }) => {
   const fluidProps = getFluidGatsbyImage(
     node.asset._id,
-    { maxWidth: 800 },
+    { maxWidth: 1200 },
     sanityClientConfig
   )
 

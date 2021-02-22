@@ -20,7 +20,7 @@ const Component = ({ heroImage, heroText }) => {
           <HeroImage data={heroImage} />
         </div>
 
-        <div className="absolute w-full inset-0 flex items-center justify-center">
+        <div className="absolute w-full inset-0 flex items-center justify-center text-white">
           <Typography.H1>{heroText}</Typography.H1>
         </div>
       </div>

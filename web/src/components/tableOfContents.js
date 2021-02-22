@@ -14,9 +14,9 @@ const TableOfContents = ({ blocks = [] }) => {
   const getTitleStyle = (style) => {
     switch (style) {
       case 'h3':
-        return 'pl-2'
+        return 'pl-4'
       case 'h4':
-        return 'pl-3'
+        return 'pl-8'
       default:
         return
     }
@@ -24,20 +24,20 @@ const TableOfContents = ({ blocks = [] }) => {
 
   return (
     <>
-      <Typography.H4>INNEHÅLL</Typography.H4>
-      <nav className="py-4">
+      <h4 className="text-base text-saBlack font-medium tracking-wide mb-2">
+        Innehåll
+      </h4>
+      <nav>
         <ol>
           {menuItems.map((item, i) => {
             const slug = utils.slugify(item.children[0].text)
             const style = getTitleStyle(item.style)
             return (
-              <div key={i}>
-                <li className="my-4 w-full">
-                  <Links.Anchor slug={slug} style={style}>
-                    {item.children[0].text}
-                  </Links.Anchor>
-                </li>
-              </div>
+              <li key={i} className="my-4 w-full">
+                <Links.TableOfContents slug={slug} style={style}>
+                  {item.children[0].text}
+                </Links.TableOfContents>
+              </li>
             )
           })}
         </ol>

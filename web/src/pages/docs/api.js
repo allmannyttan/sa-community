@@ -1,10 +1,11 @@
 import * as React from 'react'
-import { graphql, useStaticQuery, Link } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import BlockContent from '../../components/blockContent'
 import ArticleSideMenu from '../../components/articleSideMenu'
 import * as Typography from '../../components/typography'
 import SEO from '../../components/seo'
 import * as Layout from '../../components/layout/'
+import * as Links from '../../components/links'
 
 const query = graphql`
   query api {
@@ -53,19 +54,14 @@ const Component = () => {
         keywords={data.keywords || sanitySiteSettings.keywords}
       />
       <Layout.Aside>
-        <ArticleSideMenu title={'API'} posts={apis} url={'docs/api'} />
+        <ArticleSideMenu title={'API:er'} posts={apis} url={'docs/api'} />
       </Layout.Aside>
       <Layout.Article>
         <Typography.H1>{data.title}</Typography.H1>
         <BlockContent blocks={data._rawBody} withAnchor={true} />
-        {apis.map((item, i) => (
+        {apis.map((item) => (
           <div className="my-3" key={item.title}>
-            <Link
-              to={`${item.slug.current}`}
-              className="text-saGreen underline font-normal text-lg"
-            >
-              {item.title}
-            </Link>
+            <Links.Anchor slug={item.slug.current}>{item.title}</Links.Anchor>
             <Typography.DescriptionParagraph>
               {item.descriptionText}
             </Typography.DescriptionParagraph>

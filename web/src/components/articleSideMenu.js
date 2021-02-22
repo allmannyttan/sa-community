@@ -1,6 +1,5 @@
 import React from 'react'
 import * as Links from './links'
-import * as Typography from './typography'
 
 const ArticleSideMenu = ({ posts, title, url }) => {
   if (posts.length === 0) {
@@ -9,18 +8,18 @@ const ArticleSideMenu = ({ posts, title, url }) => {
 
   return (
     <>
-      <Typography.H4>{title}</Typography.H4>
+      <h4 className="text-base text-saBlack font-medium tracking-wide mb-2">
+        {title}
+      </h4>
       <nav className="py-4">
-        <ol className="divide-y divide-lightGray divide-solid">
+        <ol>
           {posts.map((post, i) => {
             return (
-              <div key={i}>
-                <li className="my-4 w-full">
-                  <Links.Article slug={`${url}/${post.slug.current}`}>
-                    {post.title}
-                  </Links.Article>
-                </li>
-              </div>
+              <li key={i} className="mb-4 ">
+                <Links.Article slug={`${url}/${post.slug.current}`}>
+                  - {post.title}
+                </Links.Article>
+              </li>
             )
           })}
         </ol>
