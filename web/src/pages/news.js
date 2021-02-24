@@ -1,10 +1,13 @@
 import * as React from 'react'
-import { graphql, Link, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import * as Layout from '../components/layout/'
 import * as Typography from '../components/typography'
 import BlockContent from '../components/blockContent'
 import SEO from '../components/seo'
 import ArticleSideMenu from '../components/articleSideMenu'
+import * as Links from '../components/links'
+import { RiTimeLine } from 'react-icons/ri'
+import * as utils from '../utils'
 
 const query = graphql`
   query newsPage {
@@ -17,10 +20,11 @@ const query = graphql`
       _rawBody
       title
     }
-    allSanityNewsPost {
+    allSanityNewsPost(sort: { order: DESC, fields: _createdAt }) {
       edges {
         node {
           id
+          _createdAt
           slug {
             current
           }
@@ -57,19 +61,25 @@ const Component = () => {
       <Layout.Article>
         <Typography.H1>{data.title}</Typography.H1>
         <BlockContent blocks={data._rawBody} withAnchor={true} />
-        {posts.map((item) => (
-          <div className="my-3" key={item.title}>
-            <Link
-              to={`${item.slug.current}`}
-              className="text-saGreen underline font-normal text-lg"
-            >
-              {item.title}
-            </Link>
-            <Typography.DescriptionParagraph>
-              {item.descriptionText}
-            </Typography.DescriptionParagraph>
+
+        {Boolean(posts.length) && (
+          <div className="mt-6">
+            {posts.map((item) => (
+              <div className="mb-8 group font-semibold" key={item.title}>
+                <Links.Basic to={item.slug.current}>{item.title}</Links.Basic>
+                <Typography.Description>
+                  {item.description}
+                </Typography.Description>
+                <div className="flex items-end mt-1">
+                  <RiTimeLine className="text-gray-700 group-hover:text-black" />
+                  <p className="text-xs italic ml-1 font-thin  text-gray-700 group-hover:text-black">
+                    {utils.dateToHumanReadable(item._createdAt)}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
+        )}
       </Layout.Article>
     </Layout.FlexWrapper>
   )

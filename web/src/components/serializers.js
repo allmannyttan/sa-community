@@ -90,7 +90,7 @@ export const Code = ({ node }) => (
 export const ExternalLink = ({ mark, children }) =>
   mark.blank ? (
     <a
-      className="text-red-800"
+      className="text-saPurple font-bold text-xl"
       href={mark.href}
       target="_blank"
       rel="noreferrer"
@@ -98,7 +98,7 @@ export const ExternalLink = ({ mark, children }) =>
       {children}
     </a>
   ) : (
-    <a className="text-red-800" href={mark.href}>
+    <a className="text-saPurple font-bold text-xl" href={mark.href}>
       {children}
     </a>
   )

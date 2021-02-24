@@ -5,6 +5,9 @@ import * as Layout from '../components/layout/'
 import * as Typography from '../components/typography'
 import ArticleSideMenu from '../components/articleSideMenu'
 import BlockContent from '../components/blockContent'
+import AuthorImage from './../components/authorImage'
+import { RiTimeLine } from 'react-icons/ri'
+import * as utils from '../utils'
 
 export const query = graphql`
   query newsPostTemplateQuery($id: String!) {
@@ -18,10 +21,19 @@ export const query = graphql`
       description
       author {
         name
+        profileImage {
+          asset {
+            fluid(maxWidth: 500) {
+              ...GatsbySanityImageFluid
+            }
+          }
+        }
       }
+      _createdAt
       _rawBody(resolveReferences: { maxDepth: 10 })
     }
-    allSanityNewsPost {
+
+    allSanityNewsPost(sort: { order: DESC, fields: _createdAt }) {
       edges {
         node {
           slug {
@@ -55,6 +67,24 @@ const Component = (props) => {
       <Layout.Article>
         <Typography.H1>{data.title}</Typography.H1>
         <BlockContent blocks={data._rawBody} withAnchor={true} />
+        {data.author && (
+          <div className="mt-12">
+            <div className="rounded-full">
+              <AuthorImage
+                fluid={data.author.profileImage.asset.fluid}
+                alt={`Photo of ${data.name}`}
+                style={{ borderRadius: '50%' }}
+              />
+            </div>
+            <p className="mt-2 font-semibold">{data.author.name}</p>
+            <div className="flex items-end">
+              <RiTimeLine className="text-gray-700" />
+              <p className="text-xs italic ml-1 font-thin">
+                {utils.dateToHumanReadable(data._createdAt)}
+              </p>
+            </div>
+          </div>
+        )}
       </Layout.Article>
     </Layout.FlexWrapper>
   )

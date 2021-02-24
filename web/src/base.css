@@ -5,4 +5,6 @@
 html,
 body {
   min-height: 100vh;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Ubuntu, Arial, sans-serif;
 }
