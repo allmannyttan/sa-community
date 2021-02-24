@@ -17,6 +17,12 @@ export default {
       description: 'Denna text placeras i mitten av hero:n',
     },
     {
+      name: 'getStarted',
+      title: 'Kom igång',
+      type: 'array',
+      of: [{ type: 'getStarted' }],
+    },
+    {
       name: 'focusAreas',
       title: 'Fokusområden',
       type: 'array',

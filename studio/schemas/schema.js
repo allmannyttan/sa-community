@@ -12,6 +12,7 @@ import home from './home'
 import about from './aboutUsPage'
 import heroImage from './heroImage'
 import focusArea from './focusArea'
+import getStarted from './getStarted'
 import api from './api'
 import newsPost from './newsPost'
 import editor from './editor'
@@ -42,6 +43,7 @@ export default createSchema({
     home,
     heroImage,
     focusArea,
+    getStarted,
     about,
     api,
     newsPage,
