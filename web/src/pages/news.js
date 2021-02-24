@@ -5,6 +5,7 @@ import * as Typography from '../components/typography'
 import BlockContent from '../components/blockContent'
 import SEO from '../components/seo'
 import ArticleSideMenu from '../components/articleSideMenu'
+import * as Links from '../components/links'
 
 const query = graphql`
   query newsPage {
@@ -57,19 +58,19 @@ const Component = () => {
       <Layout.Article>
         <Typography.H1>{data.title}</Typography.H1>
         <BlockContent blocks={data._rawBody} withAnchor={true} />
-        {posts.map((item) => (
-          <div className="my-3" key={item.title}>
-            <Link
-              to={`${item.slug.current}`}
-              className="text-saGreen underline font-normal text-lg"
-            >
-              {item.title}
-            </Link>
-            <Typography.DescriptionParagraph>
-              {item.descriptionText}
-            </Typography.DescriptionParagraph>
+
+        {Boolean(posts.length) && (
+          <div className="mt-6">
+            {posts.map((item) => (
+              <div className="my-3 group" key={item.title}>
+                <Links.Basic to={item.slug.current}>{item.title}</Links.Basic>
+                <Typography.Description>
+                  {item.description}
+                </Typography.Description>
+              </div>
+            ))}
           </div>
-        ))}
+        )}
       </Layout.Article>
     </Layout.FlexWrapper>
   )
