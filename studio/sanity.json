@@ -19,15 +19,17 @@
   ],
   "env": {
     "development": {
-      "plugins": [
-        "@sanity/vision"
-      ],
+      "plugins": ["@sanity/vision"],
       "api": {
         "dataset": "development"
       }
     }
   },
   "parts": [
+    {
+      "implements": "part:@sanity/dashboard/config",
+      "path": "./dashboardConfig.js"
+    },
     {
       "name": "part:@sanity/base/schema",
       "path": "./schemas/schema"
