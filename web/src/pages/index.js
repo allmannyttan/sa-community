@@ -1,19 +1,20 @@
 import * as React from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
-import HeroBlock from '../components/heroBlock'
 import SEO from '../components/seo'
 import bg from '../images/bg.svg'
-import * as Typography from '../components/typography'
 import Img from 'gatsby-image'
 
 const query = graphql`
   query homePageQuery {
     sanityHomePage {
+      keywords
+      title
+      description
       getStarted {
         cta
         heading
         content
-        string
+        url
         icon {
           asset {
             fluid {
@@ -22,20 +23,10 @@ const query = graphql`
           }
         }
       }
-      heroImage {
-        alt
-        asset {
-          fluid(maxWidth: 1800, maxHeight: 500) {
-            ...GatsbySanityImageFluid
-          }
-        }
-      }
-      heroText
       focusAreas {
-        heading
         content
+        heading
       }
-      keywords
     }
     sanitySiteSettings {
       keywords
@@ -47,7 +38,6 @@ const query = graphql`
 const Component = () => {
   const { sanityHomePage: data, sanitySiteSettings } = useStaticQuery(query)
   const seo = sanitySiteSettings || {}
-  console.log(data)
   return (
     <>
       <SEO
@@ -59,11 +49,7 @@ const Component = () => {
 
       {data && (
         <>
-          {/* <HeroBlock heroImage={data.heroImage} heroText={data.heroText} /> */}
           <div className="max-w-screen-lg mx-auto">
-            {/* <div className="radial-gradient">
-
-            </div> */}
             <div className="mx-auto flex flex-col justify-center items-center md:mt-0 relative">
               <img src={bg}></img>
               <div className="z-10 text-center absolute md:px-8 overflow-hidden">
@@ -89,7 +75,7 @@ const Component = () => {
                   <p className="text-center">{item.content}</p>
                   <Link
                     className="bg-purple-300 rounded p-3 justify-self-center mt-8 self-end"
-                    to={item.string}
+                    to={item.url}
                   >
                     {item.cta}
                   </Link>
