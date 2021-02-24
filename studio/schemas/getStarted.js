@@ -27,7 +27,7 @@ export default {
     },
     {
       type: 'string',
-      name: 'string',
+      name: 'url',
       title: 'Skicka användaren hit',
       description:
         'Rutt till undersidan du vill länka till. T.ex news, docs/api',
