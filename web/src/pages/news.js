@@ -20,7 +20,7 @@ const query = graphql`
       _rawBody
       title
     }
-    allSanityNewsPost {
+    allSanityNewsPost(sort: { order: DESC, fields: _createdAt }) {
       edges {
         node {
           id
