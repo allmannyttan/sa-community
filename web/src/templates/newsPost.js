@@ -8,6 +8,7 @@ import BlockContent from '../components/blockContent'
 import AuthorImage from './../components/authorImage'
 import { RiTimeLine } from 'react-icons/ri'
 import * as utils from '../utils'
+
 export const query = graphql`
   query newsPostTemplateQuery($id: String!) {
     sanityNewsPost(id: { eq: $id }) {
@@ -67,7 +68,7 @@ const Component = (props) => {
         <Typography.H1>{data.title}</Typography.H1>
         <BlockContent blocks={data._rawBody} withAnchor={true} />
         {data.author && (
-          <div className="mt-12 border-t">
+          <div className="mt-12">
             <div className="rounded-full">
               <AuthorImage
                 fluid={data.author.profileImage.asset.fluid}
@@ -75,10 +76,10 @@ const Component = (props) => {
                 style={{ borderRadius: '50%' }}
               />
             </div>
-            <p className="mt-2 font-semibold ">{data.author.name}</p>
+            <p className="mt-2 font-semibold">{data.author.name}</p>
             <div className="flex items-end">
-              <RiTimeLine />
-              <p className="text-xs italic ml-1">
+              <RiTimeLine className="text-gray-700" />
+              <p className="text-xs italic ml-1 font-thin">
                 {utils.dateToHumanReadable(data._createdAt)}
               </p>
             </div>

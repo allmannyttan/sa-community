@@ -62,7 +62,7 @@ const Component = () => {
         {Boolean(apis.length) && (
           <div className="mt-6">
             {apis.map((item) => (
-              <div className="my-3 group" key={item.title}>
+              <div className="mb-8 group font-semibold" key={item.title}>
                 <Links.Basic to={item.slug.current}>{item.title}</Links.Basic>
                 <Typography.Description>
                   {item.description}

@@ -43,7 +43,7 @@ export const Basic = ({ children, to }) => {
   return (
     <Link
       to={to}
-      className="text-saGreenDark hover:underline font-medium text-lg"
+      className="text-saGreenDark hover:underline font-current text-lg"
     >
       {children}
     </Link>

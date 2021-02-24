@@ -25,7 +25,7 @@ const Footer = () => {
   const { sanitySiteSettings } = useStaticQuery(query)
 
   return (
-    <footer className="px-8 py-8 mt-12 bg-white border-t border-lightGrey w-full relative z-10 bg-gradient-to-t via-transparent from-purple-50 to-transparent">
+    <footer className="px-8 py-8 mt-24 bg-white border-t border-lightGrey w-full relative z-10 bg-gradient-to-t via-transparent from-purple-50 to-transparent">
       <div className="flex mx-auto max-w-screen-xl justify-between h-full items-center">
         <a
           className="text-sm text-gray-700 hover:text-black"
