@@ -13,7 +13,8 @@
     "gql-and-build": "npm run gql:ci && npm run build",
     "gql:prod": "sanity graphql deploy --dataset production --playground --force",
     "login": "sanity login",
-    "deploy": "sanity deploy"
+    "deploy": "sanity deploy",
+    "gql-and-deploy": "npm run gql:prod && npm run deploy"
   },
   "keywords": [
     "sanity"
