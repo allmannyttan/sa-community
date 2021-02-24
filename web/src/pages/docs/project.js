@@ -14,7 +14,7 @@ const query = graphql`
       title
       keywords
     }
-    allSanityProject {
+    allSanityProject(sort: { order: DESC, fields: _createdAt }) {
       edges {
         node {
           id

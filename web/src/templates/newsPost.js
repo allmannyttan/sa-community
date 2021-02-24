@@ -33,7 +33,7 @@ export const query = graphql`
       _rawBody(resolveReferences: { maxDepth: 10 })
     }
 
-    allSanityNewsPost {
+    allSanityNewsPost(sort: { order: DESC, fields: _createdAt }) {
       edges {
         node {
           slug {

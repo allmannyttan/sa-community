@@ -9,7 +9,7 @@ import * as Links from '../../components/links'
 
 const query = graphql`
   query api {
-    allSanityApi {
+    allSanityApi(sort: { order: DESC, fields: _createdAt }) {
       edges {
         node {
           id
