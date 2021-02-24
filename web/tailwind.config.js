@@ -18,6 +18,9 @@ module.exports = {
       height: {
         700: '700px',
       },
+      screens: {
+        '3xl': '1800px',
+      },
     },
     variants: {
       fontStyle: ['responsive', 'hover', 'active', 'focus'],
