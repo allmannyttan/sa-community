@@ -63,14 +63,18 @@ const Component = () => {
       <Layout.Article>
         <Typography.H1>{data.title}</Typography.H1>
         <BlockContent blocks={data._rawBody} withAnchor={true} />
-        {projects.map((item) => (
-          <div className="my-3" key={item.title}>
-            <Links.Anchor slug={item.slug.current}>{item.title}</Links.Anchor>
-            <Typography.DescriptionParagraph>
-              {item.descriptionText}
-            </Typography.DescriptionParagraph>
+        {Boolean(projects.length) && (
+          <div className="mt-6">
+            {projects.map((item) => (
+              <div className="my-3 group" key={item.title}>
+                <Links.Basic to={item.slug.current}>{item.title}</Links.Basic>
+                <Typography.Description>
+                  {item.description}
+                </Typography.Description>
+              </div>
+            ))}
           </div>
-        ))}
+        )}
       </Layout.Article>
     </Layout.FlexWrapper>
   )

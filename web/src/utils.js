@@ -44,3 +44,25 @@ export const getRouteNameFromPageType = (contentType) => {
       return '404'
   }
 }
+
+export const dateToHumanReadable = (d) => {
+  const date = new Date(d)
+  const months = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'June',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ]
+
+  const monthName = months[date.getMonth()]
+
+  return `${date.getDay()} ${monthName} ${date.getFullYear()}`
+}

@@ -38,8 +38,8 @@ export const BodyParagraph = ({ children }) => (
   </p>
 )
 
-export const DescriptionParagraph = ({ children }) => (
-  <p className="max-w-2xl font-light text-base md:text-lg tracking-wide">
+export const Description = ({ children }) => (
+  <p className="group-hover:text-black max-w-2xl text-sm text-gray-700">
     {children}
   </p>
 )

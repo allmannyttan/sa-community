@@ -7,16 +7,16 @@ export const Article = ({ children, slug }) => {
   const isActive = ({ location }) => {
     const isCurrent = location.pathname.includes(`/${slug}`)
 
-    return isCurrent ? { className: `text-saGreen ${sharedStyle}` } : {}
+    return isCurrent ? { className: `${sharedStyle}` } : {}
   }
 
   return (
     <Link
       to={`/${slug}`}
-      className={`text-saGreyBlueDar hover:text-saGreen  ${sharedStyle}`}
+      className={`text-saBlack   ${sharedStyle}`}
       getProps={isActive}
     >
-      {children}
+      - <span className="hover:underline">{children}</span>
     </Link>
   )
 }
@@ -39,9 +39,12 @@ export const TableOfContents = ({ children, slug, style }) => {
   )
 }
 
-export const Anchor = ({ children, slug }) => {
+export const Basic = ({ children, to }) => {
   return (
-    <Link to={slug} className="text-saGreen underline font-normal text-lg">
+    <Link
+      to={to}
+      className="text-saGreenDark hover:underline font-medium text-lg"
+    >
       {children}
     </Link>
   )

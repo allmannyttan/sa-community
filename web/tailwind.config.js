@@ -7,9 +7,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        saBlack: '#221223',
+        saBlack: '#160126',
+        saPurpleDark: '#36045e',
         saOrange: '#de7c00',
         saGreen: '#04a388',
+        saGreenDark: '#025c4d',
         saPurple: '#50058B',
         saGreyBlue: '#295A66',
         saGreyBlueDark: '#112332',

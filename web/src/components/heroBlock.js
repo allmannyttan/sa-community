@@ -26,6 +26,17 @@ const Component = ({ heroImage, heroText }) => {
       </div>
     )
 
+  if (heroImage.asset && !heroText)
+    return (
+      <div className="relative w-full">
+        <div className="relative inset-0">
+          <div className="h-80">
+            <HeroImage data={heroImage} />
+          </div>
+        </div>
+      </div>
+    )
+
   return null
 }
 

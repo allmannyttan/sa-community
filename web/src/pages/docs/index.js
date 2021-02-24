@@ -35,11 +35,11 @@ const Docs = () => {
         <Typography.H1>Docs</Typography.H1>
         <div className="flex flex-col">
           <div className="my-3">
-            <Links.Anchor slug="api">API:er</Links.Anchor>
+            <Links.Basic slug="api">API:er</Links.Basic>
             <BlockContent blocks={sanityApiPage._rawBody} />
           </div>
           <div className="my-3">
-            <Links.Anchor slug={`project`}>Projekt</Links.Anchor>
+            <Links.Basic slug={`project`}>Projekt</Links.Basic>
             <BlockContent blocks={sanityProjectPage._rawBody} />
           </div>
         </div>
