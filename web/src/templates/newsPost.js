@@ -67,7 +67,7 @@ const Component = (props) => {
         <Typography.H1>{data.title}</Typography.H1>
         <BlockContent blocks={data._rawBody} withAnchor={true} />
         {data.author && (
-          <div className="mt-12">
+          <div className="mt-12 border-t">
             <div className="rounded-full">
               <AuthorImage
                 fluid={data.author.profileImage.asset.fluid}
@@ -75,7 +75,7 @@ const Component = (props) => {
                 style={{ borderRadius: '50%' }}
               />
             </div>
-            <p className="mt-4 font-semibold">{data.author.name}</p>
+            <p className="mt-2 font-semibold ">{data.author.name}</p>
             <div className="flex items-end">
               <RiTimeLine />
               <p className="text-xs italic ml-1">
