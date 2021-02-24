@@ -16,11 +16,11 @@ const Component = ({ heroImage, heroText }) => {
   if (heroImage.asset && heroText)
     return (
       <div className="relative w-full">
-        <div className="relative inset-0">
+        <div className="relative h-40 sm:h-80 inset-0 ">
           <HeroImage data={heroImage} />
         </div>
 
-        <div className="absolute w-full inset-0 flex items-center justify-center text-white">
+        <div className="absolute w-full inset-0 flex items-center justify-center text-white ">
           <Typography.H1>{heroText}</Typography.H1>
         </div>
       </div>
