@@ -2,9 +2,6 @@ export default {
   name: 'api',
   type: 'document',
   title: 'API:er',
-  initialValue: () => ({
-    tableOfContents: true,
-  }),
   fields: [
     {
       type: 'title',
@@ -18,7 +15,6 @@ export default {
       description: 'Används för förhandsvisning och för SEO.',
     },
     { type: 'bodyPortableText', name: 'Body' },
-    { type: 'tableOfContents', name: 'tableOfContents' },
     { type: 'keywords', name: 'keywords' },
   ],
   orderings: [

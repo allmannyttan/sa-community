@@ -16,7 +16,6 @@ export const query = graphql`
       title
       description
       keywords
-      tableOfContents
       _type
       _rawBody(resolveReferences: { maxDepth: 10 })
     }

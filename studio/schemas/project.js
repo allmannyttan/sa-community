@@ -2,9 +2,6 @@ export default {
   name: 'project',
   type: 'document',
   title: 'Projekt',
-  initialValue: () => ({
-    tableOfContents: true,
-  }),
   fields: [
     {
       type: 'title',
@@ -18,7 +15,6 @@ export default {
     },
     { type: 'defaultSlug', name: 'slug' },
     { type: 'bodyPortableText', name: 'Body' },
-    { type: 'tableOfContents', name: 'tableOfContents' },
     { type: 'keywords', name: 'keywords' },
   ],
   orderings: [

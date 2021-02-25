@@ -3,13 +3,9 @@ export default {
   type: 'document',
   title: 'Källkod',
   __experimental_actions: ['update', 'publish', 'create'],
-  initialValue: () => ({
-    tableOfContents: true,
-  }),
   fields: [
     { type: 'pageName', name: 'pageName', title: 'Namn' },
     { type: 'bodyPortableText', name: 'Body' },
-    { type: 'tableOfContents', name: 'tableOfContents' },
     { type: 'keywords', name: 'keywords' },
   ],
   preview: {
