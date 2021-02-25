@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { graphql, useStaticQuery, Link } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import BlockContent from '../../components/blockContent'
 import SEO from '../../components/seo'
 import ArticleSideMenu from '../../components/articleSideMenu'
@@ -11,7 +11,7 @@ const query = graphql`
   query projectsPage {
     sanityProjectPage {
       _rawBody
-      title
+      pageName
       keywords
     }
     allSanityProject(sort: { order: DESC, fields: _createdAt }) {
@@ -48,7 +48,7 @@ const Component = () => {
   return (
     <Layout.FlexWrapper>
       <SEO
-        title={data.title || sanitySiteSettings.title}
+        title={data.pageName || sanitySiteSettings.title}
         description={data.description || sanitySiteSettings.description}
         keywords={data.keywords || sanitySiteSettings.keywords}
       />
@@ -61,7 +61,7 @@ const Component = () => {
       </Layout.Aside>
 
       <Layout.Article>
-        <Typography.H1>{data.title}</Typography.H1>
+        <Typography.H1>{data.pageName}</Typography.H1>
         <BlockContent blocks={data._rawBody} withAnchor={true} />
         {Boolean(projects.length) && (
           <div className="mt-6">

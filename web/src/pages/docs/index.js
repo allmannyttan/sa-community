@@ -8,14 +8,14 @@ import * as Links from '../../components/links'
 const query = graphql`
   query docsInfo {
     sanityApiPage {
-      title
+      pageName
       _rawBody
       keywords
     }
 
     sanityProjectPage {
       _rawBody
-      title
+      pageName
       keywords
     }
   }
@@ -35,11 +35,13 @@ const Docs = () => {
         <Typography.H1>Docs</Typography.H1>
         <div className="flex flex-col">
           <div className="my-3">
-            <Links.Basic slug="api">API:er</Links.Basic>
+            <Links.Basic slug="api">{sanityApiPage.pageName}</Links.Basic>
             <BlockContent blocks={sanityApiPage._rawBody} />
           </div>
           <div className="my-3">
-            <Links.Basic slug={`project`}>Projekt</Links.Basic>
+            <Links.Basic slug={`project`}>
+              {sanityProjectPage.pageName}
+            </Links.Basic>
             <BlockContent blocks={sanityProjectPage._rawBody} />
           </div>
         </div>

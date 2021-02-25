@@ -17,7 +17,7 @@ const ArticleSideMenu = ({ posts, title, url }) => {
             return (
               <li key={i} className="mb-4 ">
                 <Links.Article slug={`${url}/${post.slug.current}`}>
-                  {post.title}
+                  {post.title || post.pageName}
                 </Links.Article>
               </li>
             )

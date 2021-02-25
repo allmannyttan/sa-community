@@ -23,7 +23,7 @@ const query = graphql`
       }
     }
     sanityApiPage {
-      title
+      pageName
       _rawBody
       keywords
     }
@@ -49,7 +49,7 @@ const Component = () => {
   return (
     <Layout.FlexWrapper>
       <SEO
-        title={data.title || sanitySiteSettings.title}
+        title={data.pageName || sanitySiteSettings.title}
         description={data.description || sanitySiteSettings.description}
         keywords={data.keywords || sanitySiteSettings.keywords}
       />
@@ -57,7 +57,7 @@ const Component = () => {
         <ArticleSideMenu title={'API:er'} posts={apis} url={'docs/api'} />
       </Layout.Aside>
       <Layout.Article>
-        <Typography.H1>{data.title}</Typography.H1>
+        <Typography.H1>{data.pageName}</Typography.H1>
         <BlockContent blocks={data._rawBody} withAnchor={true} />
         {Boolean(apis.length) && (
           <div className="mt-6">

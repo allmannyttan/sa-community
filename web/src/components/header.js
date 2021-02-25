@@ -3,6 +3,33 @@ import { Link } from 'gatsby'
 import logotype from './../images/logo.svg'
 import { HiOutlineMenuAlt3 } from 'react-icons/hi'
 import { AiOutlineClose } from 'react-icons/ai'
+import { graphql, useStaticQuery } from 'gatsby'
+
+const query = graphql`
+  query allPages {
+    sanityHomePage {
+      pageName
+    }
+    sanityProjectPage {
+      pageName
+    }
+    sanityApiPage {
+      pageName
+    }
+    sanityNewsPage {
+      pageName
+    }
+    sanityAboutUsPage {
+      pageName
+    }
+    sanityCommunicationPage {
+      pageName
+    }
+    sanitySourceCodePage {
+      pageName
+    }
+  }
+`
 
 const NavLink = ({ to, cb, children }) => {
   const [active, set] = React.useState(false)
