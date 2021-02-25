@@ -68,7 +68,6 @@ const Header = () => {
       style={{
         backdropFilter: 'blur(5px)',
         background: 'rgba(255,255,255,.90)',
-        fontFamily: 'system-ui',
       }}
     >
       <div
