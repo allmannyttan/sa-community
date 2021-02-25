@@ -139,6 +139,7 @@ export default () =>
             'api',
             'homePage',
             'focusArea',
+            'getStarted',
             'heroBlock',
             'aboutUsPage',
             'newsPost',
