@@ -9,7 +9,7 @@ export default {
       title: 'Rubrik',
       validation: (Rule) => [
         Rule.required(),
-        Rule.max(20).warning('En kortare rubrik är bättre'),
+        Rule.max(30).warning('En kortare rubrik är bättre'),
       ],
     },
     {
