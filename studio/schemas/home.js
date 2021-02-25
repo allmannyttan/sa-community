@@ -5,14 +5,7 @@ export default {
   __experimental_actions: ['update', 'publish', 'create'],
   fields: [
     { type: 'pageName', name: 'pageName', title: 'Namn' },
-    {
-      type: 'string',
-      title: 'Hero Text',
-      name: 'heroText',
-      description: 'Denna text placeras i mitten av startsidan',
-      validation: (Rule) =>
-        Rule.required().error('Här behöver du ange en hero text'),
-    },
+    { type: 'heroText', name: 'heroText' },
     {
       type: 'string',
       title: 'Kortare beskrivning',
