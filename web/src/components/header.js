@@ -20,10 +20,10 @@ const query = graphql`
     sanityAboutUsPage {
       pageName
     }
-    sanityCommunicationPage {
+    sanitySourceCodePage {
       pageName
     }
-    sanitySourceCodePage {
+    sanityCommunicationPage {
       pageName
     }
   }

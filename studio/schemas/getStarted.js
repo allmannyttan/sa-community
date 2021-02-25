@@ -25,7 +25,7 @@ export default {
       description: 'Lägg till en kortare beskrivning',
       validation: (Rule) => [
         Rule.required().error('Du måste lägga in en beskrivning här'),
-        Rule.min(120).max(200),
+        Rule.min(10).max(150),
       ],
     },
     {

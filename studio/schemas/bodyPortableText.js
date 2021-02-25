@@ -20,6 +20,7 @@ export default {
             name: 'link',
             type: 'object',
             title: 'Extern länk',
+
             fields: [
               {
                 name: 'href',
@@ -27,6 +28,10 @@ export default {
                 title: 'URL',
                 description:
                   'Länk till extern sajt, t.ex https://www.sverigesallmannytta.se/nyheter/',
+                validation: (Rule) =>
+                  Rule.uri({
+                    scheme: ['http', 'https'],
+                  }),
               },
               {
                 title: 'Öppna i ny flik',
