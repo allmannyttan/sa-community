@@ -79,10 +79,10 @@ const Component = () => {
                   }}
                 >
                   <div className="w-10">
-                    <Img fluid={item.icon.asset.fluid} />
+                    {item.icon && <Img fluid={item.icon.asset.fluid} />}
                   </div>
 
-                  <h3 className="text-2xl font-bold">{item.heading}</h3>
+                  <h3 className="text-2xl font-bold mt-2">{item.heading}</h3>
                   <Typography.Description>
                     {item.content}
                   </Typography.Description>
