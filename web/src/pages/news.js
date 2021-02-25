@@ -18,7 +18,7 @@ const query = graphql`
     }
     sanityNewsPage {
       _rawBody
-      title
+      pageName
     }
     allSanityNewsPost(sort: { order: DESC, fields: _createdAt }) {
       edges {
@@ -51,7 +51,7 @@ const Component = () => {
   return (
     <Layout.FlexWrapper>
       <SEO
-        title={data.title || sanitySiteSettings.title}
+        title={data.pageName || sanitySiteSettings.title}
         description={sanitySiteSettings.description}
         keywords={data.keywords || sanitySiteSettings.keywords}
       />
@@ -59,7 +59,7 @@ const Component = () => {
         <ArticleSideMenu title={'Nyheter'} posts={posts} url={'news'} />
       </Layout.Aside>
       <Layout.Article>
-        <Typography.H1>{data.title}</Typography.H1>
+        <Typography.H1>{data.pageName}</Typography.H1>
         <BlockContent blocks={data._rawBody} withAnchor={true} />
 
         {Boolean(posts.length) && (

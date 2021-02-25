@@ -9,7 +9,7 @@ const query = graphql`
   query homePageQuery {
     sanityHomePage {
       keywords
-      title
+      heroText
       description
       getStarted {
         cta
@@ -64,7 +64,7 @@ const Component = () => {
 
               <div className="z-10 text-center md:px-8 flex flex-col items-center">
                 <h2 className="text-4xl md:text-8xl font-bold mb-4">
-                  {data.title}
+                  {data.heroText}
                 </h2>
               </div>
             </div>
