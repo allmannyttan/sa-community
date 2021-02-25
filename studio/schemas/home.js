@@ -10,6 +10,8 @@ export default {
       title: 'Hero Text',
       name: 'heroText',
       description: 'Denna text placeras i mitten av startsidan',
+      validation: (Rule) =>
+        Rule.required().error('Här behöver du ange en hero text'),
     },
     {
       type: 'string',
@@ -26,7 +28,7 @@ export default {
       validation: (Rule) =>
         Rule.custom((blocks) => {
           if (blocks.length > 3)
-            return 'Max antal block har lagts till. Ändra eller ta bort något av de som renan är inlagda.'
+            return 'Max antal block har lagts till. Ändra eller ta bort något av de som redan är inlagda.'
           return true
         }),
     },
