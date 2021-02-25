@@ -9,7 +9,7 @@ const query = graphql`
   query homePageQuery {
     sanityHomePage {
       keywords
-      title
+      heroText
       description
       getStarted {
         cta
@@ -114,10 +114,7 @@ const Component = () => {
       {data && (
         <div className="px-8">
           <div className="max-w-screen-lg mx-auto">
-            <div
-              className="mx-auto flex flex-col justify-center items-center md:mt-0 relative "
-              style={{ width: 500, height: 500 }}
-            >
+            <div className="mx-auto flex flex-col justify-center items-center md:mt-0 relative h-500 md:w-500 w-full ">
               <img
                 className="absolute inset-y-0 w-full h-full"
                 style={{ zIndex: -1 }}
@@ -126,9 +123,9 @@ const Component = () => {
               />
 
               <div className="z-10 text-center md:px-8 flex flex-col items-center">
-                <h2 className="text-4xl md:text-8xl font-bold mb-4">
-                  {data.title}
-                </h2>
+                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-4">
+                  {data.heroText}
+                </h1>
               </div>
             </div>
 
@@ -175,14 +172,27 @@ const Component = () => {
               })}
             </div>
 
-            <div className="my-16 md:mb-32 md:mt-64 grid grid-flow-row md:grid-flow-col bg-purple-100 p-8 md:p-16 gap-4">
-              {data.focusAreas.map((focusArea) => (
-                <div key={focusArea.heading} className="max-w-xs">
-                  <h3 className="text-lg font-bold">{focusArea.heading}</h3>
-                  <p>{focusArea.content}</p>
-                </div>
-              ))}
-            </div>
+            <h3 className="text-2xl font-bold">{item.heading}</h3>
+            <p className="">{item.content}</p>
+            <Link
+              className="shadow-lg bg-purple-200 hover:bg-purple-100 font-medium rounded-lg py-3 px-5 mt-4"
+              to={item.url}
+            >
+              {item.cta}
+            </Link>
+
+            {Boolean(data.focusAreas.length) && (
+              <div className="p-12 my-16 md:p-24 md:mt-40 justify-items-center md:justify-items-start text-center md:text-left gap-16 grid grid-flow-row border-dashed border border-saGreen md:grid-cols-3 rounded-lg">
+                {data.focusAreas.map((focusArea) => (
+                  <div key={focusArea.heading} className="max-w-xs">
+                    <h3 className="text-lg font-bold">{focusArea.heading}</h3>
+                    <Typography.Description>
+                      {focusArea.content}
+                    </Typography.Description>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       )}

@@ -61,6 +61,25 @@ export const H3 = ({ children, withAnchor = false }) => {
   )
 }
 
+export const H4 = ({ children, withAnchor = false }) => {
+  const slug = utils.slugify(children[0])
+
+  return withAnchor ? (
+    <Typography.H4 additionalClassnames="group flex items-center">
+      {children}
+      <Link
+        id={slug}
+        className="group-hover:opacity-100 opacity-0 anchor inline-flex items-center ml-2 text-purple-700"
+        to={`#${slug}`}
+      >
+        <BsLink size={20} />
+      </Link>
+    </Typography.H4>
+  ) : (
+    <Typography.H4>{children}</Typography.H4>
+  )
+}
+
 export const Paragraph = ({ children }) => (
   <Typography.BodyParagraph>{children}</Typography.BodyParagraph>
 )

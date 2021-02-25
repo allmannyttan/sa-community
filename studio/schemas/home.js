@@ -4,12 +4,8 @@ export default {
   title: 'Hem',
   __experimental_actions: ['update', 'publish', 'create'],
   fields: [
-    {
-      type: 'string',
-      title: 'Title',
-      name: 'title',
-      description: 'Denna text placeras i mitten av startsidan',
-    },
+    { type: 'pageName', name: 'pageName', title: 'Namn' },
+    { type: 'heroText', name: 'heroText' },
     {
       type: 'string',
       title: 'Kortare beskrivning',
@@ -22,6 +18,12 @@ export default {
       title: 'Kom igång',
       type: 'array',
       of: [{ type: 'getStarted' }],
+      validation: (Rule) =>
+        Rule.custom((blocks) => {
+          if (blocks.length > 3)
+            return 'Max antal block har lagts till. Ändra eller ta bort något av de som redan är inlagda.'
+          return true
+        }),
     },
     {
       name: 'focusAreas',

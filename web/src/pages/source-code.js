@@ -15,8 +15,7 @@ const query = graphql`
     }
 
     sanitySourceCodePage {
-      tableOfContents
-      title
+      pageName
       _rawBody
     }
   }
@@ -32,7 +31,7 @@ const Component = () => {
   return (
     <Layout.FlexWrapper>
       <SEO
-        title={data.title || sanitySiteSettings.title}
+        title={data.pageName || sanitySiteSettings.title}
         description={sanitySiteSettings.description}
         keywords={data.keywords || sanitySiteSettings.keywords}
       />
@@ -40,7 +39,7 @@ const Component = () => {
         <TableOfContents blocks={data._rawBody} />
       </Layout.Aside>
       <Layout.Article>
-        <Typography.H1>{data.title}</Typography.H1>
+        <Typography.H1>{data.pageName}</Typography.H1>
         <BlockContent blocks={data._rawBody} withAnchor={true} />
       </Layout.Article>
     </Layout.FlexWrapper>
