@@ -16,7 +16,7 @@ const query = graphql`
           }
         }
       }
-      title
+      pageName
       _rawBody(resolveReferences: { maxDepth: 10 })
     }
     sanitySiteSettings {
@@ -37,11 +37,11 @@ const Component = () => {
   return (
     <>
       <SEO
-        title={data.title || sanitySiteSettings.title}
+        title={data.pageName || sanitySiteSettings.title}
         description={data.description || sanitySiteSettings.description}
         keywords={data.keywords || sanitySiteSettings.keywords}
       />
-      <HeroBlock heroImage={data.heroImage} heroText={data.title} />
+      <HeroBlock heroImage={data.heroImage} heroText={data.pageName} />
       <div className="flex justify-center">
         <Layout.Article>
           {data._rawBody && <BlockContent blocks={data._rawBody} />}

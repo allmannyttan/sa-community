@@ -4,10 +4,11 @@ export default {
   title: 'Hem',
   __experimental_actions: ['update', 'publish', 'create'],
   fields: [
+    { type: 'pageName', name: 'pageName', title: 'Namn' },
     {
       type: 'string',
-      title: 'Title',
-      name: 'title',
+      title: 'Hero Text',
+      name: 'heroText',
       description: 'Denna text placeras i mitten av startsidan',
     },
     {

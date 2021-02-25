@@ -26,6 +26,7 @@ import newsPage from './news'
 import projectPage from './projectPage'
 import title from './title'
 import keywords from './keywords'
+import pageName from './pageName'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -57,5 +58,6 @@ export default createSchema({
     projectPage,
     title,
     keywords,
+    pageName,
   ]),
 })
