@@ -4,7 +4,7 @@ export default {
   title: 'API',
   __experimental_actions: ['update', 'publish', 'create'],
   fields: [
-    { type: 'title', name: 'title' },
+    { type: 'pageName', name: 'pageName', title: 'Namn' },
     { type: 'bodyPortableText', name: 'Body' },
     { type: 'keywords', name: 'keywords' },
   ],
