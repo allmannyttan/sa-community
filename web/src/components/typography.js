@@ -26,11 +26,14 @@ export const H3 = ({ children, additionalClassnames = '' }) => {
   return <h3 className={classNames}>{children}</h3>
 }
 
-export const H4 = ({ children }) => (
-  <h4 className="text-base text-saBlack font-medium tracking-wide my-2">
-    {children}
-  </h4>
-)
+export const H4 = ({ children, additionalClassnames = '' }) => {
+  const classNames = 'text-lg text-saBlack font-medium tracking-wide my-2 mt-4 mb-2'.concat(
+    ' ',
+    additionalClassnames
+  )
+
+  return <h4 className={classNames}>{children}</h4>
+}
 
 export const BodyParagraph = ({ children }) => (
   <p className="max-w-2xl text-base md:text-lg tracking-wide my-2">
