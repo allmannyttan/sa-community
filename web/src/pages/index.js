@@ -87,7 +87,7 @@ const Component = () => {
                     {item.content}
                   </Typography.Description>
                   <Link
-                    className="shadow-lg bg-purple-200 hover:bg-purple-100 font-medium rounded-lg py-3 px-5 mt-2 self-end"
+                    className="shadow-lg bg-purple-200 hover:bg-purple-100 font-medium rounded-lg py-3 px-5 mt-2 self-center"
                     to={item.url}
                   >
                     {item.cta}

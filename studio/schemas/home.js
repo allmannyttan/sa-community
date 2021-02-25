@@ -22,6 +22,12 @@ export default {
       title: 'Kom igång',
       type: 'array',
       of: [{ type: 'getStarted' }],
+      validation: (Rule) =>
+        Rule.custom((blocks) => {
+          if (blocks.length > 3)
+            return 'Max antal block har lagts till. Ändra eller ta bort något av de som renan är inlagda.'
+          return true
+        }),
     },
     {
       name: 'focusAreas',
