@@ -4,10 +4,10 @@ import * as Layout from '../components/layout/'
 import * as Typography from '../components/typography'
 import BlockContent from '../components/blockContent'
 import SEO from '../components/seo'
-import ArticleSideMenu from '../components/articleSideMenu'
 import * as Links from '../components/links'
 import { RiTimeLine } from 'react-icons/ri'
 import * as utils from '../utils'
+import NewsPosts from '../components/newsPosts'
 
 const query = graphql`
   query newsPage {
@@ -56,7 +56,7 @@ const Component = () => {
         keywords={data.keywords || sanitySiteSettings.keywords}
       />
       <Layout.Aside>
-        <ArticleSideMenu title={'Nyheter'} posts={posts} url={'news'} />
+        <NewsPosts posts={posts} />
       </Layout.Aside>
       <Layout.Article>
         <Typography.H1>{data.pageName}</Typography.H1>
