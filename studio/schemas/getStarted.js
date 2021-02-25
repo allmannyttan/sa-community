@@ -36,29 +36,10 @@ export default {
       validation: (Rule) => Rule.required().error('Du måste ange ett namn'),
     },
     {
-      title: 'Skicka användaren hit',
-      description:
-        'Rutt till undersidan du vill länka till. T.ex news, communication, docs/api eller en specifik post',
-      name: 'reference',
-      weak: true,
-      type: 'array',
-      of: [
-        {
-          type: 'reference',
-          description:
-            'Sök på den sidan du vill länka till. T.ex news, communication, docs/api eller en specifik post',
-          to: [
-            { type: 'aboutUsPage' },
-            { type: 'newsPage' },
-            { type: 'projectPage' },
-            { type: 'api' },
-            { type: 'communicationPage' },
-            { type: 'apiPage' },
-            { type: 'newsPost' },
-            { type: 'project' },
-          ],
-        },
-      ],
+      title: 'Länk till',
+      type: 'sendTo',
+      name: 'sendTo',
+      validation: (Rule) => Rule.required(),
     },
   ],
 }

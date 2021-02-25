@@ -22,40 +22,41 @@ const query = graphql`
             }
           }
         }
-        reference {
-          ... on SanityApi {
-            slug {
-              current
+        sendTo {
+          reference {
+            ... on SanityApi {
+              slug {
+                current
+              }
+              _type
             }
-            _type
-          }
-          ... on SanityNewsPost {
-            slug {
-              current
+            ... on SanityNewsPost {
+              slug {
+                current
+              }
+              _type
             }
-            _type
-          }
-          ... on SanityProject {
-            slug {
-              current
+            ... on SanityProject {
+              slug {
+                current
+              }
+              _type
             }
-            _type
-          }
-          ... on SanityCommunicationPage {
-            _type
-          }
-          ... on SanityAboutUsPage {
-            _type
-          }
-          ... on SanityApiPage {
-            _type
-          }
-          ... on SanityNewsPage {
-            _type
-          }
-
-          ... on SanityProjectPage {
-            _type
+            ... on SanityCommunicationPage {
+              _type
+            }
+            ... on SanityAboutUsPage {
+              _type
+            }
+            ... on SanityApiPage {
+              _type
+            }
+            ... on SanityNewsPage {
+              _type
+            }
+            ... on SanityProjectPage {
+              _type
+            }
           }
         }
       }
@@ -75,16 +76,16 @@ const Component = () => {
   const { sanityHomePage: data, sanitySiteSettings } = useStaticQuery(query)
   const seo = sanitySiteSettings || {}
 
-  const parseContentTypeName = (reference) => {
+  const getRouteFromReference = (reference) => {
     switch (reference._type) {
       case 'project':
-        return 'docs/project'
-      case 'newsPost':
-        return 'news'
+        return `docs/project/${reference.slug.current}`
+      case `newsPost`:
+        return `news/${reference.slug.current}`
       case 'homePage':
         return ''
       case 'api':
-        return 'docs/api'
+        return `docs/api/${reference.slug.current}`
       case 'aboutUsPage':
         return 'about'
       case 'communicationPage':
@@ -92,13 +93,13 @@ const Component = () => {
       case 'newsPage':
         return 'news'
       case 'projectPage':
-        return `docs/project/`
+        return `docs/project/${reference.slug.current}`
       case 'sourceCodePage':
         return 'source-code'
       case 'apiPage':
         return 'docs/api'
       default:
-        return reference
+        return undefined
     }
   }
 
@@ -131,15 +132,8 @@ const Component = () => {
 
             <div className="grid grid-flow-row md:grid-flow-col py-8 row-auto gap-6 p-8 md:p-0">
               {(data.getStarted || []).map((item) => {
-                let link
-                if (item.reference[0]) {
-                  link = `${parseContentTypeName(item.reference[0])}`
-
-                  if (item.reference[0].slug) {
-                    link = `${parseContentTypeName(item.reference[0])}/${
-                      item.reference[0].slug.current
-                    }`
-                  }
+                if (!item.sendTo) {
+                  return null
                 }
 
                 return (
@@ -151,7 +145,7 @@ const Component = () => {
                     }}
                   >
                     <div className="w-10">
-                      {/* <Img fluid={item.icon.asset.fluid} /> */}
+                      <Img fluid={item.icon.asset.fluid} />
                     </div>
 
                     <h3 className="text-2xl font-bold">{item.heading}</h3>
@@ -159,27 +153,16 @@ const Component = () => {
                       {item.content}
                     </Typography.Description>
 
-                    {item.reference[0] && (
-                      <Link
-                        className="shadow-lg bg-purple-200 hover:bg-purple-100 font-medium rounded-lg py-3 px-5 mt-2 self-end"
-                        to={link}
-                      >
-                        {item.cta}
-                      </Link>
-                    )}
+                    <Link
+                      className="shadow-lg bg-purple-200 hover:bg-purple-100 font-medium rounded-lg py-3 px-5 mt-2 self-end"
+                      to={getRouteFromReference(item.sendTo.reference) || '/'}
+                    >
+                      {item.cta}
+                    </Link>
                   </div>
                 )
               })}
             </div>
-
-            <h3 className="text-2xl font-bold">{item.heading}</h3>
-            <p className="">{item.content}</p>
-            <Link
-              className="shadow-lg bg-purple-200 hover:bg-purple-100 font-medium rounded-lg py-3 px-5 mt-4"
-              to={item.url}
-            >
-              {item.cta}
-            </Link>
 
             {Boolean(data.focusAreas.length) && (
               <div className="p-12 my-16 md:p-24 md:mt-40 justify-items-center md:justify-items-start text-center md:text-left gap-16 grid grid-flow-row border-dashed border border-saGreen md:grid-cols-3 rounded-lg">
