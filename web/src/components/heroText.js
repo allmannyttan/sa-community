@@ -1,8 +1,14 @@
 import React from 'react'
 
 const HeroText = ({ data }) => {
-  console.log(data)
-  return <p></p>
+  return (
+    <h1
+      className="text-current font-bold"
+      style={{ color: data.color.hex || 'black' }}
+    >
+      {data.text}
+    </h1>
+  )
 }
 
 export default HeroText

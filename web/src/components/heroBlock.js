@@ -1,6 +1,7 @@
 import React from 'react'
-import * as Typography from '../components/typography'
+
 import HeroImage from './heroImage'
+import HeroText from './heroText'
 
 const Component = ({ heroImage, heroText }) => {
   const image = heroImage || {}
@@ -8,11 +9,9 @@ const Component = ({ heroImage, heroText }) => {
   if (!image.asset && heroText)
     return (
       <div className="flex items-center justify-center bg-gray-100 w-full h-48">
-        <Typography.H1>{heroText}</Typography.H1>
+        <HeroText data={heroText} />
       </div>
     )
-
-  if (!image.asset && heroText) return <HeroImage data={image} />
 
   if (image.asset && !heroText)
     return (
@@ -31,8 +30,8 @@ const Component = ({ heroImage, heroText }) => {
         <HeroImage data={image} />
       </div>
 
-      <div className="absolute w-full inset-0 flex items-center justify-center text-white ">
-        <Typography.H1>{heroText}</Typography.H1>
+      <div className="absolute w-full inset-0 flex items-center justify-center">
+        <HeroText data={heroText} />
       </div>
     </div>
   )

@@ -41,7 +41,7 @@ const Component = () => {
   if (!data) return <h1>Data saknas...</h1>
 
   return (
-    <>
+    <div className="text-3xl md:text-4xl lg:text-5xl">
       <SEO
         title={data.pageName || sanitySiteSettings.title}
         description={data.description || sanitySiteSettings.description}
@@ -53,7 +53,7 @@ const Component = () => {
           {data._rawBody && <BlockContent blocks={data._rawBody} />}
         </Layout.Article>
       </div>
-    </>
+    </div>
   )
 }
 
