@@ -8,7 +8,12 @@ import * as Layout from '../components/layout'
 const query = graphql`
   query communication {
     sanityCommunicationPage {
-      heroText
+      heroText {
+        color {
+          hex
+        }
+        text
+      }
       heroImage {
         alt
         asset {

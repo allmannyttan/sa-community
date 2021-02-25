@@ -5,12 +5,16 @@ export default {
   __experimental_actions: ['update', 'publish', 'create', 'delete'],
   fields: [
     { type: 'pageName', name: 'pageName', title: 'Namn' },
-    { type: 'heroText', name: 'heroText' },
     {
       type: 'heroImage',
       name: 'heroImage',
       title: 'Hero bild',
-      description: 'Hero bild som visas stort längst upp på sidan.',
+      description: 'Hero bild som visas stort längst upp på sidan',
+    },
+    {
+      type: 'heroText',
+      name: 'heroText',
+      description: 'Denna text placeras i mitten av bilden',
     },
     { type: 'bodyPortableText', name: 'Body' },
     { type: 'keywords', name: 'keywords' },

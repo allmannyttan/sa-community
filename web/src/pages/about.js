@@ -11,7 +11,12 @@ const query = graphql`
       pageName
       _rawBody(resolveReferences: { maxDepth: 10 })
       keywords
-      heroText
+      heroText {
+        color {
+          hex
+        }
+        text
+      }
       heroImage {
         alt
         asset {

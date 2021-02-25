@@ -5,7 +5,13 @@ export default {
   __experimental_actions: ['update', 'publish', 'create'],
   fields: [
     { type: 'pageName', name: 'pageName', title: 'Namn' },
-    { type: 'heroText', name: 'heroText' },
+    {
+      type: 'heroText',
+      name: 'heroText',
+      description: 'Denna text placeras i mitten av startsidan',
+      validation: (Rule) =>
+        Rule.required().error('Här behöver du ange en text'),
+    },
     {
       type: 'string',
       title: 'Kortare beskrivning',
@@ -21,7 +27,7 @@ export default {
       validation: (Rule) =>
         Rule.custom((blocks) => {
           if (blocks.length > 3)
-            return 'Max antal block har lagts till. Ändra eller ta bort något av de som redan är inlagda.'
+            return 'Max antal block har lagts till. Ändra eller ta bort något av de som redan är inlagda'
           return true
         }),
     },
