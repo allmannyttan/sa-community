@@ -1,7 +1,6 @@
 import React from 'react'
 import * as utils from '../utils'
 import * as Links from './links'
-import * as Typography from './typography'
 
 const TableOfContents = ({ blocks = [] }) => {
   const targetItems = ['h2', 'h3', 'h4']

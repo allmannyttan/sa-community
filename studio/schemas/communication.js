@@ -5,6 +5,7 @@ export default {
   __experimental_actions: ['update', 'publish', 'create', 'delete'],
   fields: [
     { type: 'pageName', name: 'pageName', title: 'Namn' },
+    { type: 'heroText', name: 'heroText' },
     {
       type: 'heroImage',
       name: 'heroImage',

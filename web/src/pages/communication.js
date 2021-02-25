@@ -8,6 +8,7 @@ import * as Layout from '../components/layout'
 const query = graphql`
   query communication {
     sanityCommunicationPage {
+      heroText
       heroImage {
         alt
         asset {
@@ -41,7 +42,7 @@ const Component = () => {
         description={data.description || sanitySiteSettings.description}
         keywords={data.keywords || sanitySiteSettings.keywords}
       />
-      <HeroBlock heroImage={data.heroImage} heroText={data.pageName} />
+      <HeroBlock heroImage={data.heroImage} heroText={data.heroText} />
       <div className="flex justify-center">
         <Layout.Article>
           {data._rawBody && <BlockContent blocks={data._rawBody} />}

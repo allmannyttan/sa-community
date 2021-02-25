@@ -15,7 +15,6 @@ const query = graphql`
     }
 
     sanitySourceCodePage {
-      tableOfContents
       pageName
       _rawBody
     }

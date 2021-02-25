@@ -18,9 +18,9 @@ import newsPost from './newsPost'
 import editor from './editor'
 import youtube from './youtube'
 import bodyPortableText from './bodyPortableText'
+import heroText from './heroText'
 import communication from './communication'
 import apiPage from './apiPage'
-import tableOfContents from './tableOfContents'
 import sourceCode from './sourceCode'
 import newsPage from './news'
 import projectPage from './projectPage'
@@ -43,6 +43,7 @@ export default createSchema({
     sectionLink,
     home,
     heroImage,
+    heroText,
     focusArea,
     getStarted,
     about,
@@ -53,7 +54,6 @@ export default createSchema({
     youtube,
     communication,
     apiPage,
-    tableOfContents,
     sourceCode,
     projectPage,
     title,

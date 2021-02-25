@@ -18,6 +18,10 @@ const serializers = (withAnchor) => ({
           return (
             <Serializers.H3 withAnchor={withAnchor}>{children}</Serializers.H3>
           )
+        case 'h4':
+          return (
+            <Serializers.H4 withAnchor={withAnchor}>{children}</Serializers.H4>
+          )
         case 'normal':
           return <Serializers.Paragraph>{children}</Serializers.Paragraph>
         default:
