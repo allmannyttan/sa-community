@@ -64,5 +64,5 @@ export const dateToHumanReadable = (d) => {
 
   const monthName = months[date.getMonth()]
 
-  return `${date.getDay()} ${monthName} ${date.getFullYear()}`
+  return `${date.getDate()} ${monthName} ${date.getFullYear()}`
 }
