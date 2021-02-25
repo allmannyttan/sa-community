@@ -46,7 +46,7 @@ const Header = () => {
 
   return (
     <div
-      className="fixed w-full z-50"
+      className="fixed w-full z-50 "
       style={{
         backdropFilter: 'blur(5px)',
         background: 'rgba(255,255,255,.90)',
@@ -54,13 +54,13 @@ const Header = () => {
       }}
     >
       <div
-        className={`flex md:hidden justify-center pl-8 pt-20 fixed top-0 left-0 z-10 w-screen h-screen bg-white ${
+        className={`flex md:hidden justify-center pl-8 pt-20 fixed top-0 left-0 z-10 w-screen h-screen ${
           !open && 'hidden'
         }`}
       >
         <ul className="text-xl">{routes}</ul>
       </div>
-      <header className="">
+      <header>
         <nav className="w-full h-20 flex justify-between items-center px-10">
           <Link to="/">
             <img className="w-20" src={logotype} alt="website logotype" />

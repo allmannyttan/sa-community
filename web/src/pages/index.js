@@ -49,35 +49,45 @@ const Component = () => {
       {!data && <h1>Data saknas...</h1>}
 
       {data && (
-        <>
+        <div className="px-8">
           <div className="max-w-screen-lg mx-auto">
-            <div className="mx-auto flex flex-col justify-center items-center md:mt-0 relative">
-              <img src={bg}></img>
-              <div className="z-10 text-center absolute md:px-8 flex flex-col items-center">
+            <div
+              className="mx-auto flex flex-col justify-center items-center md:mt-0 relative "
+              style={{ width: 500, height: 500 }}
+            >
+              <img
+                className="absolute inset-y-0 w-full h-full"
+                style={{ zIndex: -1 }}
+                src={bg}
+                alt="presentational radial gradient"
+              />
+
+              <div className="z-10 text-center md:px-8 flex flex-col items-center">
                 <h2 className="text-4xl md:text-8xl font-bold mb-4">
                   {data.title}
                 </h2>
-                <Typography.DescriptionParagraph>
-                  {data.description}
-                </Typography.DescriptionParagraph>
               </div>
             </div>
 
-            <div className="my-16 grid grid-flow-row md:grid-flow-col py-8 row-auto gap-6 p-8 md:p-0">
-              {data.getStarted.map((item) => (
+            <div className="grid grid-flow-row md:grid-flow-col py-8 row-auto gap-6 p-8 md:p-0">
+              {(data.getStarted || []).map((item) => (
                 <div
                   key={item.heading}
-                  className="max-w-xs grid grid-flow-row mb-10 md:mb-0 justify-items-center text-center"
+                  className="max-w-xs grid mb-10 md:mb-0 justify-items-center text-center"
+                  style={{
+                    gridTemplateRows: '50px 50px 1fr 1fr',
+                  }}
                 >
-                  <div className="w-10 mb-3 md:mb-6 ">
+                  <div className="w-10">
                     <Img fluid={item.icon.asset.fluid} />
                   </div>
-                  <h3 className="text-2xl font-bold ">{item.heading}</h3>
-                  <Typography.DescriptionParagraph>
+
+                  <h3 className="text-2xl font-bold">{item.heading}</h3>
+                  <Typography.Description>
                     {item.content}
-                  </Typography.DescriptionParagraph>
+                  </Typography.Description>
                   <Link
-                    className="bg-purple-300 hover:bg-purple-200 rounded p-3 mt-8 self-end"
+                    className="shadow-lg bg-purple-200 hover:bg-purple-100 font-medium rounded-lg py-3 px-5 mt-2 self-end"
                     to={item.url}
                   >
                     {item.cta}
@@ -95,7 +105,7 @@ const Component = () => {
               ))}
             </div>
           </div>
-        </>
+        </div>
       )}
     </>
   )
