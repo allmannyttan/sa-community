@@ -25,7 +25,7 @@ export default {
       description: 'Lägg till en kortare beskrivning',
       validation: (Rule) => [
         Rule.required().error('Du måste lägga in en beskrivning här'),
-        Rule.min(120).max(200),
+        Rule.min(10).max(150),
       ],
     },
     {
@@ -36,11 +36,9 @@ export default {
       validation: (Rule) => Rule.required().error('Du måste ange ett namn'),
     },
     {
-      type: 'string',
-      name: 'url',
-      title: 'Skicka användaren hit',
-      description:
-        'Rutt till undersidan du vill länka till. T.ex news, docs/api',
+      title: 'Länk till',
+      type: 'sendTo',
+      name: 'sendTo',
       validation: (Rule) => Rule.required(),
     },
   ],
