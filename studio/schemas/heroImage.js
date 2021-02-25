@@ -7,8 +7,8 @@ export default {
   },
   validation: (Rules) =>
     Rules.custom((fields) => {
-      // if (!fields.asset) return 'Pleace provide a hero image'
-      // if (!fields.alt) return 'Provide a alternative text for the image'
+      if (!fields.asset) return 'Pleace provide a hero image'
+      if (!fields.alt) return 'Provide a alternative text for the image'
       return true
     }),
   fields: [
