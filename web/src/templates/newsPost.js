@@ -3,11 +3,11 @@ import { graphql } from 'gatsby'
 import SEO from '../components/seo'
 import * as Layout from '../components/layout/'
 import * as Typography from '../components/typography'
-import ArticleSideMenu from '../components/articleSideMenu'
 import BlockContent from '../components/blockContent'
 import AuthorImage from './../components/authorImage'
 import { RiTimeLine } from 'react-icons/ri'
 import * as utils from '../utils'
+import NewsPosts from '../components/newsPosts'
 
 export const query = graphql`
   query newsPostTemplateQuery($id: String!) {
@@ -62,7 +62,7 @@ const Component = (props) => {
         description={data.description}
       />
       <Layout.Aside>
-        <ArticleSideMenu title={'Nyheter'} posts={posts} url={'news'} />
+        <NewsPosts posts={posts} />
       </Layout.Aside>
       <Layout.Article>
         <Typography.H1>{data.title}</Typography.H1>
