@@ -26,11 +26,29 @@ export default {
       description: 'Namn på knapp som leder till en sida',
     },
     {
-      type: 'string',
-      name: 'url',
       title: 'Skicka användaren hit',
       description:
-        'Rutt till undersidan du vill länka till. T.ex news, docs/api',
+        'Rutt till undersidan du vill länka till. T.ex news, communication, docs/api eller en specifik post',
+      name: 'reference',
+      weak: true,
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          description:
+            'Sök på den sidan du vill länka till. T.ex news, communication, docs/api eller en specifik post',
+          to: [
+            { type: 'aboutUsPage' },
+            { type: 'newsPage' },
+            { type: 'projectPage' },
+            { type: 'api' },
+            { type: 'communicationPage' },
+            { type: 'apiPage' },
+            { type: 'newsPost' },
+            { type: 'project' },
+          ],
+        },
+      ],
     },
   ],
 }

@@ -15,12 +15,47 @@ const query = graphql`
         cta
         heading
         content
-        url
         icon {
           asset {
             fluid {
               ...GatsbySanityImageFluid
             }
+          }
+        }
+        reference {
+          ... on SanityApi {
+            slug {
+              current
+            }
+            _type
+          }
+          ... on SanityNewsPost {
+            slug {
+              current
+            }
+            _type
+          }
+          ... on SanityProject {
+            slug {
+              current
+            }
+            _type
+          }
+          ... on SanityCommunicationPage {
+            _type
+          }
+          ... on SanityAboutUsPage {
+            _type
+          }
+          ... on SanityApiPage {
+            _type
+          }
+          ... on SanityNewsPage {
+            _type
+          }
+
+          ... on SanityProjectPage {
+            _type
           }
         }
       }
@@ -39,6 +74,34 @@ const query = graphql`
 const Component = () => {
   const { sanityHomePage: data, sanitySiteSettings } = useStaticQuery(query)
   const seo = sanitySiteSettings || {}
+
+  const parseContentTypeName = (reference) => {
+    switch (reference._type) {
+      case 'project':
+        return 'docs/project'
+      case 'newsPost':
+        return 'news'
+      case 'homePage':
+        return ''
+      case 'api':
+        return 'docs/api'
+      case 'aboutUsPage':
+        return 'about'
+      case 'communicationPage':
+        return 'communication'
+      case 'newsPage':
+        return 'news'
+      case 'projectPage':
+        return `docs/project/`
+      case 'sourceCodePage':
+        return 'source-code'
+      case 'apiPage':
+        return 'docs/api'
+      default:
+        return reference
+    }
+  }
+
   return (
     <>
       <SEO
@@ -70,30 +133,46 @@ const Component = () => {
             </div>
 
             <div className="grid grid-flow-row md:grid-flow-col py-8 row-auto gap-6 p-8 md:p-0">
-              {(data.getStarted || []).map((item) => (
-                <div
-                  key={item.heading}
-                  className="max-w-xs grid mb-10 md:mb-0 justify-items-center text-center"
-                  style={{
-                    gridTemplateRows: '50px 50px 1fr 1fr',
-                  }}
-                >
-                  <div className="w-10">
-                    <Img fluid={item.icon.asset.fluid} />
-                  </div>
+              {(data.getStarted || []).map((item) => {
+                let link
+                if (item.reference[0]) {
+                  link = `${parseContentTypeName(item.reference[0])}`
 
-                  <h3 className="text-2xl font-bold">{item.heading}</h3>
-                  <Typography.Description>
-                    {item.content}
-                  </Typography.Description>
-                  <Link
-                    className="shadow-lg bg-purple-200 hover:bg-purple-100 font-medium rounded-lg py-3 px-5 mt-2 self-end"
-                    to={item.url}
+                  if (item.reference[0].slug) {
+                    link = `${parseContentTypeName(item.reference[0])}/${
+                      item.reference[0].slug.current
+                    }`
+                  }
+                }
+
+                return (
+                  <div
+                    key={item.heading}
+                    className="max-w-xs grid mb-10 md:mb-0 justify-items-center text-center"
+                    style={{
+                      gridTemplateRows: '50px 50px 1fr 1fr',
+                    }}
                   >
-                    {item.cta}
-                  </Link>
-                </div>
-              ))}
+                    <div className="w-10">
+                      {/* <Img fluid={item.icon.asset.fluid} /> */}
+                    </div>
+
+                    <h3 className="text-2xl font-bold">{item.heading}</h3>
+                    <Typography.Description>
+                      {item.content}
+                    </Typography.Description>
+
+                    {item.reference[0] && (
+                      <Link
+                        className="shadow-lg bg-purple-200 hover:bg-purple-100 font-medium rounded-lg py-3 px-5 mt-2 self-end"
+                        to={link}
+                      >
+                        {item.cta}
+                      </Link>
+                    )}
+                  </div>
+                )
+              })}
             </div>
 
             <div className="my-16 md:mb-32 md:mt-64 grid grid-flow-row md:grid-flow-col bg-purple-100 p-8 md:p-16 gap-4">
