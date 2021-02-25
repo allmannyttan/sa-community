@@ -15,11 +15,14 @@
     "@sanity/desk-tool",
     "@sanity/code-input",
     "vercel-deploy",
-    "@sanity/dashboard"
+    "@sanity/dashboard",
+    "@sanity/color-input"
   ],
   "env": {
     "development": {
-      "plugins": ["@sanity/vision"],
+      "plugins": [
+        "@sanity/vision"
+      ],
       "api": {
         "dataset": "development"
       }

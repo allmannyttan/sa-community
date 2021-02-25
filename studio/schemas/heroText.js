@@ -1,8 +1,17 @@
 export default {
-  type: 'string',
+  type: 'object',
   title: 'Hero Text',
   name: 'heroText',
-  description: 'Denna text placeras i mitten av startsidan',
-  validation: (Rule) =>
-    Rule.required().error('Här behöver du ange en hero text'),
+
+  fields: [
+    { name: 'text', title: 'Text', type: 'string' },
+    {
+      name: 'color',
+      title: 'Textfärg',
+      type: 'color',
+      options: {
+        disableAlpha: true,
+      },
+    },
+  ],
 }

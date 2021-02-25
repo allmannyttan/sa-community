@@ -4,12 +4,18 @@ import SEO from '../components/seo'
 import bg from '../images/bg.svg'
 import Img from 'gatsby-image'
 import * as Typography from '../components/typography'
+import HeroText from '../components/heroText'
 
 const query = graphql`
   query homePageQuery {
     sanityHomePage {
       keywords
-      heroText
+      heroText {
+        color {
+          hex
+        }
+        text
+      }
       description
       getStarted {
         cta
@@ -72,6 +78,7 @@ const query = graphql`
     }
   }
 `
+
 const Component = () => {
   const { sanityHomePage: data, sanitySiteSettings } = useStaticQuery(query)
   const seo = sanitySiteSettings || {}
@@ -123,10 +130,8 @@ const Component = () => {
                 alt="presentational radial gradient"
               />
 
-              <div className="z-10 text-center md:px-8 flex flex-col items-center">
-                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-4">
-                  {data.heroText}
-                </h1>
+              <div className="z-10 text-center md:px-8 flex flex-col items-center text-5xl sm:text-6xl md:text-7xl lg:text-8xl">
+                <HeroText data={data.heroText} />
               </div>
             </div>
 
