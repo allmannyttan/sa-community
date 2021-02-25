@@ -4,12 +4,10 @@ import logotype from './../images/logo.svg'
 import { HiOutlineMenuAlt3 } from 'react-icons/hi'
 import { AiOutlineClose } from 'react-icons/ai'
 import { graphql, useStaticQuery } from 'gatsby'
+import * as Links from '../components/links'
 
 const query = graphql`
   query allPages {
-    sanityHomePage {
-      pageName
-    }
     sanityProjectPage {
       pageName
     }
@@ -31,43 +29,36 @@ const query = graphql`
   }
 `
 
-const NavLink = ({ to, cb, children }) => {
-  const [active, set] = React.useState(false)
-
-  return (
-    <Link
-      to={to}
-      onTouchStart={() => set(true)}
-      onTouchEnd={() => set(false)}
-      onMouseEnter={() => set(true)}
-      onMouseLeave={() => set(false)}
-      onClick={() => cb && cb()}
-      className={`rounded-md px-4 py-2 transition-color duration-100 mr-2 ${
-        active && 'bg-purple-50'
-      } text-gray-700 hover:text-black whitespace-nowrap`}
-      activeClassName="bg-purple-50"
-      activeStyle={{ color: 'black' }}
-    >
-      {children}
-    </Link>
-  )
+const getLinkPathFromPageData = ([name, { pageName }]) => {
+  switch (name) {
+    case 'sanityProjectPage':
+      return { pageName, path: '/docs/project' }
+    case 'sanityApiPage':
+      return { pageName, path: '/docs/api' }
+    case 'sanityNewsPage':
+      return { pageName, path: '/news' }
+    case 'sanityAboutUsPage':
+      return { pageName, path: '/about' }
+    case 'sanityCommunicationPage':
+      return { pageName, path: '/communication' }
+    case 'sanitySourceCodePage':
+      return { pageName, path: '/source-code' }
+    default:
+      return '/'
+  }
 }
 
 const Header = () => {
-  const routes = Object.entries({
-    '/docs/project': 'Projekt',
-    '/docs/api': 'API:er',
-    '/news': 'Nyheter',
-    '/source-code': 'Källkod',
-    '/about': 'Om oss',
-    '/communication': 'Kommunikation',
-  }).map(([route, name]) => (
-    <li className="mb-6 md:mb-0" key={route}>
-      <NavLink cb={() => setOpen(false)} to={route}>
-        {name}
-      </NavLink>
-    </li>
-  ))
+  const data = useStaticQuery(query)
+  const routes = Object.entries(data)
+    .map(getLinkPathFromPageData)
+    .map(({ pageName, path }) => (
+      <li className="mb-6 md:mb-0" key={path}>
+        <Links.NavLink cb={() => setOpen(false)} to={path}>
+          {pageName}
+        </Links.NavLink>
+      </li>
+    ))
 
   const [open, setOpen] = React.useState(false)
 

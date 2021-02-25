@@ -58,3 +58,25 @@ export const AnchorWithIcon = ({ children, slug }) => (
     </div>
   </Link>
 )
+
+export const NavLink = ({ to, cb, children }) => {
+  const [active, set] = React.useState(false)
+
+  return (
+    <Link
+      to={to}
+      onTouchStart={() => set(true)}
+      onTouchEnd={() => set(false)}
+      onMouseEnter={() => set(true)}
+      onMouseLeave={() => set(false)}
+      onClick={() => cb && cb()}
+      className={`rounded-md px-4 py-2 transition-color duration-100 mr-2 ${
+        active && 'bg-purple-50'
+      } text-gray-700 hover:text-black whitespace-nowrap`}
+      activeClassName="bg-purple-50"
+      activeStyle={{ color: 'black' }}
+    >
+      {children}
+    </Link>
+  )
+}
