@@ -21,11 +21,47 @@ const query = graphql`
         cta
         heading
         content
-        url
         icon {
           asset {
             fluid {
               ...GatsbySanityImageFluid
+            }
+          }
+        }
+        sendTo {
+          reference {
+            ... on SanityApi {
+              slug {
+                current
+              }
+              _type
+            }
+            ... on SanityNewsPost {
+              slug {
+                current
+              }
+              _type
+            }
+            ... on SanityProject {
+              slug {
+                current
+              }
+              _type
+            }
+            ... on SanityCommunicationPage {
+              _type
+            }
+            ... on SanityAboutUsPage {
+              _type
+            }
+            ... on SanityApiPage {
+              _type
+            }
+            ... on SanityNewsPage {
+              _type
+            }
+            ... on SanityProjectPage {
+              _type
             }
           }
         }
@@ -45,6 +81,34 @@ const query = graphql`
 const Component = () => {
   const { sanityHomePage: data, sanitySiteSettings } = useStaticQuery(query)
   const seo = sanitySiteSettings || {}
+
+  const getRouteFromReference = (reference) => {
+    switch (reference._type) {
+      case 'project':
+        return `docs/project/${reference.slug.current}`
+      case `newsPost`:
+        return `news/${reference.slug.current}`
+      case 'homePage':
+        return ''
+      case 'api':
+        return `docs/api/${reference.slug.current}`
+      case 'aboutUsPage':
+        return 'about'
+      case 'communicationPage':
+        return 'communication'
+      case 'newsPage':
+        return 'news'
+      case 'projectPage':
+        return `docs/project/${reference.slug.current}`
+      case 'sourceCodePage':
+        return 'source-code'
+      case 'apiPage':
+        return 'docs/api'
+      default:
+        return undefined
+    }
+  }
+
   return (
     <>
       <SEO
@@ -73,9 +137,12 @@ const Component = () => {
             </div>
 
             <div className="grid grid-flow-row md:grid-flow-col justify-items-center py-8 row-auto gap-6 p-8 md:p-0">
-              {(data.getStarted || [])
-                .filter((item) => Boolean(item.icon))
-                .map((item) => (
+              {(data.getStarted || []).map((item) => {
+                if (!item.sendTo) {
+                  return null
+                }
+
+                return (
                   <div
                     key={item.heading}
                     className="max-w-xs grid mb-10 md:mb-0 justify-items-center text-center items-center"
@@ -88,18 +155,22 @@ const Component = () => {
                         <Img fluid={item.icon.asset.fluid} />
                       </div>
                     )}
-
                     <h3 className="text-2xl font-bold">{item.heading}</h3>
-                    <p className="">{item.content}</p>
+                    <Typography.Description>
+                      {item.content}
+                    </Typography.Description>
+
                     <Link
                       className="shadow-lg bg-purple-200 hover:bg-purple-100 font-medium rounded-lg py-3 px-5 mt-4"
-                      to={item.url}
+                      to={getRouteFromReference(item.sendTo.reference) || '/'}
                     >
                       {item.cta}
                     </Link>
                   </div>
-                ))}
+                )
+              })}
             </div>
+
             {Boolean(data.focusAreas.length) && (
               <div className="p-12 my-16 md:p-24 md:mt-40 justify-items-center md:justify-items-start text-center md:text-left gap-16 grid grid-flow-row border-dashed border border-saGreen md:grid-cols-3 rounded-lg">
                 {data.focusAreas.map((focusArea) => (

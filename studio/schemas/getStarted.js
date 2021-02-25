@@ -36,11 +36,9 @@ export default {
       validation: (Rule) => Rule.required().error('Du måste ange ett namn'),
     },
     {
-      type: 'string',
-      name: 'url',
-      title: 'Skicka användaren hit',
-      description:
-        'Rutt till undersidan du vill länka till. T.ex news, docs/api',
+      title: 'Länk till',
+      type: 'sendTo',
+      name: 'sendTo',
       validation: (Rule) => Rule.required(),
     },
   ],
