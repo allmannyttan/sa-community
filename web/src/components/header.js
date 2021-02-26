@@ -8,6 +8,9 @@ import * as Links from '../components/links'
 
 const query = graphql`
   query allPages {
+    sanityHomePage {
+      pageName
+    }
     sanityProjectPage {
       pageName
     }
@@ -43,6 +46,8 @@ const getLinkPathFromPageData = ([name, { pageName }]) => {
       return { pageName, path: '/communication' }
     case 'sanitySourceCodePage':
       return { pageName, path: '/source-code' }
+    case 'sanityHomePage':
+      return { pageName, path: '/' }
     default:
       return '/'
   }
@@ -50,36 +55,30 @@ const getLinkPathFromPageData = ([name, { pageName }]) => {
 
 const Header = () => {
   const data = useStaticQuery(query)
-  const routes = Object.entries(data)
-    .map(getLinkPathFromPageData)
-    .map(({ pageName, path }) => (
-      <li className="mb-6 md:mb-0" key={path}>
-        <Links.NavLink cb={() => setOpen(false)} to={path}>
-          {pageName}
-        </Links.NavLink>
-      </li>
-    ))
+  const routes = Object.entries(data).map(getLinkPathFromPageData)
 
   const [open, setOpen] = React.useState(false)
 
   return (
-    <div
-      className="fixed w-full z-50 "
-      style={{
-        backdropFilter: 'blur(5px)',
-        background: 'rgba(255,255,255,.90)',
-      }}
-    >
+    <div className="fixed w-full z-50 md:bg-white md:opacity-90 blur">
       <div
-        className={`flex md:hidden justify-center pl-8 pt-20 fixed top-0 left-0 z-10 w-screen h-screen ${
+        className={`flex md:hidden bg-white justify-center pl-8 pt-20 fixed top-0 left-0 z-10 w-screen h-screen ${
           !open && 'hidden'
         }`}
       >
-        <ul className="text-xl">{routes}</ul>
+        <ul className="text-xl mt-12">
+          {routes.map(({ pageName, path }) => (
+            <li className="mb-6 md:mb-0" key={path}>
+              <Links.NavLink cb={() => setOpen(false)} to={path}>
+                {pageName}
+              </Links.NavLink>
+            </li>
+          ))}
+        </ul>
       </div>
-      <header>
-        <nav className="w-full h-20 flex justify-between items-center px-10">
-          <Link to="/">
+      <header className="mx-auto max-w-screen-2xl">
+        <nav className="w-full h-20 flex justify-between items-center px-8">
+          <Link className=" invisible md:visible" to="/">
             <img className="w-20" src={logotype} alt="website logotype" />
           </Link>
           <button
@@ -93,7 +92,17 @@ const Header = () => {
             )}
           </button>
 
-          <ul className="hidden md:flex justify-end">{routes}</ul>
+          <ul className="hidden md:flex justify-end">
+            {routes
+              .filter((route) => route.path !== '/')
+              .map(({ pageName, path }) => (
+                <li className="mb-6 md:mb-0" key={path}>
+                  <Links.NavLink cb={() => setOpen(false)} to={path}>
+                    {pageName}
+                  </Links.NavLink>
+                </li>
+              ))}
+          </ul>
         </nav>
       </header>
     </div>

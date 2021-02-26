@@ -63,7 +63,7 @@ const Component = () => {
         <BlockContent blocks={data._rawBody} withAnchor={true} />
 
         {Boolean(posts.length) && (
-          <div className="mt-6">
+          <div className="mt-16">
             {posts.map((item) => (
               <div className="mb-8 group font-semibold" key={item.title}>
                 <Links.Basic to={item.slug.current}>{item.title}</Links.Basic>

@@ -17,12 +17,12 @@ const query = graphql`
   }
 `
 
-const SEO = ({ title, description, article, keywords }) => {
+const SEO = ({ title = '', description, article, keywords }) => {
   const { site } = useStaticQuery(query)
   const { pathname } = useLocation()
 
   const seo = {
-    title: `${site.siteMetadata.defaultTitle} | ${title}`,
+    title: `${title} | ${site.siteMetadata.defaultTitle}`,
     description: description || site.siteMetadata.defaultDescription,
     url: `${site.siteMetadata.siteUrl}${pathname}`,
     keywords: (keywords || site.siteMetadata.defaultKeywords).join(','),

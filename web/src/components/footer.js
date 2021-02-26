@@ -14,7 +14,7 @@ const query = graphql`
 `
 
 const IconLink = ({ children, to }) => (
-  <span className="mr-12 text-gray-700 hover:text-black transition-color duration-100">
+  <span className="mr-6 md:mr-12 text-gray-700 hover:text-black transition-color duration-100">
     <a href={to} target="_blank" rel="noreferrer" className="flex">
       {children}
     </a>
@@ -33,7 +33,7 @@ const Footer = () => {
         >
           Kontakta oss
         </a>
-        <div className="flex items-center">
+        <div className="flex items-center ">
           {sanitySiteSettings.github && (
             <IconLink to={sanitySiteSettings.github}>
               <FaGithub size={30} />

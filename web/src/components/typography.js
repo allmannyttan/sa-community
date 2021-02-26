@@ -9,7 +9,7 @@ export const H1 = ({ children }) => {
 }
 
 export const H2 = ({ children, additionalClassnames = '' }) => {
-  const classNames = 'text-saBlack text-2xl font-bold mt-6 mb-4 tracking-wide'.concat(
+  const classNames = 'text-saBlack text-2xl font-bold mt-6 mb-3 tracking-wide'.concat(
     ' ',
     additionalClassnames
   )
@@ -18,7 +18,7 @@ export const H2 = ({ children, additionalClassnames = '' }) => {
 }
 
 export const H3 = ({ children, additionalClassnames = '' }) => {
-  const classNames = 'text-saBlack text-xl font-bold mt-4 mb-2 tracking-wide'.concat(
+  const classNames = 'text-saBlack text-xl font-semibold mt-6 mb-2 tracking-wide'.concat(
     ' ',
     additionalClassnames
   )

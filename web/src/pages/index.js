@@ -100,7 +100,7 @@ const Component = () => {
       case 'newsPage':
         return 'news'
       case 'projectPage':
-        return `docs/project`
+        return `docs/project/${reference.slug.current}`
       case 'sourceCodePage':
         return 'source-code'
       case 'apiPage':
@@ -122,7 +122,7 @@ const Component = () => {
       {data && (
         <div className="px-8">
           <div className="max-w-screen-lg mx-auto">
-            <div className="mx-auto flex flex-col justify-center items-center md:mt-0 relative h-500 md:w-500 w-full ">
+            <div className="mx-auto mt-12 flex flex-col justify-center items-center md:mt-0 relative h-300 md:h-500 md:w-500 w-full">
               <img
                 className="absolute inset-y-0 w-full h-full"
                 style={{ zIndex: -1 }}
@@ -130,12 +130,12 @@ const Component = () => {
                 alt="presentational radial gradient"
               />
 
-              <div className="z-10 text-center md:px-8 flex flex-col items-center text-5xl sm:text-6xl md:text-7xl lg:text-8xl">
+              <div className="z-10 text-center md:px-8 flex flex-col items-center text-4xl sm:text-6xl md:text-7xl lg:text-8xl">
                 <HeroText data={data.heroText} />
               </div>
             </div>
 
-            <div className="grid grid-flow-row md:grid-flow-col justify-items-center py-8 row-auto gap-6 p-8 md:p-0">
+            <div className="mt-0 md:mt-8 grid grid-flow-row md:grid-flow-col justify-items-center py-8 row-auto gap-6 md:p-0">
               {(data.getStarted || []).map((item) => {
                 if (!item.sendTo) {
                   return null
@@ -144,9 +144,9 @@ const Component = () => {
                 return (
                   <div
                     key={item.heading}
-                    className="max-w-xs grid mb-10 md:mb-0 justify-items-center text-center items-center"
+                    className="max-w-xs grid mb-12 md:mb-0 justify-items-center text-center items-center"
                     style={{
-                      gridTemplateRows: '50px 50px 1fr 1fr',
+                      gridTemplateRows: '50px 40px 1fr 1fr',
                     }}
                   >
                     {item.icon && (
@@ -171,7 +171,7 @@ const Component = () => {
             </div>
 
             {Boolean(data.focusAreas.length) && (
-              <div className="p-12 my-16 md:p-24 md:mt-40 justify-items-center md:justify-items-start text-center md:text-left gap-16 grid grid-flow-row border-dashed border border-saGreen md:grid-cols-3 rounded-lg">
+              <div className="px-8 py-12 my-16 md:p-24 md:mt-40 justify-items-center md:justify-items-start text-center md:text-left gap-16 grid grid-flow-row border-dashed border border-saGreen md:grid-cols-3 rounded-lg">
                 {data.focusAreas.map((focusArea) => (
                   <div key={focusArea.heading} className="max-w-xs">
                     <h3 className="text-lg font-bold">{focusArea.heading}</h3>

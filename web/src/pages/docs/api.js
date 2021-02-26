@@ -60,7 +60,7 @@ const Component = () => {
         <Typography.H1>{data.pageName}</Typography.H1>
         <BlockContent blocks={data._rawBody} withAnchor={true} />
         {Boolean(apis.length) && (
-          <div className="mt-6">
+          <div className="mt-16">
             {apis.map((item) => (
               <div className="mb-8 group font-semibold" key={item.title}>
                 <Links.Basic to={item.slug.current}>{item.title}</Links.Basic>
