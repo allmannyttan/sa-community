@@ -100,7 +100,7 @@ const Component = () => {
       case 'newsPage':
         return 'news'
       case 'projectPage':
-        return `docs/project/${reference.slug.current}`
+        return `docs/project`
       case 'sourceCodePage':
         return 'source-code'
       case 'apiPage':
