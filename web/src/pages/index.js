@@ -82,7 +82,7 @@ const query = graphql`
 const Component = () => {
   const { sanityHomePage: data, sanitySiteSettings } = useStaticQuery(query)
   const seo = sanitySiteSettings || {}
-  console.log(data)
+
   const getRouteFromReference = (reference) => {
     switch (reference._type) {
       case 'project':
