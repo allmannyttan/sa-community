@@ -1,4 +1,7 @@
+import { RiPagesLine } from 'react-icons/ri'
+
 export default {
+  icon: RiPagesLine,
   name: 'sourceCodePage',
   type: 'document',
   title: 'Källkod',
@@ -10,7 +13,7 @@ export default {
   ],
   preview: {
     select: {
-      title: 'Källkod',
+      title: 'pageName',
       name: 'name',
     },
     prepare({ title = 'Källkod', name = 'source-code' }) {

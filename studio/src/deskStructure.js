@@ -40,25 +40,6 @@ export const getDefaultDocumentNode = (props) => {
   return S.document().views([S.view.form()])
 }
 
-const getSingletonPageStructure = (title, type) =>
-  S.listItem()
-    .title(title)
-    .icon(RiPagesLine)
-    .child(
-      S.editor()
-        .id(type)
-        .schemaType(type)
-        .documentId(type)
-        .title(title)
-        .views([
-          S.view.form(),
-          S.view
-            .component(IframePreview)
-            .title('Web preview')
-            .options({ previewURL }),
-        ])
-    )
-
 /**
  * This defines how documents are grouped and listed out in the Studio.
  * Relevant documentation:
@@ -99,7 +80,7 @@ export default () =>
         .title('API')
         .icon(MdFolderOpen)
         .schemaType('api')
-        .child(S.documentTypeList('api').title('api')),
+        .child(S.documentTypeList('api').title('Api')),
       S.divider(),
       S.listItem()
         .title('Nyheter')
@@ -111,22 +92,35 @@ export default () =>
         .title('Sidor')
         .icon(FaRegEye)
         .child(
-          S.list()
+          S.documentList()
             .title('Sidor')
-            .items([
-              getSingletonPageStructure('Hem', 'homePage'),
-              getSingletonPageStructure('Om oss', 'aboutUsPage'),
-              getSingletonPageStructure('Kommunikation', 'communicationPage'),
-              getSingletonPageStructure('API', 'apiPage'),
-              getSingletonPageStructure('Källkod', 'sourceCodePage'),
-              getSingletonPageStructure('Nyheter', 'newsPage'),
-              getSingletonPageStructure('Projekt', 'projectPage'),
-            ])
-        ),
+            .filter('_type in $types')
+            .params({
+              types: [
+                'homePage',
+                'aboutUsPage',
+                'communicationPage',
+                'apiPage',
+                'sourceCodePage',
+                'newsPage',
+                'projectPage',
+              ],
+            })
+            .child((type) =>
+              S.editor()
+                .id(type)
+                .schemaType(type)
+                .documentId(type)
 
-      // `S.documentTypeListItems()` returns an array of all the document types
-      // defined in schema.j  s. We filter out those that we have
-      // defined the structure above.
+                .views([
+                  S.view.form(),
+                  S.view
+                    .component(IframePreview)
+                    .title('Web preview')
+                    .options({ previewURL }),
+                ])
+            )
+        ),
       ...S.documentTypeListItems().filter(
         (listItem) =>
           ![

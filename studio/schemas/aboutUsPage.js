@@ -1,8 +1,11 @@
+import { RiPagesLine } from 'react-icons/ri'
+
 export default {
+  icon: RiPagesLine,
   name: 'aboutUsPage',
   type: 'document',
   title: 'Om oss',
-  __experimental_actions: ['update', 'publish', 'create', 'delete'],
+  __experimental_actions: ['update', 'publish', 'create'],
   fields: [
     { type: 'pageName', name: 'pageName', title: 'Namn' },
     {
@@ -21,7 +24,7 @@ export default {
   ],
   preview: {
     select: {
-      title: 'Om oss',
+      title: 'pageName',
       name: 'name',
     },
     prepare({ title = 'Om oss', name = 'about' }) {

@@ -1,4 +1,7 @@
+import { RiPagesLine } from 'react-icons/ri'
+
 export default {
+  icon: RiPagesLine,
   name: 'projectPage',
   type: 'document',
   title: 'Projekt',
@@ -10,7 +13,7 @@ export default {
   ],
   preview: {
     select: {
-      title: 'Projekt',
+      title: 'pageName',
       name: 'name',
     },
     prepare({ title = 'Projekt', name = 'project' }) {

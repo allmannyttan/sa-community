@@ -1,8 +1,11 @@
+import { RiPagesLine } from 'react-icons/ri'
+
 export default {
+  icon: RiPagesLine,
   name: 'communicationPage',
   type: 'document',
   title: 'Kommunikation',
-  __experimental_actions: ['update', 'publish', 'create', 'delete'],
+  __experimental_actions: ['update', 'publish', 'create'],
   fields: [
     { type: 'pageName', name: 'pageName', title: 'Namn' },
     {
@@ -21,7 +24,7 @@ export default {
   ],
   preview: {
     select: {
-      title: 'Kommunikation',
+      title: 'pageName',
       name: 'name',
     },
     prepare({ title = 'Kommunikation', name = 'communication' }) {

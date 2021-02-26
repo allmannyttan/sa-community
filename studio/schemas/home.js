@@ -1,7 +1,10 @@
+import { RiPagesLine } from 'react-icons/ri'
+
 export default {
   name: 'homePage',
   type: 'document',
   title: 'Hem',
+  icon: RiPagesLine,
   __experimental_actions: ['update', 'publish', 'create'],
   fields: [
     { type: 'pageName', name: 'pageName', title: 'Namn' },
@@ -41,7 +44,7 @@ export default {
   ],
   preview: {
     select: {
-      title: 'title',
+      title: 'pageName',
       name: 'name',
     },
     prepare({ title = 'Hem', name = 'home' }) {
