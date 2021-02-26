@@ -154,7 +154,7 @@ const Component = () => {
                         <Img fluid={item.icon.asset.fluid} />
                       </div>
                     )}
-                    <h3 className="text-2xl font-bold">{item.heading}</h3>
+                    <h2 className="text-2xl font-bold">{item.heading}</h2>
                     <Typography.Description>
                       {item.content}
                     </Typography.Description>

@@ -20,7 +20,6 @@ const query = graphql`
 const SEO = ({ title = '', description, article, keywords }) => {
   const { site } = useStaticQuery(query)
   const { pathname } = useLocation()
-
   const seo = {
     title: `${title} | ${site.siteMetadata.defaultTitle}`,
     description: description || site.siteMetadata.defaultDescription,
@@ -29,15 +28,14 @@ const SEO = ({ title = '', description, article, keywords }) => {
   }
 
   return (
-    <Helmet title={seo.title}>
+    <Helmet title={seo.title} htmlAttributes={{ lang: 'sv' }}>
       <meta name="description" content={seo.description} />
       <meta name="keywords" content={seo.keywords} />
       {seo.url && <meta property="og:url" content={seo.url} />}
       {article && <meta property="og:type" content="article" />}
       {seo.title && <meta property="og:title" content={seo.title} />}
-      {seo.description && (
-        <meta property="og:description" content={seo.description} />
-      )}
+
+      <meta property="og:description" content={seo.description} />
     </Helmet>
   )
 }
