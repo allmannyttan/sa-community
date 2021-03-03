@@ -49,7 +49,6 @@ const serializers = (withAnchor) => ({
     ),
   },
   list: ({ type, children }) => {
-    console.log(type)
     switch (type) {
       case 'bullet':
         return <ul className="list-disc max-w-3xl pl-8">{children}</ul>
