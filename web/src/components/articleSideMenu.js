@@ -8,14 +8,14 @@ const ArticleSideMenu = ({ posts, title, url }) => {
 
   return (
     <>
-      <h4 className="text-base text-saBlack font-medium tracking-wide mb-2">
+      <h4 className="text-base text-saBlack font-semibold tracking-wide mb-2">
         {title}
       </h4>
       <nav className="py-4">
         <ol>
           {posts.map((post, i) => {
             return (
-              <li key={i} className="mb-4 ">
+              <li key={i} className="mb-4">
                 <Links.Article slug={`${url}/${post.slug.current}`}>
                   {post.title || post.pageName}
                 </Links.Article>

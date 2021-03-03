@@ -14,6 +14,7 @@ export default {
         { type: 'aboutUsPage' },
         { type: 'newsPage' },
         { type: 'projectPage' },
+        { type: 'manifestPage' },
         { type: 'api' },
         { type: 'communicationPage' },
         { type: 'apiPage' },

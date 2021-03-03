@@ -24,7 +24,8 @@ export const H1 = ({ children, withAnchor = false }) => {
 }
 
 export const H2 = ({ children, withAnchor = false }) => {
-  const slug = utils.slugify(children[0])
+  let slug = utils.slugify(children[0])
+  if (slug[0].match(/^\d/)) slug = slug.slice(2)
 
   return withAnchor ? (
     <Typography.H2 additionalClassnames="group flex items-center">
@@ -43,8 +44,8 @@ export const H2 = ({ children, withAnchor = false }) => {
 }
 
 export const H3 = ({ children, withAnchor = false }) => {
-  const slug = utils.slugify(children[0])
-
+  let slug = utils.slugify(children[0])
+  if (slug[0].match(/^\d/)) slug = slug.slice(2)
   return withAnchor ? (
     <Typography.H3 additionalClassnames="group flex items-center">
       {children}
@@ -62,8 +63,8 @@ export const H3 = ({ children, withAnchor = false }) => {
 }
 
 export const H4 = ({ children, withAnchor = false }) => {
-  const slug = utils.slugify(children[0])
-
+  let slug = utils.slugify(children[0])
+  if (slug[0].match(/^\d/)) slug = slug.slice(2)
   return withAnchor ? (
     <Typography.H4 additionalClassnames="group flex items-center">
       {children}
@@ -97,7 +98,11 @@ export const Image = ({ node }) => {
 export const YouTube = ({ node }) => {
   const { url } = node
   const id = getYouTubeId(url)
-  return <ReactYoutube videoId={id} />
+  return (
+    <div className="my-12">
+      <ReactYoutube videoId={id} />
+    </div>
+  )
 }
 
 export const Code = ({ node }) => (

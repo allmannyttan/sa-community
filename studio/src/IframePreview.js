@@ -29,6 +29,8 @@ const parseContentTypeName = (name) => {
       return 'source-code'
     case 'apiPage':
       return 'docs/api'
+    case 'manifestPage':
+      return 'manifest'
     default:
       return name
   }

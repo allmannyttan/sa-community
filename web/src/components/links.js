@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import { AiOutlineLink } from 'react-icons/ai'
 
 export const Article = ({ children, slug }) => {
-  const sharedStyle = `font-normal text-base `
+  const sharedStyle = `font-normal text-base`
   const isActive = ({ location }) => {
     const isCurrent = location.pathname.includes(`/${slug}`)
 
@@ -16,17 +16,19 @@ export const Article = ({ children, slug }) => {
       className={`text-saBlack   ${sharedStyle}`}
       getProps={isActive}
     >
-      - <span className="hover:underline">{children}</span>
+      <span className="hover:underline">{children}</span>
     </Link>
   )
 }
 
-export const TableOfContents = ({ children, slug, style }) => {
-  const sharedStyle = `font-normal text-sm ${style}`
+export const TableOfContents = ({ children, slug }) => {
+  const sharedStyle = `font-normal text-sm`
   const isActive = ({ location }) => {
     const isCurrent = location.hash.includes(slug)
     return isCurrent ? { className: `underline ${sharedStyle}` } : {}
   }
+
+  if (slug[0].match(/^\d/)) slug = slug.slice(2)
 
   return (
     <Link
