@@ -47,9 +47,9 @@ const Component = () => {
       />
       <HeroBlock heroImage={data.heroImage} heroText={data.heroText} />
       <div className="flex justify-center">
-        <Layout.Article>
+        <Layout.NoArticle>
           <BlockContent blocks={data._rawBody} />
-        </Layout.Article>
+        </Layout.NoArticle>
       </div>
     </div>
   )

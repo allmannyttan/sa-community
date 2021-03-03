@@ -76,9 +76,9 @@ const Header = () => {
           ))}
         </ul>
       </div>
-      <header className="mx-auto max-w-screen-2xl">
+      <header className="mx-auto max-w-screen-3xl">
         <nav className="w-full h-20 flex justify-between items-center px-8">
-          <Link className=" invisible md:visible" to="/">
+          <Link className="invisible md:visible" to="/">
             <img className="w-20" src={logotype} alt="website logotype" />
           </Link>
           <button

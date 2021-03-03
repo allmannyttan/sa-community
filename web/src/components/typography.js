@@ -36,13 +36,13 @@ export const H4 = ({ children, additionalClassnames = '' }) => {
 }
 
 export const BodyParagraph = ({ children }) => (
-  <p className="max-w-2xl text-base md:text-lg tracking-wide my-2">
+  <p className="max-w-3xl text-base md:text-lg tracking-wide my-2">
     {children}
   </p>
 )
 
 export const Description = ({ children }) => (
-  <p className="group-hover:text-black max-w-2xl  font-normal text-sm text-gray-700">
+  <p className="group-hover:text-black max-w-2xl font-normal text-gray-700">
     {children}
   </p>
 )

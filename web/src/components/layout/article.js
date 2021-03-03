@@ -3,13 +3,15 @@ import BreadCrumbs from '../breadcrumbs'
 
 const Article = ({ children }) => {
   return (
-    <article className="max-w-screen-md flex flex-col px-8 pt-6 md:pl-12 md:pt-12 3xl:m-auto">
-      <div className="mb-10 md:mb-4">
-        <BreadCrumbs />
-      </div>
+    <div className="max-w-screen-2xl mx-auto relative w-full">
+      <article className="max-w-screen-lg flex flex-col px-8 pt-6 md:pt-24">
+        <div className="mb-10 md:mb-16">
+          <BreadCrumbs />
+        </div>
 
-      {children}
-    </article>
+        {children}
+      </article>
+    </div>
   )
 }
 
