@@ -11,16 +11,10 @@ const query = graphql`
     sanityHomePage {
       pageName
     }
-    sanityProjectPage {
-      pageName
-    }
     sanityApiPage {
       pageName
     }
-    sanityNewsPage {
-      pageName
-    }
-    sanityAboutUsPage {
+    sanityProjectPage {
       pageName
     }
     sanitySourceCodePage {
@@ -30,6 +24,12 @@ const query = graphql`
       pageName
     }
     sanityManifestPage {
+      pageName
+    }
+    sanityNewsPage {
+      pageName
+    }
+    sanityAboutUsPage {
       pageName
     }
   }
