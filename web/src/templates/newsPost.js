@@ -72,7 +72,7 @@ const Component = (props) => {
             <div className="rounded-full">
               <AuthorImage
                 fluid={data.author.profileImage.asset.fluid}
-                alt={`Photo of ${data.name}`}
+                alt={`Editor photo representing ${data.name}`}
                 style={{ borderRadius: '50%' }}
               />
             </div>
