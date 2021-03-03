@@ -28,6 +28,8 @@ export const TableOfContents = ({ children, slug, style }) => {
     return isCurrent ? { className: `underline ${sharedStyle}` } : {}
   }
 
+  if (slug[0].match(/^\d/)) slug = slug.slice(2)
+
   return (
     <Link
       to={`#${slug}`}
