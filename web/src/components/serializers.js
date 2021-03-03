@@ -143,7 +143,11 @@ export const ExternalLink = ({ mark, children }) =>
       {children}
     </a>
   ) : (
-    <a className="text-saGreen font-bold text-xl" href={mark.href}>
+    <a
+      aria-label={children}
+      className="text-saPurple font-bold text-xl"
+      href={mark.href}
+    >
       {children}
     </a>
   )
@@ -157,7 +161,11 @@ export const InternalLink = ({ mark, children }) => {
     const url = `/${utils.getRouteNameFromPageType(mark.reference._type)}`
 
     return (
-      <Link className="text-purple-700 hover:text-purple-900" to={url}>
+      <Link
+        aria-label={children}
+        className="text-purple-700 hover:text-purple-900"
+        to={url}
+      >
         {children}
       </Link>
     )
@@ -168,7 +176,11 @@ export const InternalLink = ({ mark, children }) => {
   }`
 
   return (
-    <Link className="text-purple-700 hover:text-purple-900" to={url}>
+    <Link
+      aria-label={children}
+      className="text-purple-700 hover:text-purple-900"
+      to={url}
+    >
       {children}
     </Link>
   )

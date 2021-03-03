@@ -49,6 +49,22 @@ const serializers = (withAnchor) => ({
       </Serializers.InternalLink>
     ),
   },
+  list: ({ type, children }) => {
+    switch (type) {
+      case 'bullet':
+        return <ul className="list-disc max-w-3xl pl-8">{children}</ul>
+      case 'number':
+        return <ol className="list-decimal max-w-3xl pl-8">{children}</ol>
+      default:
+        console.warn('Unhandled in portable text serializer: ', type)
+        return <ul></ul>
+    }
+  },
+  listItem: ({ children }) => (
+    <li>
+      <Serializers.Paragraph>{children}</Serializers.Paragraph>
+    </li>
+  ),
 })
 
 const BlockContent = ({ blocks = [], withAnchor = false }) => (
