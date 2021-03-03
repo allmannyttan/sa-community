@@ -121,7 +121,7 @@ const Component = () => {
 
       {data && (
         <div className="px-8">
-          <div className="max-w-screen-lg mx-auto">
+          <div className="max-w-screen-xl mx-auto">
             <div className="mx-auto mt-12 flex flex-col justify-center items-center md:mt-0 relative h-300 md:h-500 md:w-500 w-full">
               <img
                 className="absolute inset-y-0 w-full h-full"
@@ -161,7 +161,7 @@ const Component = () => {
                       </Typography.Description>
 
                       <Link
-                        className="shadow-lg bg-purple-200 hover:bg-purple-100 font-medium rounded-lg py-3 px-5 mt-4"
+                        className="shadow-lg bg-purple-300 hover:bg-purple-400 font-medium rounded-lg py-3 px-5 mt-4"
                         to={getRouteFromReference(item.sendTo.reference) || '/'}
                       >
                         {item.cta}
@@ -173,7 +173,7 @@ const Component = () => {
             )}
 
             {Boolean(data.focusAreas.length) && (
-              <div className="px-8 py-12 my-16 md:p-24 md:my-56 justify-items-center md:justify-items-start text-center md:text-left gap-16 grid grid-flow-row border-dashed border border-saGreen md:grid-cols-3 rounded-lg">
+              <div className="px-8 py-12 my-16 md:p-36 md:my-56 justify-items-center md:justify-items-start text-center md:text-left gap-16 grid grid-flow-row border-dashed border border-saGreen md:grid-cols-3 rounded-lg">
                 {data.focusAreas.map((focusArea) => (
                   <div key={focusArea.heading} className="max-w-xs">
                     <h3 className="text-lg font-bold">{focusArea.heading}</h3>
