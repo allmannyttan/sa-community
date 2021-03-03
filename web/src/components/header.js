@@ -17,13 +17,13 @@ const query = graphql`
     sanityProjectPage {
       pageName
     }
-    sanityManifestPage {
-      pageName
-    }
     sanitySourceCodePage {
       pageName
     }
     sanityCommunicationPage {
+      pageName
+    }
+    sanityManifestPage {
       pageName
     }
     sanityNewsPage {
