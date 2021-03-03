@@ -11,22 +11,22 @@ const query = graphql`
     sanityHomePage {
       pageName
     }
-    sanityProjectPage {
-      pageName
-    }
     sanityApiPage {
       pageName
     }
-    sanityNewsPage {
-      pageName
-    }
-    sanityAboutUsPage {
+    sanityProjectPage {
       pageName
     }
     sanitySourceCodePage {
       pageName
     }
     sanityCommunicationPage {
+      pageName
+    }
+    sanityNewsPage {
+      pageName
+    }
+    sanityAboutUsPage {
       pageName
     }
   }
