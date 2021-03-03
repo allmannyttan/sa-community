@@ -3,12 +3,6 @@ export default {
   type: 'document',
   title: 'Kort med länk',
   fields: [
-    // {
-    //   type: 'image',
-    //   name: 'icon',
-    //   title: 'Ikon',
-    //   description: 'Mindre bild som visas ovarnför rubriken',
-    // },
     {
       type: 'string',
       name: 'heading',
@@ -28,13 +22,6 @@ export default {
         Rule.min(10).max(150),
       ],
     },
-    //   {
-    //     type: 'string',
-    //     name: 'cta',
-    //     title: 'Knapp',
-    //     description: 'Namn på knapp som leder till en sida',
-    //     validation: (Rule) => Rule.required().error('Du måste ange ett namn'),
-    //   },
     {
       title: 'Länk till',
       type: 'string',
