@@ -115,11 +115,22 @@ export const Code = ({ node }) => (
 )
 
 export const RepoLink = ({ node }) => {
+  const getIcon = (type) => {
+    switch (type) {
+      case 'github':
+        return <AiFillGithub size={25} />
+      case 'bitbucket':
+        return <IoLogoBitbucket size={25} />
+      case 'gitlab':
+        return <FaGitlab size={25} />
+      default:
+        return null
+    }
+  }
+
   return (
     <div className="flex">
-      {node.linkTo === 'github' && <AiFillGithub size={25} />}
-      {node.linkTo === 'bitbucket' && <IoLogoBitbucket size={25} />}
-      {node.linkTo === 'gitlab' && <FaGitlab size={25} />}
+      {getIcon(node.linkTo)}
       <a
         className="text-saGreen font-bold text-xl ml-3 "
         href={node.url}
