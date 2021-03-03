@@ -25,6 +25,7 @@ export const getDefaultDocumentNode = (props) => {
     'api',
     'communicationPage',
     'newsPage',
+    'manifestPage',
   ]
   const { schemaType } = props
 
@@ -104,6 +105,7 @@ export default () =>
                 'sourceCodePage',
                 'newsPage',
                 'projectPage',
+                'manifestPage',
               ],
             })
             .child((type) =>
@@ -143,6 +145,7 @@ export default () =>
             'sourceCodePage',
             'newsPage',
             'projectPage',
+            'manifestPage',
           ].includes(listItem.getId())
       ),
     ])
