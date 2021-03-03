@@ -21,8 +21,8 @@ export const Article = ({ children, slug }) => {
   )
 }
 
-export const TableOfContents = ({ children, slug, style }) => {
-  const sharedStyle = `font-normal text-sm ${style}`
+export const TableOfContents = ({ children, slug }) => {
+  const sharedStyle = `font-normal text-sm`
   const isActive = ({ location }) => {
     const isCurrent = location.hash.includes(slug)
     return isCurrent ? { className: `underline ${sharedStyle}` } : {}
