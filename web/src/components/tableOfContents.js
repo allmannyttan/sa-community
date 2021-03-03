@@ -23,16 +23,16 @@ const TableOfContents = ({ blocks = [] }) => {
 
   return (
     <>
-      <h4 className="text-base text-saBlack font-medium tracking-wide mb-2">
+      <h4 className="text-base text-saBlack font-semibold tracking-wide mb-2">
         Innehåll
       </h4>
-      <nav>
+      <nav className="py-4">
         <ol>
           {menuItems.map((item, i) => {
             const slug = utils.slugify(item.children[0].text)
             const style = getTitleStyle(item.style)
             return (
-              <li key={i} className={`my-4 w-full ${style}`}>
+              <li key={i} className={`mb-4 w-full ${style}`}>
                 <Links.TableOfContents slug={slug}>
                   {item.children[0].text}
                 </Links.TableOfContents>

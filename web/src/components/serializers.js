@@ -98,7 +98,11 @@ export const Image = ({ node }) => {
 export const YouTube = ({ node }) => {
   const { url } = node
   const id = getYouTubeId(url)
-  return <ReactYoutube videoId={id} />
+  return (
+    <div className="my-12">
+      <ReactYoutube videoId={id} />
+    </div>
+  )
 }
 
 export const Code = ({ node }) => (
