@@ -29,6 +29,9 @@ const query = graphql`
     sanityCommunicationPage {
       pageName
     }
+    sanityManifestPage {
+      pageName
+    }
   }
 `
 
@@ -46,6 +49,8 @@ const getLinkPathFromPageData = ([name, { pageName }]) => {
       return { pageName, path: '/communication' }
     case 'sanitySourceCodePage':
       return { pageName, path: '/source-code' }
+    case 'sanityManifestPage':
+      return { pageName, path: '/manifest' }
     case 'sanityHomePage':
       return { pageName, path: '/' }
     default:
