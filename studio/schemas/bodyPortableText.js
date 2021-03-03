@@ -76,5 +76,8 @@ export default {
     {
       type: 'code',
     },
+    {
+      type: 'repoLink',
+    },
   ],
 }
