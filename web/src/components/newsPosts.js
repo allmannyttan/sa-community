@@ -10,14 +10,16 @@ const NewsPosts = ({ posts }) => {
         posts={showHistory ? posts : posts.slice(0, 5)}
         url={'news'}
       />
-      <button
-        className={`${
-          showHistory && 'hidden'
-        } text-gray-700 hover:text-black focus:outline-none py-2`}
-        onClick={() => setshowHistory(!showHistory)}
-      >
-        Se fler nyheter
-      </button>
+      {posts.length > 5 && (
+        <button
+          className={`${
+            showHistory && 'hidden'
+          } text-gray-700 hover:text-black focus:outline-none py-2`}
+          onClick={() => setshowHistory(!showHistory)}
+        >
+          Se fler nyheter
+        </button>
+      )}
     </>
   )
 }
