@@ -146,6 +146,7 @@ export default () =>
             'newsPage',
             'projectPage',
             'manifestPage',
+            'linkCard'
           ].includes(listItem.getId())
       ),
     ])

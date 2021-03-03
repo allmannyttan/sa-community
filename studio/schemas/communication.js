@@ -20,6 +20,12 @@ export default {
       description: 'Denna text placeras i mitten av bilden',
     },
     { type: 'bodyPortableText', name: 'Body' },
+    {
+      name: 'linkCard',
+      title: 'Lägg till ett kort',
+      type: 'array',
+      of: [{ type: 'linkCard' }],
+    },
     { type: 'keywords', name: 'keywords' },
   ],
   preview: {

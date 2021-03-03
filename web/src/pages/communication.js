@@ -8,6 +8,11 @@ import * as Layout from '../components/layout'
 const query = graphql`
   query communication {
     sanityCommunicationPage {
+      linkCard {
+        heading
+        content
+        link
+      }
       heroText {
         color {
           hex
@@ -39,7 +44,7 @@ const Component = () => {
   )
 
   if (!data) return <h1>Data saknas...</h1>
-
+  console.log(data.linkCard)
   return (
     <div className="text-3xl md:text-4xl lg:text-5xl">
       <SEO
