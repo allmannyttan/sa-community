@@ -39,7 +39,7 @@ const Component = () => {
   )
 
   if (!data) return <h1>Data saknas...</h1>
-
+  console.log(data._rawBody)
   return (
     <div className="text-3xl md:text-4xl lg:text-5xl">
       <SEO

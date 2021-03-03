@@ -111,6 +111,19 @@ export const Code = ({ node }) => (
   </div>
 )
 
+export const RepoLink = ({ node }) => {
+  return (
+    <a
+      className="text-saPurple font-bold text-xl"
+      href={node.url}
+      target="_blank"
+      rel="noreferrer"
+    >
+      {node.title}
+    </a>
+  )
+}
+
 export const ExternalLink = ({ mark, children }) =>
   mark.blank ? (
     <a

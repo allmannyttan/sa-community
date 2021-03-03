@@ -35,6 +35,7 @@ const serializers = (withAnchor) => ({
 
     youtube: ({ node }) => <Serializers.YouTube node={node} />,
     code: ({ node }) => <Serializers.Code node={node} />,
+    repoLink: ({ node }) => <Serializers.RepoLink node={node} />,
   },
   marks: {
     link: ({ mark, children }) => (
