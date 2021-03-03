@@ -10,6 +10,9 @@ import { getFluidGatsbyImage } from 'gatsby-source-sanity'
 import BodyImage from './bodyImage'
 import ReactYoutube from 'react-youtube'
 import { BsLink } from 'react-icons/bs'
+import { AiFillGithub } from 'react-icons/ai'
+import { IoLogoBitbucket } from 'react-icons/io'
+import { FaGitlab } from 'react-icons/fa'
 
 export const H1 = ({ children, withAnchor = false }) => {
   const slug = utils.slugify(children[0])
@@ -113,21 +116,26 @@ export const Code = ({ node }) => (
 
 export const RepoLink = ({ node }) => {
   return (
-    <a
-      className="text-saPurple font-bold text-xl"
-      href={node.url}
-      target="_blank"
-      rel="noreferrer"
-    >
-      {node.title}
-    </a>
+    <div className="flex">
+      {node.linkTo === 'github' && <AiFillGithub size={25} />}
+      {node.linkTo === 'bitbucket' && <IoLogoBitbucket size={25} />}
+      {node.linkTo === 'gitlab' && <FaGitlab size={25} />}
+      <a
+        className="text-saGreen font-bold text-xl ml-3 "
+        href={node.url}
+        target="_blank"
+        rel="noreferrer"
+      >
+        {node.title}
+      </a>
+    </div>
   )
 }
 
 export const ExternalLink = ({ mark, children }) =>
   mark.blank ? (
     <a
-      className="text-saPurple font-bold text-xl"
+      className="text-saGreen font-bold text-xl"
       href={mark.href}
       target="_blank"
       rel="noreferrer"
@@ -135,7 +143,7 @@ export const ExternalLink = ({ mark, children }) =>
       {children}
     </a>
   ) : (
-    <a className="text-saPurple font-bold text-xl" href={mark.href}>
+    <a className="text-saGreen font-bold text-xl" href={mark.href}>
       {children}
     </a>
   )

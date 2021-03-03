@@ -13,5 +13,17 @@ export default {
       type: 'url',
       title: 'Länk',
     },
+    {
+      title: 'Länk till',
+      name: 'linkTo',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'GitHub', value: 'github' },
+          { title: 'GitLab', value: 'gitlab' },
+          { title: 'BitBucket', value: 'bitbucket' },
+        ],
+      },
+    },
   ],
 }
