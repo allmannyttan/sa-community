@@ -63,7 +63,9 @@ const Component = () => {
           <div className="mt-16">
             {apis.map((item) => (
               <div className="mb-8 group font-semibold" key={item.title}>
-                <Links.Basic to={item.slug.current}>{item.title}</Links.Basic>
+                <Links.Basic label={item.title} to={item.slug.current}>
+                  {item.title}
+                </Links.Basic>
                 <Typography.Description>
                   {item.description}
                 </Typography.Description>

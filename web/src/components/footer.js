@@ -13,9 +13,15 @@ const query = graphql`
   }
 `
 
-const IconLink = ({ children, to }) => (
+const IconLink = ({ children, to, label }) => (
   <span className="mr-6 md:mr-12 text-gray-700 hover:text-black transition-color duration-100">
-    <a href={to} target="_blank" rel="noreferrer" className="flex">
+    <a
+      aria-label={label}
+      href={to}
+      target="_blank"
+      rel="noreferrer"
+      className="flex"
+    >
       {children}
     </a>
   </span>
@@ -35,17 +41,17 @@ const Footer = () => {
         </a>
         <div className="flex items-center ">
           {sanitySiteSettings.github && (
-            <IconLink to={sanitySiteSettings.github}>
+            <IconLink label="Github" to={sanitySiteSettings.github}>
               <FaGithub size={30} />
             </IconLink>
           )}
           {sanitySiteSettings.twitter && (
-            <IconLink to={sanitySiteSettings.twitter}>
+            <IconLink label="Twitter" to={sanitySiteSettings.twitter}>
               <FaTwitter size={30} />
             </IconLink>
           )}
           {sanitySiteSettings.facebook && (
-            <IconLink to={sanitySiteSettings.facebook}>
+            <IconLink label="Facebook" to={sanitySiteSettings.facebook}>
               <FaFacebook size={30} />
             </IconLink>
           )}

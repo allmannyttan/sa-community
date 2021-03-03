@@ -161,6 +161,7 @@ const Component = () => {
                       </Typography.Description>
 
                       <Link
+                        aria-label={item.cta}
                         className="shadow-lg bg-purple-300 hover:bg-purple-400 font-medium rounded-lg py-3 px-5 mt-4"
                         to={getRouteFromReference(item.sendTo.reference) || '/'}
                       >
