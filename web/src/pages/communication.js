@@ -17,7 +17,7 @@ const query = graphql`
       heroImage {
         alt
         asset {
-          fluid(maxWidth: 1800, maxHeight: 500) {
+          fluid(maxWidth: 1800) {
             ...GatsbySanityImageFluid
           }
         }

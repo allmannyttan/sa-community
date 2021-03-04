@@ -26,7 +26,7 @@ const Component = ({ heroImage, heroText }) => {
 
   return (
     <div className="relative w-full">
-      <div className="relative h-40 sm:h-80 inset-0 ">
+      <div className="relative h-40 sm:h-96 inset-0">
         <HeroImage data={image} />
       </div>
 
