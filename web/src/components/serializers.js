@@ -27,7 +27,8 @@ export const H1 = ({ children, withAnchor = false }) => {
 }
 
 export const H2 = ({ children, withAnchor = false }) => {
-  let slug = utils.slugify(children[0])
+  let slug = utils.isObject(children[0])
+
   if (slug[0].match(/^\d/)) slug = slug.slice(2)
 
   return withAnchor ? (
@@ -47,7 +48,7 @@ export const H2 = ({ children, withAnchor = false }) => {
 }
 
 export const H3 = ({ children, withAnchor = false }) => {
-  let slug = utils.slugify(children[0])
+  let slug = utils.isObject(children[0])
   if (slug[0].match(/^\d/)) slug = slug.slice(2)
   return withAnchor ? (
     <Typography.H3 additionalClassnames="group flex items-center">
@@ -66,7 +67,7 @@ export const H3 = ({ children, withAnchor = false }) => {
 }
 
 export const H4 = ({ children, withAnchor = false }) => {
-  let slug = utils.slugify(children[0])
+  let slug = utils.isObject(children[0])
   if (slug[0].match(/^\d/)) slug = slug.slice(2)
   return withAnchor ? (
     <Typography.H4 additionalClassnames="group flex items-center">

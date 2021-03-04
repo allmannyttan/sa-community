@@ -1,3 +1,9 @@
+export const isObject = (item) => {
+  return typeof item !== 'object' && item !== null
+    ? slugify(item)
+    : slugify(item.props.node.children)
+}
+
 export const slugify = (str) => {
   const a =
     'àáâäæãåāăąçćčđďèéêëēėęěğǵḧîïíīįìłḿñńǹňôöòóœøōõőṕŕřßśšşșťțûüùúūǘůűųẃẍÿýžźż·/_,:;'
