@@ -10,6 +10,9 @@ import { getFluidGatsbyImage } from 'gatsby-source-sanity'
 import BodyImage from './bodyImage'
 import ReactYoutube from 'react-youtube'
 import { BsLink } from 'react-icons/bs'
+import { AiFillGithub } from 'react-icons/ai'
+import { IoLogoBitbucket } from 'react-icons/io'
+import { FaGitlab } from 'react-icons/fa'
 
 export const H1 = ({ children, withAnchor = false }) => {
   const slug = utils.slugify(children[0])
@@ -112,10 +115,41 @@ export const Code = ({ node }) => (
   </div>
 )
 
+export const RepoLink = ({ node }) => {
+  const getIcon = (type) => {
+    switch (type) {
+      case 'github':
+        return <AiFillGithub size={25} />
+      case 'bitbucket':
+        return <IoLogoBitbucket size={25} />
+      case 'gitlab':
+        return <FaGitlab size={25} />
+      default:
+        return null
+    }
+  }
+
+  return (
+    <div>
+      <a
+        aria-label={node.title}
+        href={node.url}
+        target="_blank"
+        rel="noreferrer"
+      >
+        <div className="font-semibold hover:bg-gray-100 bg-gray-50 text-base inline-flex items-center rounded-lg shadow-lg px-6 py-4 my-4 ">
+          <div className="mr-4">{getIcon(node.linkTo)}</div>
+          {node.title}
+        </div>
+      </a>
+    </div>
+  )
+}
+
 export const ExternalLink = ({ mark, children }) =>
   mark.blank ? (
     <a
-      className="text-saPurple font-bold text-xl"
+      className="text-saGreen font-bold text-xl"
       href={mark.href}
       target="_blank"
       rel="noreferrer"
