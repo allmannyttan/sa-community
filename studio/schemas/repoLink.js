@@ -7,16 +7,19 @@ export default {
       name: 'title',
       type: 'string',
       title: 'Titel',
+      validation: (Rule) => Rule.required(),
     },
     {
       name: 'url',
       type: 'url',
       title: 'Länk',
+      validation: (Rule) => Rule.required(),
     },
     {
       title: 'Länk till',
       name: 'linkTo',
       type: 'string',
+      validation: (Rule) => Rule.required(),
       options: {
         list: [
           { title: 'GitHub', value: 'github' },
