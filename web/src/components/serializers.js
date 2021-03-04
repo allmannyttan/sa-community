@@ -129,15 +129,17 @@ export const RepoLink = ({ node }) => {
   }
 
   return (
-    <div className="flex">
-      {getIcon(node.linkTo)}
+    <div>
       <a
-        className="text-saGreen font-bold text-xl ml-3 "
+        aria-label={node.title}
         href={node.url}
         target="_blank"
         rel="noreferrer"
       >
-        {node.title}
+        <div className="font-semibold hover:bg-gray-100 bg-gray-50  text-xl inline-flex items-center rounded-lg shadow-lg px-6 py-4 my-4 ">
+          <div className="mr-4">{getIcon(node.linkTo)}</div>
+          {node.title}
+        </div>
       </a>
     </div>
   )
