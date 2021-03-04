@@ -24,11 +24,9 @@ function anchorScroll(location) {
   // Check for location so build does not fail
   if (location && location.hash) {
     setTimeout(() => {
-      // document.querySelector(`${location.hash}`).scrollIntoView({ behavior: 'smooth', block: 'start' });
       const item = document.querySelector(`${location.hash}`).offsetTop
-      const mainNavHeight = document.querySelector(`nav`).offsetHeight
       window.scrollTo({
-        top: item - mainNavHeight,
+        top: item - 20,
         left: 0,
       })
     }, 0)
