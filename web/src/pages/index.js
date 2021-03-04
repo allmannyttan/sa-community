@@ -136,7 +136,7 @@ const Component = () => {
             </div>
 
             {Boolean(data.getStarted.length) && (
-              <div className="mt-0 md:my-24 grid grid-flow-row md:grid-flow-col justify-items-center py-8 row-auto gap-6 md:p-0">
+              <div className="mt-0 md:my-12 3xl:my-24 grid grid-flow-row md:grid-flow-col justify-items-center py-8 row-auto gap-6 md:p-0">
                 {data.getStarted.map((item) => {
                   if (!item.sendTo) {
                     return null
