@@ -62,6 +62,7 @@ export default {
                   { type: 'homePage' },
                   { type: 'aboutUsPage' },
                   { type: 'apiPage' },
+                  { type: 'manifestPage' },
                 ],
               },
             ],
