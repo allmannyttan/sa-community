@@ -32,6 +32,7 @@ export const TableOfContents = ({ children, slug }) => {
 
   return (
     <Link
+      aria-label={slug}
       to={`#${slug}`}
       className={`text-gray-700 hover:text-black ${sharedStyle}`}
       getProps={isActive}
@@ -41,9 +42,10 @@ export const TableOfContents = ({ children, slug }) => {
   )
 }
 
-export const Basic = ({ children, to }) => {
+export const Basic = ({ children, to, label }) => {
   return (
     <Link
+      aria-label={label}
       to={to}
       className="text-saGreenDark hover:underline font-current text-lg"
     >
@@ -53,7 +55,12 @@ export const Basic = ({ children, to }) => {
 }
 
 export const AnchorWithIcon = ({ children, slug }) => (
-  <Link id={slug} className="anchor inline-flex items-center" to={`#${slug}`}>
+  <Link
+    id={slug}
+    aria-label={slug}
+    className="anchor inline-flex items-center"
+    to={`#${slug}`}
+  >
     {children}
     <div className="ml-2">
       <AiOutlineLink />
@@ -66,6 +73,7 @@ export const NavLink = ({ to, cb, children }) => {
 
   return (
     <Link
+      aria-label={children}
       to={to}
       onTouchStart={() => set(true)}
       onTouchEnd={() => set(false)}
