@@ -27,10 +27,10 @@ export default {
                 type: 'url',
                 title: 'URL',
                 description:
-                  'Länk till extern sajt, t.ex https://www.sverigesallmannytta.se/nyheter/',
+                  'Länk till extern sajt, t.ex https://www.sverigesallmannytta.se/nyheter/, eller e-postadress t.ex mailto:test@test.se',
                 validation: (Rule) =>
                   Rule.uri({
-                    scheme: ['http', 'https'],
+                    scheme: ['http', 'https', 'mailto'],
                   }),
               },
               {
