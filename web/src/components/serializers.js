@@ -136,7 +136,7 @@ export const RepoLink = ({ node }) => {
         target="_blank"
         rel="noreferrer"
       >
-        <div className="font-semibold hover:bg-gray-100 bg-gray-50  text-xl inline-flex items-center rounded-lg shadow-lg px-6 py-4 my-4 ">
+        <div className="font-semibold hover:bg-gray-100 bg-gray-50 text-base inline-flex items-center rounded-lg shadow-lg px-6 py-4 my-4 ">
           <div className="mr-4">{getIcon(node.linkTo)}</div>
           {node.title}
         </div>
