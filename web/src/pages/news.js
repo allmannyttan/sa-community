@@ -17,7 +17,7 @@ const query = graphql`
       description
     }
     sanityNewsPage {
-      _rawBody
+      _rawBody(resolveReferences: { maxDepth: 10 })
       pageName
     }
     allSanityNewsPost(sort: { order: DESC, fields: _createdAt }) {

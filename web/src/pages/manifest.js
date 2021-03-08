@@ -16,7 +16,7 @@ const query = graphql`
 
     sanityManifestPage {
       pageName
-      _rawBody
+      _rawBody(resolveReferences: { maxDepth: 10 })
     }
   }
 `
