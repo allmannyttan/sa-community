@@ -24,6 +24,7 @@ const query = graphql`
           title
           description
           _type
+          order
         }
       }
     }
@@ -42,9 +43,11 @@ const Component = () => {
     sanitySiteSettings,
   } = useStaticQuery(query)
   const projects = allSanityProject.edges.map(({ node }) => node) || []
-
   if (!data && !Boolean(projects.length))
     return <h2 className="text-xl">Data saknas....</h2>
+
+  projects.sort((a, b) => a.order - b.order)
+
   return (
     <Layout.FlexWrapper>
       <SEO
