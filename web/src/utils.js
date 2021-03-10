@@ -72,3 +72,26 @@ export const dateToHumanReadable = (d) => {
 
   return `${date.getDate()} ${monthName} ${date.getFullYear()}`
 }
+
+export const getLinkPathFromPageData = ([name, { pageName }]) => {
+  switch (name) {
+    case 'sanityProjectPage':
+      return { pageName, path: '/docs/project' }
+    case 'sanityApiPage':
+      return { pageName, path: '/docs/api' }
+    case 'sanityNewsPage':
+      return { pageName, path: '/news' }
+    case 'sanityAboutUsPage':
+      return { pageName, path: '/about' }
+    case 'sanityCommunicationPage':
+      return { pageName, path: '/communication' }
+    case 'sanitySourceCodePage':
+      return { pageName, path: '/source-code' }
+    case 'sanityManifestPage':
+      return { pageName, path: '/manifest' }
+    case 'sanityHomePage':
+      return { pageName, path: '/' }
+    default:
+      return '/'
+  }
+}

@@ -5,8 +5,9 @@ import { HiOutlineMenuAlt3 } from 'react-icons/hi'
 import { AiOutlineClose } from 'react-icons/ai'
 import { graphql, useStaticQuery } from 'gatsby'
 import * as Links from '../components/links'
+import * as utils from '../utils'
 
-const query = graphql`
+export const query = graphql`
   query allPages {
     sanityHomePage {
       pageName
@@ -35,32 +36,9 @@ const query = graphql`
   }
 `
 
-const getLinkPathFromPageData = ([name, { pageName }]) => {
-  switch (name) {
-    case 'sanityProjectPage':
-      return { pageName, path: '/docs/project' }
-    case 'sanityApiPage':
-      return { pageName, path: '/docs/api' }
-    case 'sanityNewsPage':
-      return { pageName, path: '/news' }
-    case 'sanityAboutUsPage':
-      return { pageName, path: '/about' }
-    case 'sanityCommunicationPage':
-      return { pageName, path: '/communication' }
-    case 'sanitySourceCodePage':
-      return { pageName, path: '/source-code' }
-    case 'sanityManifestPage':
-      return { pageName, path: '/manifest' }
-    case 'sanityHomePage':
-      return { pageName, path: '/' }
-    default:
-      return '/'
-  }
-}
-
 const Header = () => {
   const data = useStaticQuery(query)
-  const routes = Object.entries(data).map(getLinkPathFromPageData)
+  const routes = Object.entries(data).map(utils.getLinkPathFromPageData)
 
   const [open, setOpen] = React.useState(false)
 
