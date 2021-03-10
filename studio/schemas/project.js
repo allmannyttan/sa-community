@@ -16,6 +16,12 @@ export default {
     { type: 'defaultSlug', name: 'slug' },
     { type: 'bodyPortableText', name: 'Body' },
     { type: 'keywords', name: 'keywords' },
+    {
+      name: 'order',
+      title: 'Order',
+      type: 'number',
+      hidden: true,
+    },
   ],
   orderings: [
     {
