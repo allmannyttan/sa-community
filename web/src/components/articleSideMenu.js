@@ -13,15 +13,13 @@ const ArticleSideMenu = ({ posts, title, url }) => {
       </h4>
       <nav className="py-4">
         <ol>
-          {posts.map((post, i) => {
-            return (
-              <li key={i} className="mb-4">
-                <Links.Article slug={`${url}/${post.slug.current}`}>
-                  {post.title || post.pageName}
-                </Links.Article>
-              </li>
-            )
-          })}
+          {posts.map((post, i) => (
+            <li key={i} className="mb-4">
+              <Links.Article slug={`${url}/${post.slug.current}`}>
+                {post.title || post.pageName}
+              </Links.Article>
+            </li>
+          ))}
         </ol>
       </nav>
     </>

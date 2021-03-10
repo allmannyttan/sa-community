@@ -19,6 +19,7 @@ const query = graphql`
           title
           description
           _type
+          order
         }
       }
     }
@@ -45,6 +46,8 @@ const Component = () => {
 
   if (!data && !Boolean(apis.length))
     return <h2 className="text-xl">Data saknas....</h2>
+
+  apis.sort((a, b) => a.order - b.order)
 
   return (
     <Layout.FlexWrapper>
