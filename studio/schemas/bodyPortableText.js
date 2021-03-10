@@ -66,6 +66,7 @@ export default {
                   { type: 'projectPage' },
                   { type: 'communicationPage' },
                   { type: 'newsPage' },
+                  { type: 'sourceCodePage' },
                 ],
               },
             ],

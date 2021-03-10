@@ -9,12 +9,12 @@ const query = graphql`
   query docsInfo {
     sanityApiPage {
       pageName
-      _rawBody
+      _rawBody(resolveReferences: { maxDepth: 10 })
       keywords
     }
 
     sanityProjectPage {
-      _rawBody
+      _rawBody(resolveReferences: { maxDepth: 10 })
       pageName
       keywords
     }

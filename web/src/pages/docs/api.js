@@ -25,7 +25,7 @@ const query = graphql`
     }
     sanityApiPage {
       pageName
-      _rawBody
+      _rawBody(resolveReferences: { maxDepth: 10 })
       keywords
     }
     sanitySiteSettings {
