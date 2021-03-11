@@ -1,21 +1,67 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { graphql, Link, useStaticQuery } from 'gatsby'
 import { useLocation } from '@reach/router'
 import { RiArrowDropRightLine } from 'react-icons/ri'
+import * as utils from '../utils'
+
+const query = graphql`
+  query getAllPages {
+    sanityHomePage {
+      pageName
+    }
+    sanityApiPage {
+      pageName
+    }
+    sanityProjectPage {
+      pageName
+    }
+    sanitySourceCodePage {
+      pageName
+    }
+    sanityCommunicationPage {
+      pageName
+    }
+    sanityManifestPage {
+      pageName
+    }
+    sanityNewsPage {
+      pageName
+    }
+    sanityAboutUsPage {
+      pageName
+    }
+  }
+`
 
 const BreadCrumbs = () => {
+  const data = useStaticQuery(query)
+  const routes = Object.entries(data).map(utils.getLinkPathFromPageData)
   const pathname = useLocation().pathname
 
   const parts = pathname
     .split('/')
     .filter(Boolean)
-    .map((p, i, arr) => ({
-      name: p
-        .split('-')
-        .map((n) => n.charAt(0).toUpperCase() + n.slice(1))
-        .join(' '),
-      route: `/${arr.filter((_, i2) => i2 <= i).join('/')}`,
-    }))
+    .map((path, i, arr) => {
+      let name = ''
+      switch (true) {
+        case path === 'docs':
+          name = 'Docs'
+          break
+        case Boolean(routes.find((a) => a.path.includes('/' + path))):
+          name = routes.find((a) => a.path.includes('/' + path)).pageName
+          break
+        default:
+          name = path
+            .split('-')
+            .map((n) => n.charAt(0).toUpperCase() + n.slice(1))
+            .join(' ')
+          break
+      }
+      return {
+        name,
+        route: `/${arr.filter((_, i2) => i2 <= i).join('/')}`,
+      }
+    })
 
   return (
     <nav className="text-gray-500 flex items-center">
