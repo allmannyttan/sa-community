@@ -41,19 +41,24 @@ const BreadCrumbs = () => {
   const parts = pathname
     .split('/')
     .filter(Boolean)
-    .map((p, i, arr) => {
-      let path = ''
-      if (p === 'api' || p === 'project')
-        path = routes.find((a) => a.path.includes('/' + p))
-      if (i === 0 && p !== 'docs')
-        path = routes.find((a) => a.path.includes('/' + p))
+    .map((path, i, arr) => {
+      let name = ''
+      switch (true) {
+        case path === 'docs':
+          name = 'Docs'
+          break
+        case Boolean(routes.find((a) => a.path.includes('/' + path))):
+          name = routes.find((a) => a.path.includes('/' + path)).pageName
+          break
+        default:
+          name = path
+            .split('-')
+            .map((n) => n.charAt(0).toUpperCase() + n.slice(1))
+            .join(' ')
+          break
+      }
       return {
-        name: path.pageName
-          ? path.pageName
-          : p
-              .split('-')
-              .map((n) => n.charAt(0).toUpperCase() + n.slice(1))
-              .join(' '),
+        name,
         route: `/${arr.filter((_, i2) => i2 <= i).join('/')}`,
       }
     })
