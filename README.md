@@ -1,6 +1,6 @@
 ## Sveriges Allmännyttas Utveckingsportal :rocket:
 
-This is the source code for the community site for Almännyttan Utveckling.
+This is the source code for the community site for Allmännyttan Utveckling.
 
 ## Getting started
 
