@@ -7,7 +7,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import * as Links from '../components/links'
 import * as utils from '../utils'
 
-export const query = graphql`
+const query = graphql`
   query allPages {
     sanityHomePage {
       pageName

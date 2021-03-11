@@ -1,9 +1,37 @@
 import React from 'react'
-import { Link, useStaticQuery } from 'gatsby'
+import { graphql, Link, useStaticQuery } from 'gatsby'
 import { useLocation } from '@reach/router'
 import { RiArrowDropRightLine } from 'react-icons/ri'
-import { query } from './header'
 import * as utils from '../utils'
+
+const query = graphql`
+  query getAllPages {
+    sanityHomePage {
+      pageName
+    }
+    sanityApiPage {
+      pageName
+    }
+    sanityProjectPage {
+      pageName
+    }
+    sanitySourceCodePage {
+      pageName
+    }
+    sanityCommunicationPage {
+      pageName
+    }
+    sanityManifestPage {
+      pageName
+    }
+    sanityNewsPage {
+      pageName
+    }
+    sanityAboutUsPage {
+      pageName
+    }
+  }
+`
 
 const BreadCrumbs = () => {
   const data = useStaticQuery(query)
