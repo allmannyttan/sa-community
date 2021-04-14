@@ -30,17 +30,17 @@ export const query = graphql`
           }
         }
       }
-      _createdAt
       _rawBody(resolveReferences: { maxDepth: 10 })
     }
 
-    allSanityNewsPost(sort: { order: ASC, fields: datePicker }) {
+    allSanityNewsPost(sort: { order: DESC, fields: datePicker }) {
       edges {
         node {
           slug {
             current
           }
           title
+          datePicker
         }
       }
     }
@@ -54,6 +54,9 @@ const Component = (props) => {
 
   const posts = allSanityNewsPost.edges.map(({ node }) => node)
 
+  const newsBeforeTomorrow = posts.filter((post) =>
+    utils.isDateTodayOrBefore(post.datePicker)
+  )
   return (
     <Layout.FlexWrapper>
       <SEO
@@ -63,7 +66,7 @@ const Component = (props) => {
         description={data.description}
       />
       <Layout.Aside>
-        <NewsPosts posts={posts} />
+        <NewsPosts posts={newsBeforeTomorrow} />
       </Layout.Aside>
       <Layout.Article>
         <Typography.H1>{data.title}</Typography.H1>
