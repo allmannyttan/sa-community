@@ -56,11 +56,7 @@ const Component = () => {
         keywords={data.keywords || sanitySiteSettings.keywords}
       />
       <Layout.Aside>
-        <ArticleSideMenu
-          title={'Projekt'}
-          posts={projects}
-          url={'docs/project'}
-        />
+        <ArticleSideMenu title={'Projekt'} posts={projects} url={'project'} />
       </Layout.Aside>
 
       <Layout.Article>
