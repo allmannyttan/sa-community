@@ -20,15 +20,15 @@ const query = graphql`
       _rawBody(resolveReferences: { maxDepth: 10 })
       pageName
     }
-    allSanityNewsPost(sort: { order: DESC, fields: _createdAt }) {
+    allSanityNewsPost(sort: { order: ASC, fields: datePicker }) {
       edges {
         node {
           id
-          _createdAt
           slug {
             current
           }
           title
+          datePicker
           description
           _type
         }
@@ -47,7 +47,7 @@ const Component = () => {
 
   if (!data && !Boolean(posts.length))
     return <h2 className="text-xl">Data saknas....</h2>
-
+  console.log(allSanityNewsPost)
   return (
     <Layout.FlexWrapper>
       <SEO
@@ -73,7 +73,8 @@ const Component = () => {
                 <div className="flex items-end mt-1">
                   <RiTimeLine className="text-gray-700 group-hover:text-black" />
                   <p className="text-xs italic ml-1 font-thin  text-gray-700 group-hover:text-black">
-                    {utils.dateToHumanReadable(item._createdAt)}
+                    <p>eheje</p>
+                    {utils.dateToHumanReadable(item.datePicker)}
                   </p>
                 </div>
               </div>

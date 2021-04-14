@@ -16,6 +16,15 @@ export default {
     { type: 'defaultSlug', name: 'slug' },
     { type: 'bodyPortableText', name: 'Body' },
     {
+      title: 'Datum',
+      name: 'datePicker',
+      type: 'date',
+      description: 'Välj ett datum för nyheten.',
+      validation: (Rule) =>
+        Rule.required().error('Här behöver du ange ett datum för nyheten'),
+    },
+
+    {
       name: 'author',
       type: 'reference',
       weak: true,

@@ -19,6 +19,7 @@ export const query = graphql`
       keywords
       title
       description
+      datePicker
       author {
         name
         profileImage {
@@ -33,7 +34,7 @@ export const query = graphql`
       _rawBody(resolveReferences: { maxDepth: 10 })
     }
 
-    allSanityNewsPost(sort: { order: DESC, fields: _createdAt }) {
+    allSanityNewsPost(sort: { order: ASC, fields: datePicker }) {
       edges {
         node {
           slug {
@@ -80,7 +81,7 @@ const Component = (props) => {
             <div className="flex items-end">
               <RiTimeLine className="text-gray-700" />
               <p className="text-xs italic ml-1 font-thin">
-                {utils.dateToHumanReadable(data._createdAt)}
+                {utils.dateToHumanReadable(data.datePicker)}
               </p>
             </div>
           </div>
