@@ -32,7 +32,7 @@ const TableOfContents = ({ blocks = [] }) => {
             const slug = utils.slugify(item.children[0].text)
             const style = getTitleStyle(item.style)
             return (
-              <li key={i} className={`mb-4 w-full ${style}`}>
+              <li key={i} className={`mb-2 w-full ${style}`}>
                 <Links.TableOfContents slug={slug}>
                   {item.children[0].text}
                 </Links.TableOfContents>

@@ -22,7 +22,7 @@ export const Article = ({ children, slug }) => {
 }
 
 export const TableOfContents = ({ children, slug }) => {
-  const sharedStyle = `font-normal text-sm`
+  const sharedStyle = `font-normal text-base`
   const isActive = ({ location }) => {
     const isCurrent = location.hash.includes(slug)
     return isCurrent ? { className: `underline ${sharedStyle}` } : {}
@@ -34,10 +34,10 @@ export const TableOfContents = ({ children, slug }) => {
     <Link
       aria-label={slug}
       to={`#${slug}`}
-      className={`text-gray-700 hover:text-black ${sharedStyle}`}
+      className={`text-saBlack hover:text-black ${sharedStyle}`}
       getProps={isActive}
     >
-      {children}
+      • {children}
     </Link>
   )
 }
