@@ -42,6 +42,11 @@ const Header = () => {
 
   const [open, setOpen] = React.useState(false)
 
+  React.useEffect(() => {
+    open && (document.body.style.overflow = 'hidden')
+    !open && (document.body.style.overflow = 'unset')
+  }, [open])
+
   return (
     <div className="fixed w-full z-50 md:bg-white md:opacity-90 blur">
       <div
