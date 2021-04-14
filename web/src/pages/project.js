@@ -1,11 +1,11 @@
 import * as React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import BlockContent from '../../components/blockContent'
-import SEO from '../../components/seo'
-import ArticleSideMenu from '../../components/articleSideMenu'
-import * as Typography from '../../components/typography'
-import * as Layout from '../../components/layout/'
-import * as Links from '../../components/links'
+import BlockContent from '../components/blockContent'
+import SEO from '../components/seo'
+import ArticleSideMenu from '../components/articleSideMenu'
+import * as Typography from '../components/typography'
+import * as Layout from '../components/layout'
+import * as Links from '../components/links'
 
 const query = graphql`
   query projectsPage {

@@ -84,9 +84,9 @@ export const dateToHumanReadable = (d) => {
 export const getLinkPathFromPageData = ([name, { pageName }]) => {
   switch (name) {
     case 'sanityProjectPage':
-      return { pageName, path: '/docs/project' }
+      return { pageName, path: '/project' }
     case 'sanityApiPage':
-      return { pageName, path: '/docs/api' }
+      return { pageName, path: '/api' }
     case 'sanityNewsPage':
       return { pageName, path: '/news' }
     case 'sanityAboutUsPage':
