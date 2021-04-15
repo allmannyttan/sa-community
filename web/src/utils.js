@@ -29,9 +29,9 @@ export const getRouteNameFromContentType = (contentType) => {
     case 'newsPost':
       return 'news'
     case 'project':
-      return 'docs/project'
+      return 'project'
     case 'api':
-      return 'docs/api'
+      return 'api'
     default:
       return '404'
   }
@@ -46,9 +46,9 @@ export const getRouteNameFromPageType = (contentType) => {
     case 'communicationPage':
       return 'communication'
     case 'apiPage':
-      return 'docs/api'
+      return 'api'
     case 'projectPage':
-      return 'docs/project'
+      return 'project'
     case 'manifestPage':
       return 'manifest'
     case 'newsPage':
@@ -85,9 +85,9 @@ export const dateToHumanReadable = (d) => {
 export const getLinkPathFromPageData = ([name, { pageName }]) => {
   switch (name) {
     case 'sanityProjectPage':
-      return { pageName, path: '/docs/project' }
+      return { pageName, path: '/project' }
     case 'sanityApiPage':
-      return { pageName, path: '/docs/api' }
+      return { pageName, path: '/api' }
     case 'sanityNewsPage':
       return { pageName, path: '/news' }
     case 'sanityAboutUsPage':

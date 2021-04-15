@@ -42,10 +42,15 @@ const Header = () => {
 
   const [open, setOpen] = React.useState(false)
 
+  React.useEffect(() => {
+    open && (document.body.style.overflow = 'hidden')
+    !open && (document.body.style.overflow = 'unset')
+  }, [open])
+
   return (
     <div className="fixed w-full z-50 md:bg-white md:opacity-90 blur">
       <div
-        className={`flex md:hidden bg-white justify-center pl-8 pt-20 fixed top-0 left-0 z-10 w-screen h-screen ${
+        className={`flex md:hidden bg-white justify-center pl-8 pt-20 fixed top-0 left-0 z-10 w-screen extra-high ${
           !open && 'hidden'
         }`}
       >

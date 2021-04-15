@@ -9,6 +9,10 @@ body {
     'Helvetica Neue', Ubuntu, Arial, sans-serif;
 }
 
+.extra-high {
+  height: 150vh;
+}
+
 @media only screen and (max-width: 768px) {
   .blur {
     backdrop-filter: blur(0px);

@@ -44,9 +44,6 @@ const BreadCrumbs = () => {
     .map((path, i, arr) => {
       let name = ''
       switch (true) {
-        case path === 'docs':
-          name = 'Docs'
-          break
         case Boolean(routes.find((a) => a.path.includes('/' + path))):
           name = routes.find((a) => a.path.includes('/' + path)).pageName
           break
