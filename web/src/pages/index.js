@@ -86,13 +86,13 @@ const Component = () => {
   const getRouteFromReference = (reference) => {
     switch (reference._type) {
       case 'project':
-        return `docs/project/${reference.slug.current}`
+        return `project/${reference.slug.current}`
       case `newsPost`:
         return `news/${reference.slug.current}`
       case 'homePage':
         return ''
       case 'api':
-        return `docs/api/${reference.slug.current}`
+        return `api/${reference.slug.current}`
       case 'aboutUsPage':
         return 'about'
       case 'communicationPage':
@@ -100,11 +100,11 @@ const Component = () => {
       case 'newsPage':
         return 'news'
       case 'projectPage':
-        return `docs/project`
+        return `project`
       case 'sourceCodePage':
         return 'source-code'
       case 'apiPage':
-        return 'docs/api'
+        return 'api'
       default:
         return
     }
