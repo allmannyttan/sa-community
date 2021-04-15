@@ -3,8 +3,8 @@ import { graphql } from 'gatsby'
 import SEO from '../components/seo'
 import * as Layout from '../components/layout/'
 import * as Typography from '../components/typography'
-import TableOfContents from '../components/tableOfContents'
 import BlockContent from '../components/blockContent'
+import ArticleSideMenu from '../components/articleSideMenu'
 
 export const query = graphql`
   query projectTemplateQuery($id: String!) {
@@ -19,12 +19,32 @@ export const query = graphql`
       _type
       _rawBody(resolveReferences: { maxDepth: 10 })
     }
+
+    allSanityProject(sort: { order: ASC, fields: _createdAt }) {
+      edges {
+        node {
+          id
+          slug {
+            current
+          }
+          title
+          description
+          _type
+          order
+        }
+      }
+    }
   }
 `
 
 const Component = (props) => {
-  const { sanityProject: data } = props.data
+  const {
+    data: { sanityProject: data, allSanityProject },
+  } = props
 
+  const projects = allSanityProject.edges.map(({ node }) => node)
+
+  projects.sort((a, b) => a.order - b.order)
   return (
     <Layout.FlexWrapper>
       <SEO
@@ -34,7 +54,11 @@ const Component = (props) => {
         description={data.description}
       />
       <Layout.Aside>
-        <TableOfContents blocks={data._rawBody} />
+        <ArticleSideMenu
+          title={'Projekt'}
+          posts={projects}
+          url={'docs/project'}
+        />
       </Layout.Aside>
       <Layout.Article>
         <Typography.H1>{data.title}</Typography.H1>
