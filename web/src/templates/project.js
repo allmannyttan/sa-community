@@ -54,11 +54,7 @@ const Component = (props) => {
         description={data.description}
       />
       <Layout.Aside>
-        <ArticleSideMenu
-          title={'Projekt'}
-          posts={projects}
-          url={'docs/project'}
-        />
+        <ArticleSideMenu title={'Projekt'} posts={projects} url={'project'} />
       </Layout.Aside>
       <Layout.Article>
         <Typography.H1>{data.title}</Typography.H1>
