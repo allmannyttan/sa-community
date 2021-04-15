@@ -9,7 +9,7 @@ export default {
       weak: true,
       title: 'Referens',
       description:
-        'Sök på den sidan du vill länka till. T.ex news, communication, docs/api eller en specifik post',
+        'Sök på den sidan du vill länka till. T.ex news, communication, /api eller en specifik post',
       to: [
         { type: 'aboutUsPage' },
         { type: 'newsPage' },

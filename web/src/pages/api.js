@@ -1,20 +1,15 @@
 import * as React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import BlockContent from '../../components/blockContent'
-import SEO from '../../components/seo'
-import ArticleSideMenu from '../../components/articleSideMenu'
-import * as Typography from '../../components/typography'
-import * as Layout from '../../components/layout/'
-import * as Links from '../../components/links'
+import BlockContent from '../components/blockContent'
+import ArticleSideMenu from '../components/articleSideMenu'
+import * as Typography from '../components/typography'
+import SEO from '../components/seo'
+import * as Layout from '../components/layout'
+import * as Links from '../components/links'
 
 const query = graphql`
-  query projectsPage {
-    sanityProjectPage {
-      _rawBody
-      pageName
-      keywords
-    }
-    allSanityProject(sort: { order: DESC, fields: _createdAt }) {
+  query api {
+    allSanityApi(sort: { order: DESC, fields: _createdAt }) {
       edges {
         node {
           id
@@ -28,6 +23,11 @@ const query = graphql`
         }
       }
     }
+    sanityApiPage {
+      pageName
+      _rawBody(resolveReferences: { maxDepth: 10 })
+      keywords
+    }
     sanitySiteSettings {
       keywords
       title
@@ -38,15 +38,16 @@ const query = graphql`
 
 const Component = () => {
   const {
-    sanityProjectPage: data,
-    allSanityProject,
-    sanitySiteSettings,
+    sanityApiPage: data,
+    allSanityApi,
+    sanitySiteSettings = {},
   } = useStaticQuery(query)
-  const projects = allSanityProject.edges.map(({ node }) => node) || []
-  if (!data && !Boolean(projects.length))
+  const apis = allSanityApi.edges.map(({ node }) => node) || []
+
+  if (!data && !Boolean(apis.length))
     return <h2 className="text-xl">Data saknas....</h2>
 
-  projects.sort((a, b) => a.order - b.order)
+  apis.sort((a, b) => a.order - b.order)
 
   return (
     <Layout.FlexWrapper>
@@ -56,21 +57,18 @@ const Component = () => {
         keywords={data.keywords || sanitySiteSettings.keywords}
       />
       <Layout.Aside>
-        <ArticleSideMenu
-          title={'Projekt'}
-          posts={projects}
-          url={'docs/project'}
-        />
+        <ArticleSideMenu title={'API:er'} posts={apis} url={'api'} />
       </Layout.Aside>
-
       <Layout.Article>
         <Typography.H1>{data.pageName}</Typography.H1>
         <BlockContent blocks={data._rawBody} withAnchor={true} />
-        {Boolean(projects.length) && (
+        {Boolean(apis.length) && (
           <div className="mt-16">
-            {projects.map((item) => (
+            {apis.map((item) => (
               <div className="mb-8 group font-semibold" key={item.title}>
-                <Links.Basic to={item.slug.current}>{item.title}</Links.Basic>
+                <Links.Basic label={item.title} to={item.slug.current}>
+                  {item.title}
+                </Links.Basic>
                 <Typography.Description>
                   {item.description}
                 </Typography.Description>
