@@ -45,7 +45,7 @@ export default {
   preview: {
     select: {
       title: 'pageName',
-      name: 'name',
+      subtitle: 'description',
     },
     prepare({ title = 'Hem', name = 'home' }) {
       const path = `/`

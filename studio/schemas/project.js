@@ -40,7 +40,7 @@ export default {
       title: 'title',
       slug: 'slug',
       media: 'bodyImage',
-      name: 'name',
+      subtitle: 'description',
     },
     prepare({ title = 'No name', slug = {}, media, name = 'project' }) {
       const path = `/${name}/${slug.current}`

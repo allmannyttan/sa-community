@@ -14,7 +14,7 @@ export default {
   preview: {
     select: {
       title: 'pageName',
-      name: 'name',
+      subtitle: 'Body',
     },
     prepare({ title = 'Källkod', name = 'source-code' }) {
       const path = `/${name}`
