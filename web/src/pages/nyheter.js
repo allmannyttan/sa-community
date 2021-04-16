@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import * as Layout from '../components/layout/'
+import * as Layout from '../components/layout'
 import * as Typography from '../components/typography'
 import BlockContent from '../components/blockContent'
 import SEO from '../components/seo'
@@ -64,20 +64,23 @@ const Component = () => {
 
         {Boolean(posts.length) && (
           <div className="mt-16">
-            {posts.map((item) => (
-              <div className="mb-8 group font-semibold" key={item.title}>
-                <Links.Basic to={item.slug.current}>{item.title}</Links.Basic>
-                <Typography.Description>
-                  {item.description}
-                </Typography.Description>
-                <div className="flex items-end mt-1">
-                  <RiTimeLine className="text-gray-700 group-hover:text-black" />
-                  <p className="text-xs italic ml-1 font-thin  text-gray-700 group-hover:text-black">
-                    {utils.dateToHumanReadable(item._createdAt)}
-                  </p>
+            {posts.map((item) => {
+              console.log(item.slug.current)
+              return (
+                <div className="mb-8 group font-semibold" key={item.title}>
+                  <Links.Basic to={item.slug.current}>{item.title}</Links.Basic>
+                  <Typography.Description>
+                    {item.description}
+                  </Typography.Description>
+                  <div className="flex items-end mt-1">
+                    <RiTimeLine className="text-gray-700 group-hover:text-black" />
+                    <p className="text-xs italic ml-1 font-thin  text-gray-700 group-hover:text-black">
+                      {utils.dateToHumanReadable(item._createdAt)}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         )}
       </Layout.Article>

@@ -88,7 +88,7 @@ export const getLinkPathFromPageData = ([name, { pageName }]) => {
     case 'sanityApiPage':
       return { pageName, path: '/api' }
     case 'sanityNewsPage':
-      return { pageName, path: '/news' }
+      return { pageName, path: '/nyheter' }
     case 'sanityAboutUsPage':
       return { pageName, path: '/about' }
     case 'sanityCommunicationPage':
