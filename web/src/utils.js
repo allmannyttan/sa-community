@@ -41,7 +41,7 @@ export const getRouteNameFromPageType = (contentType) => {
     case 'homePage':
       return ''
     case 'aboutUsPage':
-      return 'about'
+      return 'om-oss'
     case 'communicationPage':
       return 'communication'
     case 'apiPage':
@@ -90,7 +90,7 @@ export const getLinkPathFromPageData = ([name, { pageName }]) => {
     case 'sanityNewsPage':
       return { pageName, path: '/nyheter' }
     case 'sanityAboutUsPage':
-      return { pageName, path: '/about' }
+      return { pageName, path: '/om-oss' }
     case 'sanityCommunicationPage':
       return { pageName, path: '/communication' }
     case 'sanitySourceCodePage':

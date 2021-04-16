@@ -88,13 +88,13 @@ const Component = () => {
       case 'project':
         return `project/${reference.slug.current}`
       case `newsPost`:
-        return `news/${reference.slug.current}`
+        return `nyheter/${reference.slug.current}`
       case 'homePage':
         return ''
       case 'api':
         return `api/${reference.slug.current}`
       case 'aboutUsPage':
-        return 'about'
+        return 'om-oss'
       case 'communicationPage':
         return 'communication'
       case 'newsPage':

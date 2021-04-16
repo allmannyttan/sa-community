@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import BlockContent from '../components/blockContent'
 import SEO from '../components/seo'
 import HeroBlock from '../components/heroBlock'
-import * as Layout from '../components/layout/'
+import * as Layout from '../components/layout'
 
 const query = graphql`
   query aboutUs {
