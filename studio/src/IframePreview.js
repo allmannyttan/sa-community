@@ -20,7 +20,7 @@ const parseContentTypeName = (name) => {
     case 'aboutUsPage':
       return 'om-oss'
     case 'communicationPage':
-      return 'communication'
+      return 'community'
     case 'newsPage':
       return 'nyheter'
     case 'projectPage':

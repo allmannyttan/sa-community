@@ -96,11 +96,11 @@ const Component = () => {
       case 'aboutUsPage':
         return 'om-oss'
       case 'communicationPage':
-        return 'communication'
+        return 'community'
       case 'newsPage':
         return 'nyheter'
       case 'projectPage':
-        return `project`
+        return `projekt`
       case 'sourceCodePage':
         return 'kallkod'
       case 'apiPage':
