@@ -12,7 +12,7 @@ const parseContentTypeName = (name) => {
     case 'project':
       return 'project'
     case 'newsPost':
-      return 'news'
+      return 'nyheter'
     case 'homePage':
       return ''
     case 'api':
@@ -22,7 +22,7 @@ const parseContentTypeName = (name) => {
     case 'communicationPage':
       return 'communication'
     case 'newsPage':
-      return 'news'
+      return 'nyheter'
     case 'projectPage':
       return 'project'
     case 'sourceCodePage':

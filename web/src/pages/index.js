@@ -98,7 +98,7 @@ const Component = () => {
       case 'communicationPage':
         return 'communication'
       case 'newsPage':
-        return 'news'
+        return 'nyheter'
       case 'projectPage':
         return `project`
       case 'sourceCodePage':
