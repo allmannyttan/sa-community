@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import BlockContent from '../components/blockContent'
-import * as Layout from '../components/layout/'
+import * as Layout from '../components/layout'
 import * as Typography from '../components/typography'
 import TableOfContents from '../components/tableOfContents'
 import SEO from '../components/seo'

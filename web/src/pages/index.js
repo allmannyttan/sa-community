@@ -102,7 +102,7 @@ const Component = () => {
       case 'projectPage':
         return `project`
       case 'sourceCodePage':
-        return 'source-code'
+        return 'kallkod'
       case 'apiPage':
         return 'api'
       default:

@@ -53,7 +53,7 @@ export const getRouteNameFromPageType = (contentType) => {
     case 'newsPage':
       return 'nyheter'
     case 'sourceCodePage':
-      return 'source-code'
+      return 'kallkod'
     default:
       return '404'
   }
@@ -94,7 +94,7 @@ export const getLinkPathFromPageData = ([name, { pageName }]) => {
     case 'sanityCommunicationPage':
       return { pageName, path: '/communication' }
     case 'sanitySourceCodePage':
-      return { pageName, path: '/source-code' }
+      return { pageName, path: '/kallkod' }
     case 'sanityManifestPage':
       return { pageName, path: '/manifest' }
     case 'sanityHomePage':
