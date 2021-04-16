@@ -28,7 +28,7 @@ export const getRouteNameFromContentType = (contentType) => {
     case 'newsPost':
       return 'nyheter'
     case 'project':
-      return 'project'
+      return 'projekt'
     case 'api':
       return 'api'
     default:
@@ -47,7 +47,7 @@ export const getRouteNameFromPageType = (contentType) => {
     case 'apiPage':
       return 'api'
     case 'projectPage':
-      return 'project'
+      return 'projekt'
     case 'manifestPage':
       return 'manifest'
     case 'newsPage':
@@ -84,7 +84,7 @@ export const dateToHumanReadable = (d) => {
 export const getLinkPathFromPageData = ([name, { pageName }]) => {
   switch (name) {
     case 'sanityProjectPage':
-      return { pageName, path: '/project' }
+      return { pageName, path: '/projekt' }
     case 'sanityApiPage':
       return { pageName, path: '/api' }
     case 'sanityNewsPage':

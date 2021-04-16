@@ -10,7 +10,7 @@ import styles from './IframePreview.module.css'
 const parseContentTypeName = (name) => {
   switch (name) {
     case 'project':
-      return 'project'
+      return 'projekt'
     case 'newsPost':
       return 'nyheter'
     case 'homePage':
@@ -24,7 +24,7 @@ const parseContentTypeName = (name) => {
     case 'newsPage':
       return 'nyheter'
     case 'projectPage':
-      return 'project'
+      return 'projekt'
     case 'sourceCodePage':
       return 'kallkod'
     case 'apiPage':
