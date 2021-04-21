@@ -8,7 +8,7 @@ const ArticleSideMenu = ({ posts, title, url }) => {
 
   return (
     <>
-      <h4 className="text-base text-saBlack font-semibold tracking-wide mb-2">
+      <h4 className="text-sm text-saBlack font-semibold tracking-wide mb-2 uppercase">
         {title}
       </h4>
       <nav className="py-4">

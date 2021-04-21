@@ -7,22 +7,22 @@ export const Article = ({ children, slug }) => {
   const isActive = ({ location }) => {
     const isCurrent = location.pathname.includes(`/${slug}`)
 
-    return isCurrent ? { className: `${sharedStyle}` } : {}
+    return isCurrent ? { className: `underline ${sharedStyle}` } : {}
   }
 
   return (
     <Link
       to={`/${slug}`}
-      className={`text-saBlack   ${sharedStyle}`}
+      className={`text-gray-700 hover:text-saBlack ${sharedStyle}`}
       getProps={isActive}
     >
-      <span className="hover:underline">{children}</span>
+      {children}
     </Link>
   )
 }
 
 export const TableOfContents = ({ children, slug }) => {
-  const sharedStyle = `font-normal text-sm`
+  const sharedStyle = `font-normal text-base`
   const isActive = ({ location }) => {
     const isCurrent = location.hash.includes(slug)
     return isCurrent ? { className: `underline ${sharedStyle}` } : {}
@@ -34,7 +34,7 @@ export const TableOfContents = ({ children, slug }) => {
     <Link
       aria-label={slug}
       to={`#${slug}`}
-      className={`text-gray-700 hover:text-black ${sharedStyle}`}
+      className={`text-gray-700 hover:text-saBlack ${sharedStyle}`}
       getProps={isActive}
     >
       {children}
