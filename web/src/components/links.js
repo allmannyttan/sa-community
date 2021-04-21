@@ -43,7 +43,6 @@ export const TableOfContents = ({ children, slug }) => {
 }
 
 export const Basic = ({ children, to, label }) => {
-  console.log('to: ', to)
   return (
     <Link
       aria-label={label}
