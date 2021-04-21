@@ -20,15 +20,15 @@ const query = graphql`
       _rawBody(resolveReferences: { maxDepth: 10 })
       pageName
     }
-    allSanityNewsPost(sort: { order: DESC, fields: _createdAt }) {
+    allSanityNewsPost(sort: { order: DESC, fields: datePicker }) {
       edges {
         node {
           id
-          _createdAt
           slug {
             current
           }
           title
+          datePicker
           description
           _type
         }
@@ -45,9 +45,12 @@ const Component = () => {
   } = useStaticQuery(query)
   const posts = allSanityNewsPost.edges.map(({ node }) => node)
 
-  if (!data && !Boolean(posts.length))
-    return <h2 className="text-xl">Data saknas....</h2>
+  const newsBeforeTomorrow = posts.filter((post) =>
+    utils.isDateTodayOrBefore(post.datePicker)
+  )
 
+  if (!data && !Boolean(newsBeforeTomorrow.length))
+    return <h2 className="text-xl">Data saknas....</h2>
   return (
     <Layout.FlexWrapper>
       <SEO
@@ -56,24 +59,25 @@ const Component = () => {
         keywords={data.keywords || sanitySiteSettings.keywords}
       />
       <Layout.Aside>
-        <NewsPosts posts={posts} />
+        <NewsPosts posts={newsBeforeTomorrow} />
       </Layout.Aside>
       <Layout.Article>
         <Typography.H1>{data.pageName}</Typography.H1>
         <BlockContent blocks={data._rawBody} withAnchor={true} />
 
-        {Boolean(posts.length) && (
+        {Boolean(newsBeforeTomorrow.length) && (
           <div className="mt-16">
-            {posts.map((item) => (
+            {newsBeforeTomorrow.map((item) => (
               <div className="mb-8 group font-semibold" key={item.title}>
                 <Links.Basic to={item.slug.current}>{item.title}</Links.Basic>
+
                 <Typography.Description>
                   {item.description}
                 </Typography.Description>
                 <div className="flex items-end mt-1">
                   <RiTimeLine className="text-gray-700 group-hover:text-black" />
                   <p className="text-xs italic ml-1 font-thin  text-gray-700 group-hover:text-black">
-                    {utils.dateToHumanReadable(item._createdAt)}
+                    {utils.dateToHumanReadable(item.datePicker)}
                   </p>
                 </div>
               </div>
