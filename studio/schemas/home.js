@@ -10,7 +10,7 @@ export default {
   icon: RiPagesLine,
   __experimental_actions: ['update', 'publish', 'create'],
   fields: [
-    { type: 'priority', name: 'priority' },
+    { type: 'priority', name: 'priority', hidden: true },
 
     { type: 'pageName', name: 'pageName', title: 'Namn' },
     {
