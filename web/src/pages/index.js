@@ -114,9 +114,6 @@ const Component = () => {
   const trackingId = 'UA-110655153-3'
 
   ReactGA.initialize(trackingId)
-  ReactGA.set({
-    userId: auth.currentUserId(),
-  })
 
   return (
     <>
