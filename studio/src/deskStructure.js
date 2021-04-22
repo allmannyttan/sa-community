@@ -94,17 +94,19 @@ export default () =>
         .icon(FaRegEye)
         .child(
           S.documentList()
+            .defaultOrdering([{ field: 'priority', direction: 'asc' }])
             .title('Sidor')
             .filter('_type in $types')
+
             .params({
               types: [
                 'homePage',
-                'aboutUsPage',
-                'communicationPage',
                 'apiPage',
-                'sourceCodePage',
-                'newsPage',
                 'projectPage',
+                'sourceCodePage',
+                'communicationPage',
+                'aboutUsPage',
+                'newsPage',
                 'manifestPage',
               ],
             })

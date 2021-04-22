@@ -30,6 +30,7 @@ import pageName from './pageName'
 import sendTo from './sendTo'
 import manifestPage from './manifestPage'
 import repoLink from './repoLink'
+import priority from './priority'
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
@@ -64,5 +65,6 @@ export default createSchema({
     sendTo,
     manifestPage,
     repoLink,
+    priority,
   ]),
 })

@@ -5,10 +5,13 @@ export default {
   name: 'newsPage',
   type: 'document',
   title: 'Nyheter',
+  initialValue: {
+    priority: 7,
+  },
   __experimental_actions: ['update', 'publish', 'create'],
   fields: [
+    { type: 'priority', name: 'priority' },
     { type: 'pageName', name: 'pageName', title: 'Namn' },
-
     { type: 'bodyPortableText', name: 'Body' },
     { type: 'keywords', name: 'keywords' },
   ],

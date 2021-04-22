@@ -5,8 +5,12 @@ export default {
   name: 'sourceCodePage',
   type: 'document',
   title: 'Källkod',
+  initialValue: {
+    priority: 4,
+  },
   __experimental_actions: ['update', 'publish', 'create'],
   fields: [
+    { type: 'priority', name: 'priority' },
     { type: 'pageName', name: 'pageName', title: 'Namn' },
     { type: 'bodyPortableText', name: 'Body' },
     { type: 'keywords', name: 'keywords' },

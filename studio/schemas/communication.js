@@ -5,8 +5,12 @@ export default {
   name: 'communicationPage',
   type: 'document',
   title: 'Kommunikation',
+  initialValue: {
+    priority: 5,
+  },
   __experimental_actions: ['update', 'publish', 'create'],
   fields: [
+    { type: 'priority', name: 'priority' },
     { type: 'pageName', name: 'pageName', title: 'Namn' },
     {
       type: 'heroImage',
