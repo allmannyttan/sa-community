@@ -19,6 +19,7 @@ export const query = graphql`
       keywords
       title
       description
+      datePicker
       author {
         name
         profileImage {
@@ -29,17 +30,17 @@ export const query = graphql`
           }
         }
       }
-      _createdAt
       _rawBody(resolveReferences: { maxDepth: 10 })
     }
 
-    allSanityNewsPost(sort: { order: DESC, fields: _createdAt }) {
+    allSanityNewsPost(sort: { order: DESC, fields: datePicker }) {
       edges {
         node {
           slug {
             current
           }
           title
+          datePicker
         }
       }
     }
@@ -53,6 +54,9 @@ const Component = (props) => {
 
   const posts = allSanityNewsPost.edges.map(({ node }) => node)
 
+  const newsBeforeTomorrow = posts.filter((post) =>
+    utils.isDateTodayOrBefore(post.datePicker)
+  )
   return (
     <Layout.FlexWrapper>
       <SEO
@@ -62,7 +66,7 @@ const Component = (props) => {
         description={data.description}
       />
       <Layout.Aside>
-        <NewsPosts posts={posts} />
+        <NewsPosts posts={newsBeforeTomorrow} />
       </Layout.Aside>
       <Layout.Article>
         <Typography.H1>{data.title}</Typography.H1>
@@ -80,7 +84,7 @@ const Component = (props) => {
             <div className="flex items-end">
               <RiTimeLine className="text-gray-700" />
               <p className="text-xs italic ml-1 font-thin">
-                {utils.dateToHumanReadable(data._createdAt)}
+                {utils.dateToHumanReadable(data.datePicker)}
               </p>
             </div>
           </div>

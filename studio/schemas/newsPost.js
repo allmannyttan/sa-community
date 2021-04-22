@@ -2,6 +2,9 @@ export default {
   name: 'newsPost',
   type: 'document',
   title: 'Nyheter',
+  initialValue: () => ({
+    datePicker: new Date().toISOString().split('T')[0],
+  }),
   fields: [
     {
       type: 'title',
@@ -15,6 +18,14 @@ export default {
     },
     { type: 'defaultSlug', name: 'slug' },
     { type: 'bodyPortableText', name: 'Body' },
+    {
+      title: 'Datum',
+      name: 'datePicker',
+      type: 'date',
+      description: 'Välj ett datum när nyheten ska publiceras',
+      validation: (Rule) =>
+        Rule.required().error('Här behöver du ange ett datum för nyheten'),
+    },
     {
       name: 'author',
       type: 'reference',

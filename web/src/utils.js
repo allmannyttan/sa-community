@@ -1,3 +1,4 @@
+const moment = require('moment')
 export const isObject = (item) => {
   return typeof item !== 'object' && item !== null
     ? slugify(item)
@@ -102,4 +103,10 @@ export const getLinkPathFromPageData = ([name, { pageName }]) => {
     default:
       return '/'
   }
+}
+
+const today = moment().format('YYYY-MM-DD')
+
+export const isDateTodayOrBefore = (date) => {
+  return moment(date).isSameOrBefore(today)
 }

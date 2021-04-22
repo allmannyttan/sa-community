@@ -23,7 +23,7 @@ const TableOfContents = ({ blocks = [] }) => {
 
   return (
     <>
-      <h4 className="text-base text-saBlack font-semibold tracking-wide mb-2">
+      <h4 className="text-sm text-saBlack font-semibold tracking-wide mb-2 uppercase">
         Innehåll
       </h4>
       <nav className="py-4">
@@ -32,7 +32,7 @@ const TableOfContents = ({ blocks = [] }) => {
             const slug = utils.slugify(item.children[0].text)
             const style = getTitleStyle(item.style)
             return (
-              <li key={i} className={`mb-4 w-full ${style}`}>
+              <li key={i} className={`mb-2 w-full ${style}`}>
                 <Links.TableOfContents slug={slug}>
                   {item.children[0].text}
                 </Links.TableOfContents>
