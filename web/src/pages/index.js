@@ -1,4 +1,5 @@
 import * as React from 'react'
+import ReactGA from 'react-ga'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import SEO from '../components/seo'
 import bg from '../images/bg.svg'
@@ -109,6 +110,13 @@ const Component = () => {
         return
     }
   }
+
+  const trackingId = 'UA-110655153-3'
+
+  ReactGA.initialize(trackingId)
+  ReactGA.set({
+    userId: auth.currentUserId(),
+  })
 
   return (
     <>
