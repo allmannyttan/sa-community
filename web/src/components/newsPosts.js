@@ -8,7 +8,7 @@ const NewsPosts = ({ posts }) => {
       <ArticleSideMenu
         title={'Senaste nyheterna'}
         posts={showHistory ? posts : posts.slice(0, 5)}
-        url={'news'}
+        url={'nyheter'}
       />
       {posts.length > 5 && (
         <button

@@ -27,7 +27,7 @@ export default {
       title: 'pageName',
       subtitle: 'Body',
     },
-    prepare({ title = 'Om oss', name = 'about' }) {
+    prepare({ title = 'Om oss', name = 'om-oss' }) {
       const path = `/${name}`
       return {
         path,

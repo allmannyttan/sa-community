@@ -27,9 +27,9 @@ export const slugify = (str) => {
 export const getRouteNameFromContentType = (contentType) => {
   switch (contentType) {
     case 'newsPost':
-      return 'news'
+      return 'nyheter'
     case 'project':
-      return 'project'
+      return 'projekt'
     case 'api':
       return 'api'
     default:
@@ -42,19 +42,19 @@ export const getRouteNameFromPageType = (contentType) => {
     case 'homePage':
       return ''
     case 'aboutUsPage':
-      return 'about'
+      return 'om-oss'
     case 'communicationPage':
-      return 'communication'
+      return 'community'
     case 'apiPage':
       return 'api'
     case 'projectPage':
-      return 'project'
+      return 'projekt'
     case 'manifestPage':
       return 'manifest'
     case 'newsPage':
-      return 'news'
+      return 'nyheter'
     case 'sourceCodePage':
-      return 'source-code'
+      return 'kallkod'
     default:
       return '404'
   }
@@ -85,17 +85,17 @@ export const dateToHumanReadable = (d) => {
 export const getLinkPathFromPageData = ([name, { pageName }]) => {
   switch (name) {
     case 'sanityProjectPage':
-      return { pageName, path: '/project' }
+      return { pageName, path: '/projekt' }
     case 'sanityApiPage':
       return { pageName, path: '/api' }
     case 'sanityNewsPage':
-      return { pageName, path: '/news' }
+      return { pageName, path: '/nyheter' }
     case 'sanityAboutUsPage':
-      return { pageName, path: '/about' }
+      return { pageName, path: '/om-oss' }
     case 'sanityCommunicationPage':
-      return { pageName, path: '/communication' }
+      return { pageName, path: '/community' }
     case 'sanitySourceCodePage':
-      return { pageName, path: '/source-code' }
+      return { pageName, path: '/kallkod' }
     case 'sanityManifestPage':
       return { pageName, path: '/manifest' }
     case 'sanityHomePage':
