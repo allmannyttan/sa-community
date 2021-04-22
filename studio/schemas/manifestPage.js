@@ -5,8 +5,12 @@ export default {
   name: 'manifestPage',
   type: 'document',
   title: 'Manifest',
+  initialValue: {
+    priority: 6,
+  },
   __experimental_actions: ['update', 'publish', 'create'],
   fields: [
+    { type: 'priority', name: 'priority' },
     { type: 'pageName', name: 'pageName', title: 'Namn' },
     { type: 'bodyPortableText', name: 'Body' },
     { type: 'keywords', name: 'keywords' },

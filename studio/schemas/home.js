@@ -4,9 +4,14 @@ export default {
   name: 'homePage',
   type: 'document',
   title: 'Hem',
+  initialValue: {
+    priority: 1,
+  },
   icon: RiPagesLine,
   __experimental_actions: ['update', 'publish', 'create'],
   fields: [
+    { type: 'priority', name: 'priority' },
+
     { type: 'pageName', name: 'pageName', title: 'Namn' },
     {
       type: 'heroText',
