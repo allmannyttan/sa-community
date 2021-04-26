@@ -6,7 +6,7 @@ import { FaUserAstronaut, FaRegEye } from 'react-icons/fa'
 import IframePreview from './IframePreview'
 
 // Web preview configuration
-const remoteURL = 'https://sadev-test-web.vercel.app/'
+const remoteURL = 'https://preview-sadevtestlive.gtsb.io'
 const localURL = 'http://localhost:8000'
 const previewURL =
   window.location.hostname === 'localhost' ? localURL : remoteURL
