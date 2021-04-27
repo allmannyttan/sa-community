@@ -14,9 +14,11 @@ module.exports = {
       resolve: 'gatsby-source-sanity',
       options: {
         projectId: 'qo99b1oh',
-        dataset: process.env.NODE_ENV,
+        dataset: 'production',
         token: process.env.SANITY_READ_DATA_TOKEN,
-        watchMode: process.env.NODE_ENV === 'development',
+        // watchMode: process.env.NODE_ENV === 'development',
+        watchMode: true,
+        overlayDrafts: true,
       },
     },
     {
