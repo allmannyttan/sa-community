@@ -37,6 +37,14 @@ module.exports = {
         plugins: [`gatsby-remark-google-analytics-track-links`],
       },
     },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          'UA-110655153-3', // Google Analytics / GA
+        ],
+      },
+    },
     `gatsby-plugin-postcss`,
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
