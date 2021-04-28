@@ -20,7 +20,8 @@ export default {
       title: 'pageName',
       name: 'Body',
     },
-    prepare({ title = 'Nyheter', name = 'nyheter' }) {
+    prepare({ title = 'Nyheter' }) {
+      const name = 'nyheter'
       const path = `/${name}`
       return {
         path,
