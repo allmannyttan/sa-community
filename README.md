@@ -19,7 +19,7 @@ Install the dependencies and start the project
 
 ```
 nvm use
-npm insall
+
 npm run start
 ```
 
@@ -29,8 +29,7 @@ The Sanity CMS is now running on [http://localhost:3333](http://localhost:3333)
 
 Gatsby project
 
-First you have to set the `.env` variable.
-Start by setting the env variable inside `.env.development`
+First you have to set the `SANITY_READ_DATA_TOKEN` inside a `.env.development` file.
 
 ```
 SANITY_READ_DATA_TOKEN=<YOUR TOKEN>
@@ -40,7 +39,7 @@ Insall dependencies and start the project
 
 ```
 nvm use
-npm install
+npm ci
 npm run start
 ```
 
