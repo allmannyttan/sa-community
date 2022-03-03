@@ -1,45 +1,6 @@
 import S from '@sanity/desk-tool/structure-builder'
 import { MdSettings, MdFolderOpen } from 'react-icons/md'
-import { RiPagesLine } from 'react-icons/ri'
 import { FaUserAstronaut, FaRegEye } from 'react-icons/fa'
-
-import IframePreview from './IframePreview'
-
-// Web preview configuration
-const remoteURL = 'https://preview-sadevtestlive.gtsb.io'
-const localURL = 'http://localhost:8000'
-const previewURL =
-  window.location.hostname === 'localhost' ? localURL : remoteURL
-
-export const getDefaultDocumentNode = (props) => {
-  /**
-   * Here you can define fallback views for document types without
-   * a structure definition for the document node. If you want different
-   * fallbacks for different types, or document values (e.g. if there is a slug present)
-   * you can set up that logic in here too.
-   * https://www.sanity.io/docs/structure-builder-reference#getdefaultdocumentnode-97e44ce262c9
-   */
-  const previewSchemaTypes = [
-    'project',
-    'newsPost',
-    'api',
-    'communicationPage',
-    'newsPage',
-    'manifestPage',
-  ]
-  const { schemaType } = props
-
-  if (previewSchemaTypes.includes(schemaType)) {
-    return S.document().views([
-      S.view.form(),
-      S.view
-        .component(IframePreview)
-        .title('Web preview')
-        .options({ previewURL }),
-    ])
-  }
-  return S.document().views([S.view.form()])
-}
 
 /**
  * This defines how documents are grouped and listed out in the Studio.
@@ -116,13 +77,7 @@ export default () =>
                 .schemaType(type)
                 .documentId(type)
 
-                .views([
-                  S.view.form(),
-                  S.view
-                    .component(IframePreview)
-                    .title('Web preview')
-                    .options({ previewURL }),
-                ])
+                .views([S.view.form()])
             )
         ),
       ...S.documentTypeListItems().filter(
