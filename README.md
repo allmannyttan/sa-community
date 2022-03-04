@@ -19,7 +19,7 @@ Install the dependencies and start the project
 
 ```
 nvm use
-
+npm install
 npm run start
 ```
 
