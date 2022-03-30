@@ -61,18 +61,18 @@ const BreadCrumbs = () => {
     })
 
   return (
-    <nav className="text-gray-500 flex items-center">
+    <nav className="text-saGrey flex items-center">
       {parts.map((part) => (
         <span className="flex items-center" key={part.name}>
           <Link
             to={part.route}
-            className="text-sm tracking-wide  hover:text-purple-700 hover:underline"
+            className="text-sm tracking-wide  hover:text-saPurple hover:underline"
           >
             {part.name}
           </Link>
 
           <span role="presentation">
-            <RiArrowDropRightLine className="text-gray-400" size={20} />
+            <RiArrowDropRightLine className="text-saGrey" size={20} />
           </span>
         </span>
       ))}

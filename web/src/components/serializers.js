@@ -36,7 +36,7 @@ export const H2 = ({ children, withAnchor = false }) => {
       {children}
       <Link
         id={slug}
-        className="group-hover:opacity-100 opacity-0 anchor inline-flex items-center ml-2 text-purple-700"
+        className="group-hover:opacity-100 opacity-0 anchor inline-flex items-center ml-2 text-saPurple"
         to={`#${slug}`}
       >
         <BsLink size={20} />
@@ -55,7 +55,7 @@ export const H3 = ({ children, withAnchor = false }) => {
       {children}
       <Link
         id={slug}
-        className="group-hover:opacity-100 opacity-0 anchor inline-flex items-center ml-2 text-purple-700"
+        className="group-hover:opacity-100 opacity-0 anchor inline-flex items-center ml-2 text-saPurple"
         to={`#${slug}`}
       >
         <BsLink size={20} />
@@ -74,7 +74,7 @@ export const H4 = ({ children, withAnchor = false }) => {
       {children}
       <Link
         id={slug}
-        className="group-hover:opacity-100 opacity-0 anchor inline-flex items-center ml-2 text-purple-700"
+        className="group-hover:opacity-100 opacity-0 anchor inline-flex items-center ml-2 text-saPurple"
         to={`#${slug}`}
       >
         <BsLink size={20} />
@@ -137,7 +137,7 @@ export const RepoLink = ({ node }) => {
         target="_blank"
         rel="noreferrer"
       >
-        <div className="font-semibold hover:bg-gray-100 bg-gray-50 text-base inline-flex items-center rounded-lg shadow-lg px-6 py-4 my-4 ">
+        <div className="font-semibold bg-saLightGrey hover:bg-saGrey text-base inline-flex items-center rounded-lg shadow-lg px-6 py-4 my-4 ">
           <div className="mr-4">{getIcon(node.linkTo)}</div>
           {node.title}
         </div>
@@ -149,7 +149,7 @@ export const RepoLink = ({ node }) => {
 export const ExternalLink = ({ mark, children }) =>
   mark.blank ? (
     <a
-      className="text-saGreen font-bold text-xl"
+      className="text-saEmerald font-bold text-xl"
       href={mark.href}
       target="_blank"
       rel="noreferrer"
@@ -177,7 +177,7 @@ export const InternalLink = ({ mark, children }) => {
     return (
       <Link
         aria-label={children}
-        className="text-purple-700 hover:text-purple-900"
+        className="text-saPurple opacity-80 hover:opacity-100"
         to={url}
       >
         {children}
@@ -192,7 +192,7 @@ export const InternalLink = ({ mark, children }) => {
   return (
     <Link
       aria-label={children}
-      className="text-purple-700 hover:text-purple-900"
+      className="text-saPurple opacity-80 hover:opacity-100"
       to={url}
     >
       {children}

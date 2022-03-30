@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import logotype from './../images/logo.svg'
+import logotype from './../images/logo.png'
 import { HiOutlineMenuAlt3 } from 'react-icons/hi'
 import { AiOutlineClose } from 'react-icons/ai'
 import { graphql, useStaticQuery } from 'gatsby'
@@ -67,7 +67,7 @@ const Header = () => {
       <header className="mx-auto max-w-screen-3xl">
         <nav className="w-full h-20 flex justify-between items-center px-8">
           <Link className="invisible md:visible" to="/">
-            <img className="w-20" src={logotype} alt="website logotype" />
+            <img className="w-12" src={logotype} alt="website logotype" />
           </Link>
           <button
             onClick={() => setOpen((curr) => !curr)}

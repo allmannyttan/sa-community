@@ -23,7 +23,7 @@ const TableOfContents = ({ blocks = [] }) => {
 
   return (
     <>
-      <h4 className="text-sm text-saBlack font-semibold tracking-wide mb-2 uppercase">
+      <h4 className="text-sm text-black font-semibold tracking-wide mb-2 uppercase">
         Innehåll
       </h4>
       <nav className="py-4">

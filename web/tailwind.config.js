@@ -7,15 +7,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        saBlack: '#160126',
-        saPurpleDark: '#36045e',
         saOrange: '#de7c00',
-        saGreen: '#04a388',
-        saGreenDark: '#025c4d',
-        saPurple: '#50058B',
-        saGreyBlue: '#295A66',
-        saGreyBlueDark: '#112332',
-        lightGrey: '#f0f0f2',
+        saPurple: '#b272a5',
+        saDarkGrey: '#818387',
+        saGrey: '#adaeb0',
+        saLightGrey: '#dad9d6',
+        saAqua: '#179dab',
+        saEmerald: '#28b29a',
+        saBlue: '#5d809f',
+        saRed: '#c87164',
+        saBrown: '#ae8643',
       },
       height: {
         700: '700px',

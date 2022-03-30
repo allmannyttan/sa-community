@@ -14,7 +14,7 @@ const NewsPosts = ({ posts }) => {
         <button
           className={`${
             showHistory && 'hidden'
-          } text-gray-700 hover:text-black focus:outline-none  shadow-lg rounded-lg py-3 px-5 mt-4 bg-purple-100 hover:bg-purple-200`}
+          } text-black hover:text-black focus:outline-none  shadow-lg rounded-lg py-3 px-5 mt-4 bg-saEmerald opacity-75 hover:opacity-100`}
           onClick={() => setshowHistory(!showHistory)}
         >
           Se fler nyheter
