@@ -13,7 +13,7 @@ export const Article = ({ children, slug }) => {
   return (
     <Link
       to={`/${slug}`}
-      className={`text-gray-700 hover:text-saBlack ${sharedStyle}`}
+      className={`text-saDarkGrey hover:text-black ${sharedStyle}`}
       getProps={isActive}
     >
       {children}
@@ -34,7 +34,7 @@ export const TableOfContents = ({ children, slug }) => {
     <Link
       aria-label={slug}
       to={`#${slug}`}
-      className={`text-gray-700 hover:text-saBlack ${sharedStyle}`}
+      className={`text-saDarkGrey hover:text-black ${sharedStyle}`}
       getProps={isActive}
     >
       {children}
@@ -47,7 +47,7 @@ export const Basic = ({ children, to, label }) => {
     <Link
       aria-label={label}
       to={to}
-      className="text-saGreenDark hover:underline font-current text-lg"
+      className="text-saAqua hover:underline font-current text-lg"
     >
       {children}
     </Link>
@@ -81,9 +81,9 @@ export const NavLink = ({ to, cb, children }) => {
       onMouseLeave={() => set(false)}
       onClick={() => cb && cb()}
       className={`rounded-md px-4 py-2 transition-color duration-100 mr-2 ${
-        active && 'bg-purple-50'
-      } text-gray-700 hover:text-black whitespace-nowrap`}
-      activeClassName="bg-purple-50"
+        active && 'bg-saRed'
+      } text-saDarkGrey hover:text-black whitespace-nowrap`}
+      activeClassName="bg-saRed"
       activeStyle={{ color: 'black' }}
     >
       {children}

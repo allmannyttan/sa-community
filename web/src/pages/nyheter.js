@@ -74,8 +74,8 @@ const Component = () => {
                   {item.description}
                 </Typography.Description>
                 <div className="flex items-end mt-1">
-                  <RiTimeLine className="text-gray-700 group-hover:text-black" />
-                  <p className="text-xs italic ml-1 font-thin  text-gray-700 group-hover:text-black">
+                  <RiTimeLine className="text-saDarkGrey group-hover:text-black" />
+                  <p className="text-xs italic ml-1 font-thin  text-saDarkGrey group-hover:text-black">
                     {utils.dateToHumanReadable(item.datePicker)}
                   </p>
                 </div>

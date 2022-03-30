@@ -8,7 +8,7 @@ const Component = ({ heroImage, heroText }) => {
   if (!image.asset && !heroText) return null
   if (!image.asset && heroText)
     return (
-      <div className="flex items-center justify-center bg-gray-100 w-full h-48">
+      <div className="flex items-center justify-center bg-saLightGrey w-full h-48">
         <HeroText data={heroText} />
       </div>
     )

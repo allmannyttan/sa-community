@@ -82,7 +82,7 @@ const Component = (props) => {
             </div>
             <p className="mt-2 font-semibold">{data.author.name}</p>
             <div className="flex items-end">
-              <RiTimeLine className="text-gray-700" />
+              <RiTimeLine className="text-saDarkGrey" />
               <p className="text-xs italic ml-1 font-thin">
                 {utils.dateToHumanReadable(data.datePicker)}
               </p>

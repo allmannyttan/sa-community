@@ -14,7 +14,7 @@ const query = graphql`
 `
 
 const IconLink = ({ children, to, label }) => (
-  <span className="mr-6 md:mr-12 text-gray-700 hover:text-black transition-color duration-100">
+  <span className="mr-6 md:mr-12 text-saDarkGrey hover:text-black transition-color duration-100">
     <a
       aria-label={label}
       href={to}
@@ -31,10 +31,10 @@ const Footer = () => {
   const { sanitySiteSettings } = useStaticQuery(query)
 
   return (
-    <footer className="px-8 py-8 mt-36 bg-white border-lightGrey w-full relative z-10 bg-gradient-to-t via-white from-purple-50 to-white">
+    <footer className="px-8 py-8 mt-36 bg-white border-saLightGrey w-full relative z-10 bg-gradient-to-t via-white from-purple-50 to-white">
       <div className="flex mx-auto max-w-screen-2xl justify-between h-full items-center">
         <a
-          className="text-sm text-gray-700 hover:text-black"
+          className="text-sm text-saDarkGrey hover:text-black"
           href={`mailto:${sanitySiteSettings.email}`}
         >
           Kontakta oss
