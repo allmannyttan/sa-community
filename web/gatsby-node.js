@@ -84,3 +84,10 @@ async function createPages(graphql, actions) {
 exports.createPages = async ({ graphql, actions }) => {
   await createPages(graphql, actions)
 }
+
+const fetch_partners = require('./scrape-api1st-partners')
+exports.onPostBuild = async ({ reporter }) => {
+  console.log('onPostBuild: start')
+  await fetch_partners()
+  console.log('onPostBuild: end')
+}
