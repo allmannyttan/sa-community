@@ -54,7 +54,6 @@ const Component = () => {
         </Layout.NoArticle>
       </div>
       <div className="mx-10 flex flex-col mt-10">
-        <H3 additionalClassnames="self-center mb-10">Vi som står bakom</H3>
         <section className="flex flex-wrap items-center justify-center gap-8">
           {partners.map((item, i) => (
             <a href={item.href} target="_blank" key={i}>
