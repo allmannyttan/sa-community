@@ -13,8 +13,11 @@ module.exports = function () {
       const $ = cheerio.load(body)
       const bla = []
       $('footer .footer-widget__about a').map((i, el) => {
+        let src = el.children[0].attribs.src
+        if (src.startsWith('/_next/')) src = `https://api1st.org${src}`
         bla.push({
           ...el.children[0].attribs,
+          src,
           href: el.attribs.href,
         })
       })
