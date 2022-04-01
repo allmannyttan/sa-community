@@ -40,6 +40,8 @@
     "tailwindcss": "^2.0.2"
   },
   "devDependencies": {
-    "eslint-config-react-app": "^6.0.0"
+    "cheerio": "^1.0.0-rc.10",
+    "eslint-config-react-app": "^6.0.0",
+    "request": "^2.88.2"
   }
 }
