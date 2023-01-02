@@ -18,7 +18,7 @@
     "@babel/core": "^7.12.13",
     "@babel/plugin-proposal-nullish-coalescing-operator": "^7.12.13",
     "@sanity/block-content-to-react": "^2.0.7",
-    "gatsby": "2.31",
+    "gatsby": "5.3",
     "gatsby-image": "^2.11.0",
     "gatsby-optional-chaining": "^1.0.1",
     "gatsby-plugin-google-gtag": "^3.4.0",
